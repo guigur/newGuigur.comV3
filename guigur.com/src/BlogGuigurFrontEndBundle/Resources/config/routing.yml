@@ -1,0 +1,3 @@
+blog_guigur_front_end_homepage:
+    path:     /
+    defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
