@@ -1,3 +1,18 @@
-blog_guigur_front_end_homepage:
+homepage:
     path:     /
     defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
+Blog:
+    path:     /
+    defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
+About:
+    path:     /
+    defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
+Shop:
+    path:     /
+    defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
+Contact:
+    path:     /
+    defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
+Troll:
+    path:     /
+    defaults: { _controller: BlogGuigurFrontEndBundle:Default:troll }
