@@ -16,3 +16,7 @@ Contact:
 Troll:
     path:     /
     defaults: { _controller: BlogGuigurFrontEndBundle:Default:troll }
+
+CV:
+    path:     /CV
+    defaults: { _controller: BlogGuigurFrontEndBundle:Cv:index }
