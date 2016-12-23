@@ -8,6 +8,17 @@ class ContactController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BlogGuigurFrontEndBundle:Default:contact.html.twig');
+        $type = "contact";
+        $catchPhrase = $this->getDoctrine()
+            ->getRepository('BlogGuigurFrontEndBundle:CatchPhrase')
+            ->findAll($type);
+
+        if (!$catchPhrase) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$catchPhrase
+            );
+        }
+        shuffle($catchPhrase);
+        return $this->render('BlogGuigurFrontEndBundle:Default:contact.html.twig', array("catchphrase" =>  $catchPhrase[0]));
     }
 }
