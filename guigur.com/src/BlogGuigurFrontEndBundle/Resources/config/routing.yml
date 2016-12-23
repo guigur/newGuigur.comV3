@@ -12,7 +12,7 @@ Shop:
     defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
 Contact:
     path:     /Contact
-    defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
+    defaults: { _controller: BlogGuigurFrontEndBundle:Contact:index }
 Troll:
     path:     /Troll
     defaults: { _controller: BlogGuigurFrontEndBundle:Default:troll }
