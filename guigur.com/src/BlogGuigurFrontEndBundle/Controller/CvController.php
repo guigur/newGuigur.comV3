@@ -9,6 +9,6 @@ class CvController extends Controller
     public function indexAction()
     {
 
-            return $this->render('BlogGuigurFrontEndBundle:Default:cv.html.twig');
+            return $this->render('BlogGuigurFrontEndBundle:Default:CV.html.twig');
     }
 }

@@ -2,19 +2,19 @@ homepage:
     path:     /
     defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
 Blog:
-    path:     /
-    defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
+    path:     /Blog
+    defaults: { _controller: BlogGuigurFrontEndBundle:Blog:index }
 About:
-    path:     /
+    path:     /About
     defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
 Shop:
-    path:     /
+    path:     /Shop
     defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
 Contact:
-    path:     /
+    path:     /Contact
     defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
 Troll:
-    path:     /
+    path:     /Troll
     defaults: { _controller: BlogGuigurFrontEndBundle:Default:troll }
 
 CV:
