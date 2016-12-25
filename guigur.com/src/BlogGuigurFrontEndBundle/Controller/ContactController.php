@@ -6,19 +6,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ContactController extends Controller
 {
-    public function indexAction()
+    private function RequestCatchPhrase($type)
     {
-        $type = "contact";
         $catchPhrase = $this->getDoctrine()
             ->getRepository('BlogGuigurFrontEndBundle:CatchPhrase')
             ->findAll($type);
 
-        if (!$catchPhrase) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$catchPhrase
-            );
-        }
+        if (!$catchPhrase)
+            throw $this->createNotFoundException('No product found for id '.$catchPhrase);
         shuffle($catchPhrase);
-        return $this->render('BlogGuigurFrontEndBundle:Default:contact.html.twig', array("catchphrase" =>  $catchPhrase[0]));
+        return ($catchPhrase[0]);
+    }
+    public function indexAction()
+    {
+        return $this->render('BlogGuigurFrontEndBundle:Default:contact.html.twig', array("catchphrase" =>  $this->RequestCatchPhrase("contact")));
     }
 }

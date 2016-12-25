@@ -9,7 +9,6 @@
                 Contact<br />
                 <small>{{ catchphrase.phrase }}</small>
             </h1>
-
             <!-- First Blog Post -->
             <h2>
                 <a href="#"></a>
@@ -19,9 +18,10 @@
                 <h4>Leave a Comment:</h4>
                 <form role="form">
                     <div class="form-group">
-                        <textarea class="form-control" rows="3"></textarea>
+
                         <input class="form-control" type="text" name="contact_mail" value="" placeholder="votre email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                         <input class="form-control" type="text" name="contact_object" value="" placeholder="l'objet de votre demande" required>
+                        <textarea class="form-control" rows="3"></textarea>
                         <input type="submit">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
