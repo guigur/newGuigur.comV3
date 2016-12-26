@@ -300,7 +300,7 @@ class Project
     {
         return $this->author;
     }
-    
+
     /**
      * Set shareSocialLinksStatus
      *
