@@ -1,4 +1,13 @@
 {% extends "base.html.twig" %}
 {% block body %}
 TEST
+    {{ dump(Projects) }}
+    {% for Project in Projects %}
+        <li>{{ Project.imgMiniature }}</li>
+
+    <div class="col-md-4" style="background: red;">
+        <img src="{{ asset(Project.imgMiniature) }}">
+</div>
+    {% endfor %}
+
 {% endblock %}
