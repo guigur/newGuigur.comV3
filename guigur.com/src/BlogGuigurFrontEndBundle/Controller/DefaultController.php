@@ -16,13 +16,12 @@ class DefaultController extends Controller
         if (!$projects)
             throw $this->createNotFoundException('No product found for id '.$projects);
 
-        foreach ($projects as $project) {
-
+        foreach ($projects as $project)
+        {
             if (!file_exists($project->getImgMiniature()))
                 $project->setImgMiniature("img/template_miniature.png");
             if (!file_exists($project->getImgProject()))
                 $project->setImgProject("img/template_img_project.png");
-
         }
         return $this->render('BlogGuigurFrontEndBundle:Default:index.html.twig', array("Projects" => $projects));
     }

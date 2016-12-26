@@ -6,7 +6,7 @@ Blog:
     defaults: { _controller: BlogGuigurFrontEndBundle:Blog:index }
 About:
     path:     /About
-    defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
+    defaults: { _controller: BlogGuigurFrontEndBundle:About:index }
 Shop:
     path:     /Shop
     defaults: { _controller: BlogGuigurFrontEndBundle:Default:index }
