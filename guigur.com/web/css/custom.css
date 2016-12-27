@@ -1,14 +1,6 @@
 html {
     height: 100%;
 }
-body {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.page-wrap {
-    flex: 1;
-}
 
 .project
 {
