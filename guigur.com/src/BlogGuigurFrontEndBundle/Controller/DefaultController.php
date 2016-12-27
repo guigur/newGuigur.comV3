@@ -2,6 +2,7 @@
 
 namespace BlogGuigurFrontEndBundle\Controller;
 
+use BlogGuigurFrontEndBundle\Entity\CatchPhrase;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
@@ -11,11 +12,15 @@ class DefaultController extends Controller
     {
         $catchPhrase = $this->getDoctrine()
             ->getRepository('BlogGuigurFrontEndBundle:CatchPhrase')
-            ->findBy(array('type' => 'project'));
+            ->findBy(array('type' => 'projects'));
 
+        var_dump($catchPhrase);
         if (!$catchPhrase)
-            return ("pas de catch phrase :'(");
-
+        {
+            $nocatch = new CatchPhrase();
+            $nocatch->setPhrase(":( Pas de catchphrase pour le type \"".$type."\"");
+            return($nocatch);
+        }
         shuffle($catchPhrase);
         return ($catchPhrase[0]);
     }
