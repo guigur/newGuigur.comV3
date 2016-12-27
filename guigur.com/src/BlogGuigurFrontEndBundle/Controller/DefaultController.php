@@ -11,10 +11,11 @@ class DefaultController extends Controller
     {
         $catchPhrase = $this->getDoctrine()
             ->getRepository('BlogGuigurFrontEndBundle:CatchPhrase')
-            ->findBy(array('type' => 'Alexandre'));
+            ->findBy(array('type' => 'project'));
 
         if (!$catchPhrase)
-            throw $this->createNotFoundException('No product found for id '.$catchPhrase);
+            return ("pas de catch phrase :'(");
+
         shuffle($catchPhrase);
         return ($catchPhrase[0]);
     }
@@ -37,6 +38,6 @@ class DefaultController extends Controller
             if (!file_exists($project->getImgProject()))
                 $project->setImgProject("img/template_img_project.png");
         }
-        return $this->render('BlogGuigurFrontEndBundle:Default:index.html.twig', array("catchphrase" =>  $this->RequestCatchPhrase("projects"), "Projects" => $projects));
+        return $this->render('BlogGuigurFrontEndBundle:Default:index.html.twig', array("Catchphrase" =>  $this->RequestCatchPhrase("projects"), "Projects" => $projects));
     }
 }

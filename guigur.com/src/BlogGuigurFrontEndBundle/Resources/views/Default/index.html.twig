@@ -6,7 +6,7 @@
 
         <h1 class="page-header">
             Projets<br />
-            <small>{{ catchphrase.phrase }}</small>
+            <small>{{ Catchphrase.phrase }}</small>
         </h1>
         <!-- First Blog Post -->
         <h2>
@@ -14,14 +14,21 @@
         </h2>
 
 
-        <div id="projects">
             {% for Project in Projects %}
-
-            <div class="col-md-4" style="background: red;">
-                <img src="{{ asset(Project.imgMiniature) }}" style="background: black; display:block; margin:auto;" />
-            </div>
+               <!-- style="background: url({{ asset(Project.imgMiniature) }});"> -->
+                <div class="col-md-4">
+                    <div class="project">
+                        <div class="card effect__hover">
+                            <div class="card__front" style="background: url({{ asset(Project.imgMiniature) }});">
+                                <span class="card__text" >front</span>
+                            </div>
+                            <div class="card__back">
+                                <span class="card__text">back</span>
+                            </div>
+                        </div><!-- /card -->
+                    </div>
+                </div>
 
             {% endfor %}
-        </div>
     </div>
 {% endblock %}
