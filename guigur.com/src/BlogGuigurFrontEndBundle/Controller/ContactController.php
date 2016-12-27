@@ -17,6 +17,7 @@ class ContactController extends Controller
         shuffle($catchPhrase);
         return ($catchPhrase[0]);
     }
+
     public function indexAction()
     {
         return $this->render('BlogGuigurFrontEndBundle:Default:contact.html.twig', array("catchphrase" =>  $this->RequestCatchPhrase("contact")));

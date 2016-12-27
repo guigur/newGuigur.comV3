@@ -6,6 +6,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
+
+    private function RequestCatchPhrase($type)
+    {
+        $catchPhrase = $this->getDoctrine()
+            ->getRepository('BlogGuigurFrontEndBundle:CatchPhrase')
+            ->findBy(array('type' => 'Alexandre'));
+
+        if (!$catchPhrase)
+            throw $this->createNotFoundException('No product found for id '.$catchPhrase);
+        shuffle($catchPhrase);
+        return ($catchPhrase[0]);
+    }
+
+
     public function indexAction()
     {
 
@@ -23,6 +37,6 @@ class DefaultController extends Controller
             if (!file_exists($project->getImgProject()))
                 $project->setImgProject("img/template_img_project.png");
         }
-        return $this->render('BlogGuigurFrontEndBundle:Default:index.html.twig', array("Projects" => $projects));
+        return $this->render('BlogGuigurFrontEndBundle:Default:index.html.twig', array("catchphrase" =>  $this->RequestCatchPhrase("projects"), "Projects" => $projects));
     }
 }
