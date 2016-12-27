@@ -1,34 +1,29 @@
 {% extends "base.html.twig" %}
 {% block body %}
-
-
     <div class="col-md-12">
 
         <h1 class="page-header">
             Projets<br />
             <small>{{ Catchphrase.phrase }}</small>
         </h1>
-        <!-- First Blog Post -->
         <h2>
             <a href="#"></a>
         </h2>
-
-
             {% for Project in Projects %}
-               <!-- style="background: url({{ asset(Project.imgMiniature) }});"> -->
                 <div class="col-md-4">
                     <div class="project">
                         <div class="card effect__hover">
-                            <div class="card__front" style="background: url({{ asset(Project.imgMiniature) }});">
-                                <p>fd</p>
+                            <div class="card__front">
+                               <div class="card__front" style="background:{% if Project.imgMiniature == Project.imgMiniature %} red;{% else %} url({{ asset(Project.imgMiniature) }}); {% endif %}">
+                                   <p>{{ Project.name }}</p>
+                               </div>
                             </div>
                             <div class="card__back">
-                                <span class="card__text">back</span>
+                                <p>{{ Project.descriptionShort }}</p>
                             </div>
-                        </div><!-- /card -->
+                        </div>
                     </div>
                 </div>
-
             {% endfor %}
     </div>
 {% endblock %}

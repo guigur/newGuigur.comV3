@@ -34,8 +34,9 @@ html {
     transition: transform 0.3s;
 }
 
+
 .card__front {
-    background-color: #ff5078;
+/*    background-color: #ff5078;*/
 }
 
 .card__back {

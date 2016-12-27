@@ -59,6 +59,13 @@ class Project
     /**
      * @var string
      *
+     * @ORM\Column(name="color", type="string", length=6)
+     */
+    private $color;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="text", type="string", length=100000)
      */
     private $text;
@@ -227,6 +234,30 @@ class Project
     public function getDescriptionStatus()
     {
         return $this->descriptionStatus;
+    }
+
+    /**
+     * Set color
+     *
+     * @param string $color
+     *
+     * @return Project
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * Get color
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
     }
 
     /**
