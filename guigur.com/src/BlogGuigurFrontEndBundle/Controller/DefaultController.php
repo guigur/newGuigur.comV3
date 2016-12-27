@@ -23,7 +23,6 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
-
         $projects = $this->getDoctrine()
             ->getRepository('BlogGuigurFrontEndBundle:Project')
             ->findAll("project");

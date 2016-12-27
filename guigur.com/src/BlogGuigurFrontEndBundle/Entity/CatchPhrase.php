@@ -35,6 +35,12 @@ class CatchPhrase
      */
     private $type;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="author", type="string", length=255)
+     */
+    private $author;
 
     /**
      * Get id
@@ -92,6 +98,30 @@ class CatchPhrase
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set author
+     *
+     * @param string $author
+     *
+     * @return CatchPhrase
+     */
+    public function setAuthor($author)
+    {
+        $this->type = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }
 
