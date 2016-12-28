@@ -13,13 +13,11 @@
                 <div class="col-md-4">
                     <div class="project">
                         <div class="card effect__hover">
-                            <div class="card__front">
-                               <div class="card__front" style="background:{% if Project.imgMiniature == "none" %}#{% if Project.color is defined and Project.color != "" %}{{ Project.color }}{% else %}3486ba{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
-                                   <p>{{ Project.name }}</p>
-                               </div>
+                            <div class="card__front" style="background:{% if Project.imgMiniature == "none" %}#{% if Project.color is defined and Project.color != "" %}{{ Project.color }}{% else %}b6b6b6{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
+                                {% if Project.name is defined and Project.name != "" and Project.displayName is defined and Project.displayName == true %}{{ Project.name }}{% endif %}
                             </div>
-                            <div class="card__back">
-                                <p>{{ Project.descriptionShort }}</p>
+                            <div class="card__back" style="background:#{% if Project.color is defined and Project.color != "" %}{{ Project.color }}{% else %}b6b6b6{% endif %};">
+                                {{ Project.descriptionShort }}
                             </div>
                         </div>
                     </div>
