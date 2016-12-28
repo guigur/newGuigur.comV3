@@ -3,17 +3,21 @@
 namespace BlogGuigurFrontEndBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use BlogGuigurFrontEndBundle\Entity\CatchPhrase;
 
 class ContactController extends Controller
 {
-    private function RequestCatchPhrase($type)
+    public function requestCatchPhrase($type)
     {
         $catchPhrase = $this->getDoctrine()
             ->getRepository('BlogGuigurFrontEndBundle:CatchPhrase')
-            ->findAll($type);
+            ->findBy(array('type' => $type));
 
-        if (!$catchPhrase)
-            throw $this->createNotFoundException('No product found for id '.$catchPhrase);
+        if (!$catchPhrase) {
+            $nocatch = new CatchPhrase();
+            $nocatch->setPhrase(":( Pas de catchphrase pour le type \"" . $type . "\"");
+            return ($nocatch);
+        }
         shuffle($catchPhrase);
         return ($catchPhrase[0]);
     }
