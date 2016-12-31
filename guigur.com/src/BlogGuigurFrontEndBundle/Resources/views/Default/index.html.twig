@@ -9,17 +9,19 @@
         <h2>
             <a href="#"></a>
         </h2>
-            {% for Project in Projects %}
+        <script src="{{ asset('js/LightenDarkenColor.js') }}"></script>
+
+        {% for Project in Projects %}
                 <div class="col-md-4">
                     <div class="project">
                         <div class="card effect__hover">
-                            <div class="card__front">
-                               <div class="card__front" style="background:{% if Project.imgMiniature == "none" %}#{% if Project.color is defined and Project.color != "" %}{{ Project.color }}{% else %}3486ba{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
-                                   <p>{{ Project.name }}</p>
-                               </div>
+                            <div class="card__front" style="background:{% if Project.imgMiniature == "none" %}#{% if Project.color is defined and Project.color != "" %}{{ Project.color }}{% else %}3486ba{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
+                                <p>{{ Project.name }}</p>
                             </div>
-                            <div class="card__back">
-                                <p>{{ Project.descriptionShort }}</p>
+                            <div class="card__back" style="background:#{% if Project.color is defined and Project.color != "" %}{{ Project.color }}{% else %}3486ba{% endif %};">
+                                <div class="card__back" style="background: black; opacity: 0.3;">
+                                    <p style="color: white; opacity: 1;">{{ Project.descriptionShort }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
