@@ -105,6 +105,12 @@ class Project
      */
     private $featured;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="displayName", type="boolean")
+     */
+    private $displayName;
 
     /**
      * Get id
@@ -402,6 +408,30 @@ class Project
     public function getFeatured()
     {
         return $this->featured;
+    }
+
+    /**
+     * Set displayName
+     *
+     * @param boolean $displayName
+     *
+     * @return Project
+     */
+    public function setDisplayName($displayName)
+    {
+        $this->displayName = $displayName;
+
+        return $this;
+    }
+
+    /**
+     * Get displayName
+     *
+     * @return bool
+     */
+    public function getDisplayName()
+    {
+        return $this->displayName;
     }
 }
 

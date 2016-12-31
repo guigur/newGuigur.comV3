@@ -15,6 +15,9 @@ html {
     width: 300px;
     float: left;
     text-align: center;
+    font-family: inherit;
+    color: white;
+    font-size: 2.42em;
 }
 
 .card__front,
@@ -36,7 +39,7 @@ html {
 
 
 .card__front {
-/*    background-color: #ff5078;*/
+    font-size: 2.42em;
 }
 
 .card__back {
@@ -44,6 +47,7 @@ html {
 
     -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
+    font-size: 1.42em;
 }
 
 .card.effect__hover:hover .card__front {
