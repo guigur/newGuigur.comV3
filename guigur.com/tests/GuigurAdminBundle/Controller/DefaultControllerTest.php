@@ -1,6 +1,6 @@
 <?php
 
-namespace GuigurFrontBundle\Tests\Controller;
+namespace GuigurAdminBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

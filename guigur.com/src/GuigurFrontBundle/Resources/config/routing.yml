@@ -1,0 +1,21 @@
+homepage:
+    path:     /
+    defaults: { _controller: GuigurFrontBundle:Default:index }
+Blog:
+    path:     /Blog
+    defaults: { _controller: GuigurFrontBundle:Blog:index }
+About:
+    path:     /About
+    defaults: { _controller: GuigurFrontBundle:About:index }
+Shop:
+    path:     /Shop
+    defaults: { _controller: GuigurFrontBundle:Default:index }
+Contact:
+    path:     /Contact
+    defaults: { _controller: GuigurFrontBundle:Contact:index }
+Troll:
+    path:     /Troll
+    defaults: { _controller: GuigurFrontBundle:Troll:index }
+CV:
+    path:     /CV
+    defaults: { _controller: GuigurFrontBundle:Cv:index }

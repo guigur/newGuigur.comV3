@@ -1,5 +1,9 @@
-blog_guigur_front_end:
-    resource: "@BlogGuigurFrontEndBundle/Resources/config/routing.yml"
+guigur_admin:
+    resource: "@GuigurAdminBundle/Resources/config/routing.yml"
+    prefix:   /Admin
+
+guigur_front:
+    resource: "@GuigurFrontBundle/Resources/config/routing.yml"
     prefix:   /
 
 app:

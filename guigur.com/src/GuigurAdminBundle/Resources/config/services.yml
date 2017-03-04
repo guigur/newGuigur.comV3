@@ -1,0 +1,4 @@
+services:
+#    guigur_admin.example:
+#        class: GuigurAdminBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
