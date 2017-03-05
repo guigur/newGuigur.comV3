@@ -55,12 +55,22 @@ html {
 }
 
 .card.effect__hover:hover .card__back {
-    -webkit-transform: rotateY(0);
-    transform: rotateY(0);
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
 }
 
 .clearfix::after {
     content: "";
     display: table;
     clear: both;
+}
+
+.icon_about {
+}
+
+.icon_about {
+    font-size:42px;
+    color:#999;
+    width: 50px;
+    display: inline-block;
 }
