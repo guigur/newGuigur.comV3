@@ -12,7 +12,7 @@ About:
     defaults: { _controller: GuigurFrontBundle:About:index }
 Shop:
     path:     /Shop
-    defaults: { _controller: GuigurFrontBundle:Default:index }
+    defaults: { _controller: GuigurFrontBundle:Shop:index }
 Contact:
     path:     /Contact
     defaults: { _controller: GuigurFrontBundle:Contact:index }

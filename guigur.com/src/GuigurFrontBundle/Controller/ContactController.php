@@ -2,28 +2,54 @@
 
 namespace GuigurFrontBundle\Controller;
 
+use DateTime;
+use GuigurFrontBundle\Entity\ContactForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use GuigurFrontBundle\Entity\CatchPhrase;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 
 class ContactController extends Controller
 {
-    public function requestCatchPhrase($type)
+    public function indexAction(Request $request)
     {
-        $catchPhrase = $this->getDoctrine()
-            ->getRepository('GuigurFrontBundle:CatchPhrase')
-            ->findBy(array('type' => $type));
 
-        if (!$catchPhrase) {
-            $nocatch = new CatchPhrase();
-            $nocatch->setPhrase(":( Pas de catchphrase pour le type \"" . $type . "\"");
-            return ($nocatch);
+        $contactForm = new ContactForm();
+        $form = $this->createFormBuilder($contactForm)
+            ->add('name', TextType::class)
+            ->add('mail', TextType::class)
+            ->add('content', TextareaType::class)
+            ->add('save', SubmitType::class, array('label' => 'Submit'))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $contactForm = $form->getData();
+            $contactForm->setDatetime(new datetime);
+            $contactForm->setIP('yes');
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($contactForm);
+            $em->flush();
+            return $this->redirectToRoute('Contact');
         }
-        shuffle($catchPhrase);
-        return ($catchPhrase[0]);
+
+        $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('contact');
+        return $this->render('GuigurFrontBundle:Default:contact.html.twig', array('form' => $form->createView(), "catchphrase" => $catchPhrase));
     }
 
-    public function indexAction()
-    {
-        return $this->render('GuigurFrontBundle:Default:contact.html.twig', array("catchphrase" =>  $this->RequestCatchPhrase("contact")));
-    }
+
+
+
+
+
+
+
+
+
+
+
 }

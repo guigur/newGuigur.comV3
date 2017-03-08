@@ -9,24 +9,22 @@
         <h2>
             <a href="#"></a>
         </h2>
-        <script src="{{ asset('js/LightenDarkenColor.js') }}"></script>
 
-        {{ dump(Projects) }}
         {% for Project in Projects %}
-            <a href="{% if Project.directLink != '' %}{{ Project.directLink }}{% else %}{{ path('Project') }}{% endif %}">
-                <div class="col-md-4">
+            <div class="col-md-4">
+                <a href="{% if Project.directLink != '' %}{{ Project.directLink }}{% else %}{{ path('Project') }}{% endif %}">
                     <div class="project">
                         <div class="card effect__hover">
-                            <div class="card__front" style="background:{% if Project.imgMiniature == '' %}#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}b6b6b6{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
-                                {% if Project.name is defined and Project.name != "" and Project.displayName is defined and Project.displayName == true %}{{ Project.name }}{% endif %}
+                            <div class="card__front" style="background:{% if Project.imgMiniature == 'none' %}#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}b6b6b6{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
+                                {% if Project.displayName == true %}{{ Project.name }}{% endif %}
                             </div>
                             <div class="card__back" style="background:#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}b6b6b6{% endif %};">
                                 {{ Project.descriptionShort }}
                             </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

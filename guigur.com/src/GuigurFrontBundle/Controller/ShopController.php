@@ -4,10 +4,10 @@ namespace GuigurFrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class ShopController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('GuigurFrontBundle:Default:index.html.twig');
+        return $this->render('GuigurFrontBundle:Default:shop.html.twig');
     }
 }
