@@ -1,6 +1,9 @@
 homepage:
     path:     /
     defaults: { _controller: GuigurFrontBundle:Default:index }
+Project:
+    path:     /Project
+    defaults: { _controller: GuigurFrontBundle:Default:index }
 Blog:
     path:     /Blog
     defaults: { _controller: GuigurFrontBundle:Blog:index }

@@ -28,9 +28,6 @@ class DefaultController extends Controller
             ->getRepository('GuigurFrontBundle:Project')
             ->findByIsEnabled(1);
 
-        if (!$projects)
-            throw $this->createNotFoundException('No product found for id '.$projects);
-
         foreach ($projects as $project)
         {
             if (!file_exists($project->getImgMiniature()) && $project->getImgMiniature() != "none")
