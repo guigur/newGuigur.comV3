@@ -8,6 +8,7 @@ class ShopController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('GuigurFrontBundle:Default:shop.html.twig');
+        $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('shop');
+        return $this->render('GuigurFrontBundle:Default:shop.html.twig', array("catchphrase" => $catchPhrase));
     }
 }

@@ -2,3 +2,6 @@ services:
     guigur.catchphrase:
         class: GuigurFrontBundle\Service\CatchPhraseService
         arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]
+    guigur.projects:
+        class: GuigurFrontBundle\Service\ProjectsService
+        arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]

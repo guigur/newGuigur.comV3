@@ -18,10 +18,10 @@ class ContactController extends Controller
 
         $contactForm = new ContactForm();
         $form = $this->createFormBuilder($contactForm)
-            ->add('name', TextType::class)
-            ->add('mail', TextType::class)
-            ->add('content', TextareaType::class)
-            ->add('save', SubmitType::class, array('label' => 'Submit'))
+            ->add('name', TextType::class, array('label' => 'Pseudo'))
+            ->add('mail', TextType::class, array('label' => 'Email'))
+            ->add('content', TextareaType::class, array('label' => 'Votre requête', 'attr' => array('class' => 'contactTextarea', 'rows' => '6')))
+            ->add('save', SubmitType::class, array('label' => 'Envoyer'))
             ->getForm();
 
         $form->handleRequest($request);
@@ -30,7 +30,7 @@ class ContactController extends Controller
         {
             $contactForm = $form->getData();
             $contactForm->setDatetime(new datetime);
-            $contactForm->setIP('yes');
+            $contactForm->setIP($this->get('request_stack')->getCurrentRequest()->getClientIp());
             $em = $this->getDoctrine()->getManager();
             $em->persist($contactForm);
             $em->flush();
