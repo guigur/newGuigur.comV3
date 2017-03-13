@@ -14,7 +14,7 @@ class ProjectController extends Controller
                 ->getRepository('GuigurFrontBundle:Project')
                 ->findOneByName($nameOfProject);
 
-            if (!is_array($projects))
+            if (!$projects)
             {
                 return $this->redirectToRoute('homepage');
             }
