@@ -10,16 +10,14 @@ class ProjectController extends Controller
     {
         if ($nameOfProject)
         {
-            $projects = $this->getDoctrine()
+            $project = $this->getDoctrine()
                 ->getRepository('GuigurFrontBundle:Project')
                 ->findOneByName($nameOfProject);
 
-            if (!$projects)
-            {
+            if (!$project)
                 return $this->redirectToRoute('homepage');
-            }
-            $projects = $this->get('guigur.projects')->defaultImage($projects);
-            return $this->render('GuigurFrontBundle:Default:project.html.twig', array("Project" => $projects));
+            $project = $this->get('guigur.projects')->defaultImage($project);
+            return $this->render('GuigurFrontBundle:Default:project.html.twig', array("Project" => $project));
         }
         else
         {

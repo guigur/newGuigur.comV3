@@ -19,14 +19,27 @@ class ProjectsService
 
     public function defaultImage($projects)
     {
-        foreach ($projects as $project)
+        if (count($projects) == 1)
         {
-            if (!file_exists($project->getImgMiniature()) && $project->getImgMiniature() != "none")
-                $project->setImgMiniature("img/template_miniature.png");
-            if (!file_exists($project->getImgProject()) && $project->getImgProject() != "none")
-                $project->setImgProject("img/template_img_project.png");
+            $projects = $this->defaultImageProject($projects);
+        }
+        else
+        {
+            foreach ($projects as $project)
+            {
+                $this->defaultImageProject($project);
+            }
         }
         return ($projects);
+    }
+
+    private function defaultImageProject($project)
+    {
+        if (!file_exists($project->getImgMiniature()) && $project->getImgMiniature() != "none")
+            $project->setImgMiniature("img/template_miniature.png");
+        if (!file_exists($project->getImgProject()) && $project->getImgProject() != "none")
+            $project->setImgProject("img/template_img_project.png");
+        return ($project);
     }
 }
 
