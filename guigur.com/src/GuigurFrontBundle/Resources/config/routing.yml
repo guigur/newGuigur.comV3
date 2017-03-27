@@ -19,3 +19,9 @@ Troll:
 CV:
     path:     /CV
     defaults: { _controller: GuigurFrontBundle:Cv:index }
+LaSuiteDeTed:
+    path:     /LaSuiteDeTED
+    defaults: { _controller: GuigurFrontBundle:TED:index }
+TED:
+    path:     /TED
+    defaults: { _controller: GuigurFrontBundle:TED:index }

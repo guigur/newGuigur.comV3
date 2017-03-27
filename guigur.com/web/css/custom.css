@@ -65,12 +65,22 @@ html {
     clear: both;
 }
 
-.icon_about {
+.icons_center {
+    text-align:center;
+    display: inline-block;
+    width: 100%;
 }
 
 .icon_about {
-    font-size:42px;
-    color:#999;
-    width: 50px;
     display: inline-block;
+    font-size: 42px;
+    text-align: center;
+    text-decoration: none;
+    color: red;
+
+}
+
+.icon_twitter
+{
+
 }
