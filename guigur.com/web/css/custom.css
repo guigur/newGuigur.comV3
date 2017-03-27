@@ -84,3 +84,17 @@ html {
 {
 
 }
+
+.contactTextarea
+{
+    resize: vertical;
+}
+
+.project_miniature
+{
+    height: 250px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

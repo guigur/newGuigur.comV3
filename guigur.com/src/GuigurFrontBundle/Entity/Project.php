@@ -85,6 +85,13 @@ class Project
     private $author;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="directLink", type="string", length=255)
+     */
+    private $directLink;
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="share_social_links_status", type="boolean")
@@ -343,6 +350,30 @@ class Project
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set directLink
+     *
+     * @param string $directLink
+     *
+     * @return Project
+     */
+    public function setDirectLink($directLink)
+    {
+        $this->directLink = $directLink;
+
+        return $this;
+    }
+
+    /**
+     * Get directLink
+     *
+     * @return string
+     */
+    public function getDirectLink()
+    {
+        return $this->directLink;
     }
 
     /**

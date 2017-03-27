@@ -7,7 +7,6 @@
             <small>{{ Catchphrase.phrase }}</small>
         </h1>
         {% for Project in Projects %}
-            {% if Project.featured == true %}
             <div class="col-md-4">
                 <a href="{% if Project.directLink != '' %}{{ Project.directLink }}{% else %}{{ path('Project', {'nameOfProject': Project.name}) }}{% endif %}">
                     <div class="project">
@@ -22,12 +21,6 @@
                     </div>
                 </a>
             </div>
-            {% endif %}
         {% endfor %}
-    </div>
-    <div class="col-md-12">
-        <h2>
-            <a href="{{ path('Project_all') }}">Voir tous les projets ({{ Projects|length }})</a>
-        </h2>
     </div>
 {% endblock %}

@@ -1,6 +1,12 @@
 homepage:
     path:     /
     defaults: { _controller: GuigurFrontBundle:Default:index }
+Project_all:
+    path:     /Project
+    defaults: { _controller: GuigurFrontBundle:Project:index }
+Project:
+    path:     /Project/{nameOfProject}
+    defaults: { _controller: GuigurFrontBundle:Project:index }
 Blog:
     path:     /Blog
     defaults: { _controller: GuigurFrontBundle:Blog:index }
@@ -9,7 +15,7 @@ About:
     defaults: { _controller: GuigurFrontBundle:About:index }
 Shop:
     path:     /Shop
-    defaults: { _controller: GuigurFrontBundle:Default:index }
+    defaults: { _controller: GuigurFrontBundle:Shop:index }
 Contact:
     path:     /Contact
     defaults: { _controller: GuigurFrontBundle:Contact:index }
