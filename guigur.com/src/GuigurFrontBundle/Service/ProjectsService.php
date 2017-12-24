@@ -35,14 +35,10 @@ class ProjectsService
 
     private function defaultImageProject($project)
     {
-        if (!file_exists($project->getImgMiniature()) && $project->getImgMiniature() != "none")
+        if (!file_exists($project->getImgMiniature()) && $project->getImgMiniature() != "")
             $project->setImgMiniature("img/template_miniature.png");
-        if (!file_exists($project->getImgProject()) && $project->getImgProject() != "none")
+        if (!file_exists($project->getImgProject()) && $project->getImgProject() != "")
             $project->setImgProject("img/template_img_project.png");
         return ($project);
     }
 }
-
-
-
-

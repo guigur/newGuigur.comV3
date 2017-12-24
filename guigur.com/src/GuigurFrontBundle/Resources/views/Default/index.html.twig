@@ -12,10 +12,10 @@
                 <a href="{% if Project.directLink != '' %}{{ Project.directLink }}{% else %}{{ path('Project', {'nameOfProject': Project.name}) }}{% endif %}">
                     <div class="project">
                         <div class="card effect__hover">
-                            <div class="card__front" style="background:{% if Project.imgMiniature == 'none' %}#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}b6b6b6{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
+                            <div class="card__front" style="background:{% if Project.imgMiniature == '' %}#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
                                 {% if Project.displayName == true %}{{ Project.name }}{% endif %}
                             </div>
-                            <div class="card__back" style="background:#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}b6b6b6{% endif %};">
+                            <div class="card__back" style="background:#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};">
                                 {{ Project.descriptionShort }}
                             </div>
                         </div>
