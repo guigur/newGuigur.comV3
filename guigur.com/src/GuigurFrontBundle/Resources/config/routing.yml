@@ -7,6 +7,9 @@ Projects:
 Project:
     path:     /Project/{nameOfProject}
     defaults: { _controller: GuigurFrontBundle:Project:index }
+Archives:
+    path:     /Archives
+    defaults: { _controller: GuigurFrontBundle:Archives:index }
 Blog:
     path:     /Blog
     defaults: { _controller: GuigurFrontBundle:Blog:index }

@@ -65,25 +65,35 @@ html {
     clear: both;
 }
 
-.icons_center {
-    text-align:center;
-    display: inline-block;
-    width: 100%;
-}
-
-.icon_about {
-    display: inline-block;
-    font-size: 42px;
-    text-align: center;
-    text-decoration: none;
-    color: red;
-
-}
-
-.icon_twitter
+.avatar
 {
-
+    border-radius: 50%;
 }
+
+.icon_twitter:hover
+{
+    color: #1DA1F2;
+}
+
+.icon_github:hover
+{
+    color: #333;
+}
+
+.icon_steam:hover
+{
+    color: #2D2926;
+}
+
+.icon_youtube:hover
+{
+    color: #ff0000;
+}
+.icon_linkedin:hover
+{
+    color: #0077B5;
+}
+
 
 .contactTextarea
 {
@@ -94,7 +104,36 @@ html {
 {
     height: 250px;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     display: block;
+}
+
+.project_miniature_img
+{
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
+
+}
+
+.about_ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.about_li
+{
+    display: inline-block;
+}
+
+.about_li a
+{
+    display: block;
+    padding: 8px;
+    color: #424242;
+    transition: color 0.23s ease;
+    font-size: 4rem;
 }

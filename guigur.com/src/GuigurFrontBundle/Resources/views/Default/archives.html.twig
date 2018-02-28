@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="col-md-12">
+        <h1 class="page-header">
+            Archives <br />
+            <small>{{ Catchphrase.phrase }}</small>
+        </h1>
+        {% for Archive in Archives %}
+
+        {% endfor %}
+    </div>
+{% endblock %}

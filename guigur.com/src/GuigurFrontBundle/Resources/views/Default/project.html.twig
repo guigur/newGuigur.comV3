@@ -6,10 +6,12 @@
                 {{ Project.name }}<br />
                 <small>{{ Project.descriptionShort }}</small>
             </h1>
-            <div class="project_miniature" style="background:{% if Project.imgProject == '' %}#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}b6b6b6{% endif %};{% else %} url({{ asset(Project.imgProject) }});{% endif %}"></div>
+            <div class="project_miniature" style="background:{% if Project.color is defined and Project.color != '' %}#{{ Project.color }}{% else %}b6b6b6{% endif %};">
+                <img class="project_miniature_img" src="{{ asset(Project.imgProject) }}" />
+            </div>
+            <br />
             {{ Project.text|raw }}
-
-
+            <br />
             <p><span class="glyphicon glyphicon-time"></span> Posté le {{ Project.datetime|date("m/d/Y") }} par {{ Project.author }}</p>
 
         </div>
