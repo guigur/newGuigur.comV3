@@ -1,8 +1,8 @@
-homepage:
+Homepage:
     path:     /
     defaults: { _controller: GuigurFrontBundle:Default:index }
-Project_all:
-    path:     /Project
+Projects:
+    path:     /Projects
     defaults: { _controller: GuigurFrontBundle:Project:index }
 Project:
     path:     /Project/{nameOfProject}
