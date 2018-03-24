@@ -31,6 +31,6 @@ CV:
 LaSuiteDeTed:
     path:     /LaSuiteDeTED
     defaults: { _controller: GuigurFrontBundle:TED:index }
-TED:
-    path:     /TED
-    defaults: { _controller: GuigurFrontBundle:TED:index }
+Experiments:
+    path:     /Experiments
+    defaults: { _controller: GuigurFrontBundle:Experiment:index }

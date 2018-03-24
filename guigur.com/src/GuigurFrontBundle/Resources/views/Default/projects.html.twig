@@ -15,7 +15,7 @@
                                 {% if Project.displayName == true %}{{ Project.name }}{% endif %}
                             </div>
                             <div class="card__back" style="background:#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};">
-                                {{ Project.descriptionShort }}
+                                <p>{{ Project.descriptionShort }}</p>
                             </div>
                         </div>
                     </div>

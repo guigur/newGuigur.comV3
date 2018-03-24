@@ -1,10 +1,14 @@
 {% extends "base.html.twig" %}
 {% block body %}
+    <div class="col-md-12 g-push-down">
+        Bienvenue sur Guigur<small>.com</small>
+        Ce site recueil mes différents projets ainsi que des trucs un peu inclassables.
+        Toute information présente sur ce site est libre et est accesible a tou·te·s et est opensource sous licence <a href="https://opensource.org/licenses/MIT">MIT</a>.
+    </div>
     <div class="col-md-12">
 
         <h1 class="page-header">
-            Projets <br />
-            <small>{{ Catchphrase.phrase }}</small>
+            Quelques projets <br />
         </h1>
         {% for Project in Projects %}
             {% if Project.featured == true %}
@@ -16,7 +20,7 @@
                                 {% if Project.displayName == true %}{{ Project.name }}{% endif %}
                             </div>
                             <div class="card__back" style="background:#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};">
-                                {{ Project.descriptionShort }}
+                                <p>{{ Project.descriptionShort }}</p>
                             </div>
                         </div>
                     </div>
