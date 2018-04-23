@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "base.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-header">
+                Contact<br />
+                <small>{{ catchphrase.phrase }}</small>
+            </h1>
+            <hr>
+            <video>
 
-</body>
-</html>
+            </video>
+        </div>
+    </div>
+    <!-- /.row -->
+{% endblock body %}
