@@ -19,7 +19,7 @@ class ProjectsService
 
     public function defaultImage($projects)
     {
-        if (count($projects) == 1)
+        if (!is_array($projects))
         {
             $projects = $this->defaultImageProject($projects);
         }

@@ -9,6 +9,11 @@
 
         <title>Blog Home - Start Bootstrap Template</title>
 
+        <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_32.png') }}" sizes="32x32">
+        <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_48.png') }}" sizes="48x48">
+        <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_64.png') }}" sizes="64x64">
+        <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_96.png') }}" sizes="96x96">
+
         <!-- Bootstrap Core CSS -->
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('css/foundation-icons.css') }}" rel="stylesheet">
@@ -47,9 +52,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/"><img height="40px" src="{{ asset('img/guigur_.com_green.png') }}"></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
+                <a class="navbar-brand" href="{{ path('Homepage') }}"><img height="100%" src="{{ asset('img/guigur_.com_green_small.png') }}"></a>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav mr-auto">
                         <li class="nav-item {% if app.request.get('_route') == 'Homepage' %}active{% endif %}">
