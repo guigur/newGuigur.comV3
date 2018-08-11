@@ -25,9 +25,17 @@ class ProjectController extends Controller
                 ->getRepository('GuigurFrontBundle:Project')
                 ->findByIsEnabled(1);
 
+            $Categories = $this->getDoctrine()
+                ->getRepository('GuigurFrontBundle:Categories')
+                ->findAll();
+
+            $ProjectsCategories = $this->getDoctrine()
+                ->getRepository('GuigurFrontBundle:ProjectsCategories')
+                ->findBy(array(), array('category' => 'ASC'));
+
             $projects = $this->get('guigur.projects')->defaultImage($projects);
             $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('projects');
-            return $this->render('GuigurFrontBundle:Default:projects.html.twig', array("Catchphrase" =>  $catchPhrase, "Projects" => $projects));
+            return $this->render('GuigurFrontBundle:Default:projects.html.twig', array("Catchphrase" =>  $catchPhrase, "Projects" => $projects, "Categories" => $Categories, "ProjectsCategories" => $ProjectsCategories));
         }
 
 

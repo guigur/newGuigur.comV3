@@ -2,6 +2,7 @@
 
 namespace GuigurFrontBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,6 +21,7 @@ class Project
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
 
     /**
      * @var string
@@ -73,9 +75,16 @@ class Project
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datetime", type="datetimetz")
+     * @ORM\Column(name="posted_datetime", type="datetimetz")
      */
-    private $datetime;
+    private $postedDatetime;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_modified_datetime", type="datetimetz")
+     */
+    private $lastModifiedDatetime;
 
     /**
      * @var string
@@ -305,27 +314,52 @@ class Project
     }
 
     /**
-     * Set datetime
+     * Set postedDatetime
      *
-     * @param \DateTime $datetime
+     * @param \DateTime $postedDatetime
      *
      * @return Project
      */
-    public function setDatetime($datetime)
+    public function setPostedDatetime($postedDatetime)
     {
-        $this->datetime = $datetime;
+        $this->postedDatetime = $postedDatetime;
 
         return $this;
     }
 
     /**
-     * Get datetime
+     * Get postedDatetime
      *
      * @return \DateTime
      */
-    public function getDatetime()
+    public function getPostedDatetime()
     {
-        return $this->datetime;
+        return $this->postedDatetime;
+    }
+
+
+    /**
+     * Set lastModifiedDatetime
+     *
+     * @param \DateTime $lastModifiedDatetime
+     *
+     * @return Project
+     */
+    public function setLastModifiedDatetime($lastModifiedDatetime)
+    {
+        $this->lastModifiedDatetime = $lastModifiedDatetime;
+
+        return $this;
+    }
+
+    /**
+     * Get postedDatetime
+     *
+     * @return \DateTime
+     */
+    public function getLastModifiedDatetime()
+    {
+        return $this->lastModifiedDatetime;
     }
 
     /**

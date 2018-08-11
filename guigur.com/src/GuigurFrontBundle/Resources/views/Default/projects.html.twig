@@ -6,21 +6,11 @@
             Projets <br />
             <small>{{ Catchphrase.phrase }}</small>
         </h1>
-        {% for Project in Projects %}
-            <div class="col-md-4">
-                <a href="{% if Project.directLink != '' %}{{ Project.directLink }}{% else %}{{ path('Project', {'nameOfProject': Project.name}) }}{% endif %}">
-                    <div class="project">
-                        <div class="card effect__hover">
-                            <div class="card__front" style="background:{% if Project.imgMiniature == '' %}#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
-                                {% if Project.displayName == true %}{{ Project.name }}{% endif %}
-                            </div>
-                            <div class="card__back" style="background:#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};">
-                                <p>{{ Project.descriptionShort }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+        {% include 'Projects_display.html.twig' %}
+
+        {% for Category in Categories %}
+            <h3><a href="#" class="label {% if Category.color != '' %}{{ Category.color }}{% else %}label-default{% endif %}"><span class="fa {{ Category.icon }}"></span>&nbsp{{ Category.name }}</a></h3>
+
         {% endfor %}
     </div>
 {% endblock %}

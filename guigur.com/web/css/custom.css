@@ -41,6 +41,13 @@ html {
     font-size: 40px;
 }
 
+.card__front_icons {
+    float: right;
+    font-size: 0.65em;
+    padding-top: 0.25em;
+    padding-right: 0.25em;
+}
+
 .card__back {
     -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);

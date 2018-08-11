@@ -3,31 +3,15 @@
     <div class="col-md-12 g-push-down">
         Bienvenue sur Guigur<small>.com</small>
         Ce site recueil mes différents projets ainsi que des trucs un peu inclassables.
-        Toute information présente sur ce site est libre et est accesible a tou·te·s et est opensource sous licence <a href="https://opensource.org/licenses/MIT">MIT</a>.
+        Toute information présente sur ce site est libre et est accesible a tou·te·s et est opensource sous licence Creative Commons   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     </div>
     <div class="col-md-12">
 
         <h1 class="page-header">
             Quelques projets <br />
         </h1>
-        {% for Project in Projects %}
-            {% if Project.featured == true %}
-            <div class="col-md-4">
-                <a href="{% if Project.directLink != '' %}{{ Project.directLink }}{% else %}{{ path('Project', {'nameOfProject': Project.name}) }}{% endif %}">
-                    <div class="project">
-                        <div class="card effect__hover">
-                            <div class="card__front" style="background:{% if Project.imgMiniature == '' %}#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
-                                {% if Project.displayName == true %}{{ Project.name }}{% endif %}
-                            </div>
-                            <div class="card__back" style="background:#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};">
-                                <p>{{ Project.descriptionShort }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            {% endif %}
-        {% endfor %}
+        {% include 'Projects_display.html.twig' %}
+
     </div>
     <div class="col-md-12">
         <h2>
