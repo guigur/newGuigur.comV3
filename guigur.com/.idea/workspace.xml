@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aaaad929-e14e-4a5b-b12c-a47b4746f5d8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/GuigurFrontBundle/Controller/ChangelogController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GuigurFrontBundle/Resources/views/Default/changelog.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GuigurFrontBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GuigurFrontBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GuigurFrontBundle/Resources/views/Default/changelog.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GuigurFrontBundle/Resources/views/Default/changelog.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +29,7 @@
           <entry key="css" value="435" />
           <entry key="dummy" value="5" />
           <entry key="php" value="574" />
-          <entry key="twig" value="1620" />
+          <entry key="twig" value="1649" />
           <entry key="yml" value="79" />
         </counts>
       </usages-collector>
@@ -42,7 +38,7 @@
           <entry key="CSS" value="435" />
           <entry key="PHP" value="574" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Twig" value="1620" />
+          <entry key="Twig" value="1649" />
           <entry key="YAML" value="79" />
         </counts>
       </usages-collector>
@@ -109,8 +105,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GuigurFrontBundle/Resources/views/Default/changelog.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
+            <state relative-caret-position="476">
+              <caret line="28" column="124" selection-start-line="28" selection-start-column="124" selection-end-line="28" selection-end-column="124" />
             </state>
           </provider>
         </entry>
@@ -415,12 +411,12 @@
       <workItem from="1533941257013" duration="93000" />
       <workItem from="1533942043400" duration="14469000" />
       <workItem from="1534140557719" duration="2993000" />
-      <workItem from="1534329895184" duration="6904000" />
+      <workItem from="1534329895184" duration="7071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36195000" />
+    <option name="totallyTimeSpent" value="36362000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -678,8 +674,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GuigurFrontBundle/Resources/views/Default/changelog.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
+        <state relative-caret-position="476">
+          <caret line="28" column="124" selection-start-line="28" selection-start-column="124" selection-end-line="28" selection-end-column="124" />
         </state>
       </provider>
     </entry>
