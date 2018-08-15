@@ -34,3 +34,6 @@ LaSuiteDeTed:
 Experiments:
     path:     /Experiments
     defaults: { _controller: GuigurFrontBundle:Experiment:index }
+Changelog:
+    path:     /Changelog
+    defaults: { _controller: GuigurFrontBundle:Changelog:index }

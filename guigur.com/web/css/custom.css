@@ -150,3 +150,46 @@ html {
     transition: color 0.23s ease;
     font-size: 4rem;
 }
+
+/* Changelog stuff */
+
+.changelog_card {
+    transition: 0.3s;
+    margin: 1.5em;
+
+}
+
+.changelog_card:hover {
+    background: lightgray;
+
+}
+
+.changelog_card-body {
+    padding:8px;
+}
+
+.changelog {
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.changelog_added
+{
+    background: lightgreen;
+}
+
+.changelog_removed
+{
+    background: indianred;
+}
+
+.changelog_modified
+{
+    background: orange;
+}
+
+.changelog_datetime
+{
+    float: right;
+}

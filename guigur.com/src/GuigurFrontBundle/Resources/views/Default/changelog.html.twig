@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="col-md-12">
+        <h1 class="page-header">
+            Changelog <br />
+            <small>{{ Catchphrase.phrase }}</small>
+        </h1>
+        {% for Changelog in Changelogs %}
+            {% set textLines = Changelog.text|split(',') %}
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-12">
+                    <div class="changelog_card">
+                        <div class="changelog_card-body">
+                            <h4 class="card-title">{{ Changelog.title }}</h4>
+                            <p class="card-text"></p>
+                            {% for textLine in textLines %}
+                                {% if textLine|first|lower == '+' %}
+                                    <span class="changelog changelog_added">{{ textLine }}</span>
+                                {% elseif textLine|first|lower == '-' %}
+                                    <span class="changelog changelog_removed">{{ textLine }}</span>
+                                {% elseif textLine|first|lower == '*' %}
+                                    <span class="changelog changelog_modified">{{ textLine }}</span>
+                                {% else %}
+                                        <span class="changelog">{{ textLine }}</span>
+                                {% endif %}
+                                <br />
+                            {% endfor %}
+                            <br />
+                            <a href="#" class="btn btn-primary">Voir le commit : {{ Changelog.commit }}</a>
+                            <span class="changelog_datetime">{{ Changelog.postedDatetime|date("d/m/Y") }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock body %}
