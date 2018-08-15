@@ -11,7 +11,7 @@ class ChangelogController extends Controller
     {
         $Changelogs = $this->getDoctrine()
             ->getRepository('GuigurFrontBundle:Changelogs')
-            ->findAll();
+            ->findBy(array(), array('id' => 'DESC'));
 
         $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('changelog');
         return $this->render('GuigurFrontBundle:Default:changelog.html.twig', array("Catchphrase" =>  $catchPhrase, "Changelogs" => $Changelogs));
