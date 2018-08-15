@@ -22,7 +22,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         <link href="{{ asset('css/blog-home.css') }}" rel="stylesheet">
 
-        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
         <!-- analytics -->
         <script>
@@ -72,6 +72,9 @@
                         </li>
                         <li class="nav-item {% if app.request.get('_route') == 'Blog' %}active{% endif %}">
                             <a href="{{ path('Blog') }}"><span class="fa fa-rss" aria-hidden="true"></span>  Blog</a>
+                        </li>
+                        <li class="nav-item {% if app.request.get('_route') == 'Random' %}active{% endif %}">
+                            <a href="{{ path('Random') }}"><span class="fa fa-dice" aria-hidden="true"></span>  Random</a>
                         </li>
                         <li class="nav-item {% if app.request.get('_route') == 'About' %}active{% endif %}">
                             <a href="{{ path('About') }}"><span class="fa fa-address-card" aria-hidden="true"></span>  A propos</a>

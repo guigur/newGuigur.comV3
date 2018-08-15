@@ -22,9 +22,9 @@ Shop:
 Contact:
     path:     /Contact
     defaults: { _controller: GuigurFrontBundle:Contact:index }
-Troll:
-    path:     /Troll
-    defaults: { _controller: GuigurFrontBundle:Troll:index }
+Random:
+    path:     /Random
+    defaults: { _controller: GuigurFrontBundle:Random:index }
 CV:
     path:     /CV
     defaults: { _controller: GuigurFrontBundle:Cv:index }

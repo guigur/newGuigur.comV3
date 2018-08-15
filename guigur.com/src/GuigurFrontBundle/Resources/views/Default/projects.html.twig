@@ -6,11 +6,17 @@
             Projets <br />
             <small>{{ Catchphrase.phrase }}</small>
         </h1>
-        {% include 'Projects_display.html.twig' %}
-
-        {% for Category in Categories %}
-            <h3><a href="#" class="label {% if Category.color != '' %}{{ Category.color }}{% else %}label-default{% endif %}"><span class="fa {{ Category.icon }}"></span>&nbsp{{ Category.name }}</a></h3>
-
-        {% endfor %}
+        <div class="row">
+            {% for Project in Projects %}
+                <div class="col-md-4">
+                    {% include 'Projects_display.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% for Category in Categories %}
+                <h3><a href="#" class="label {% if Category.color != '' %}{{ Category.color }}{% else %}label-default{% endif %}"><span class="fa {{ Category.icon }}"></span>&nbsp{{ Category.name }}</a></h3>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

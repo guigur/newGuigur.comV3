@@ -11,14 +11,20 @@ class DefaultController extends Controller
     {
         $projects = $this->getDoctrine()
             ->getRepository('GuigurFrontBundle:Project')
-            ->findByIsEnabled(1);
+            ->findBy(array('isEnabled' => 1, "featured" => 1));
+        //->findByIsEnabled(1);
 
         $ProjectsCategories = $this->getDoctrine()
             ->getRepository('GuigurFrontBundle:ProjectsCategories')
             ->findBy(array(), array('category' => 'ASC'));
 
+        $ProjectsNumbers = $this->getDoctrine()
+            ->getRepository('GuigurFrontBundle:Project')
+            ->findByIsEnabled(1);
+
+        $ProjectsNumbers = count($ProjectsNumbers);
         $projects = $this->get('guigur.projects')->defaultImage($projects);
         $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('projects');
-        return $this->render('GuigurFrontBundle:Default:index.html.twig', array("Catchphrase" =>  $catchPhrase, "Projects" => $projects, "ProjectsCategories" => $ProjectsCategories));
+        return $this->render('GuigurFrontBundle:Default:index.html.twig', array("Catchphrase" =>  $catchPhrase, "Projects" => $projects, "ProjectsCategories" => $ProjectsCategories, "ProjectsNumbers" => $ProjectsNumbers));
     }
 }
