@@ -35,7 +35,8 @@ class ProjectController extends Controller
 
             $projects = $this->get('guigur.projects')->defaultImage($projects);
             $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('projects');
-            return $this->render('GuigurFrontBundle:Default:projects.html.twig', array("Catchphrase" =>  $catchPhrase, "Projects" => $projects, "Categories" => $Categories, "ProjectsCategories" => $ProjectsCategories));
+            $page['header'] = "Les Projets";
+            return $this->render('GuigurFrontBundle:Default:projects.html.twig', array("Page" => $page, "Catchphrase" =>  $catchPhrase, "Projects" => $projects, "Categories" => $Categories, "ProjectsCategories" => $ProjectsCategories));
         }
 
 

@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <script src="{{ asset('js/Chart.min.js') }}"></script>
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="card">
+                <div class="admin_card_container">
+                    <canvas height="100" id="visit_chart_year"></canvas>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Visites les 360 derniers jours</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        new Chart($("#visit_chart_year"), {
+            type: 'line',
+            data: {
+                labels: [{% for visitsDay in visitsDays %}"{{ visitsDay.date }}",{% endfor %}],
+                datasets: [{
+                    label: false,
+                    data: [{% for visitsDay in visitsDays %}"{{ visitsDay.visits }}",{% endfor %}],
+                    backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+                    borderColor: ['rgba(54, 162, 235, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                }
+            }
+        });
+    </script>
+{% endblock %}

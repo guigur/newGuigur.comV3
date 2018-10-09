@@ -1,14 +1,14 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <div class="col-md-12">
-        <h1 class="page-header">
+        <h3 class="page-header">
             Changelog <br />
             <small>{{ Catchphrase.phrase }}</small>
-        </h1>
+        </h3>
         {% for Changelog in Changelogs %}
             {% set textLines = Changelog.text|split(',') %}
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 col-sm-12">
+            <div class="row justify-content-md-center">
+                <div class="col-md-8 col-sm-12">
                     <div class="changelog_card">
                         <div class="changelog_card-body">
                             <h4 class="card-title">{{ Changelog.title }}</h4>

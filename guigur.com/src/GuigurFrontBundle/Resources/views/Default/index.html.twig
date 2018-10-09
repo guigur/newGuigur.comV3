@@ -1,28 +1,67 @@
 {% extends "base.html.twig" %}
 {% block body %}
-    <div class="col-md-12 g-push-down">
-        Bienvenue sur Guigur<small>.com</small>
-        Ce site recueil mes différents projets ainsi que des trucs un peu inclassables.
-        Toute information présente sur ce site est libre et est accesible a tou·te·s et est opensource sous licence Creative Commons   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    <div class="row">
+        <p>
+            Bienvenue sur Guigur<small>.com</small><br />
+            Ce site recueil mes différents projets ainsi que des trucs un peu inclassables.<br />
+            Toute information présente sur ce site est libre et est accesible a tou·te·s et est opensource sous licence Creative Commons 4.0 BY-NC  <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>
+        </p>
     </div>
-    <div class="col-md-9">
-            <h1 class="page-header">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="page-header">
+                Dernier article <br />
+            </h3>
+            {% include 'Article_min_display.html.twig' %}
+
+            <h3 class="page-header">
                 Quelques projets <br />
-            </h1>
-        <div class="row">
-            {% for Project in Projects %}
+            </h3>
+            <div class="row">
+                {% for Project in Projects %}
                     <div class="col-md-6">
                         {% include 'Projects_display.html.twig' %}
                     </div>
                     <div class="col-md-offset-1"></div>
                 {% endfor %}
+            </div>
+            <div class="row">
+                <h2>
+                    <a href="{{ path('Projects') }}">Voir tous les projets ({{ ProjectsNumbers }})</a>
+                </h2>
+            </div>
         </div>
-        <div class="row">
-            <h2>
-                <a href="{{ path('Projects') }}">Voir tous les projets ({{ ProjectsNumbers }})</a>
-            </h2>
+        <div class="col-md-4">
+            <!-- Search Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Recherche sur le site</h5>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input disabled type="text" class="form-control" placeholder="pas encore fini dsl">
+                        <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button"><i class="fas fa-search"></i></button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-4">
+                <a class="twitter-timeline" href="https://twitter.com/guigur_com?ref_src=twsrc%5Etfw" data-height="1000">Tweets by guigur.com</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
         </div>
     </div>
-    <div class="col-md-3">
-        <a class="twitter-timeline" data-height="400" data-theme="light" href="https://twitter.com/guigur_com?ref_src=twsrc%5Etfw">Tweets by guigur_com</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    </div>
+<!--
+    <div class="col-md-12">
+        Content
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#guigurModal">
+            Launch demo modal
+        </button>
+    </div>
+    -->
+{% endblock %}
+{% block js %}
+    <script>$('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        })</script>
 {% endblock %}

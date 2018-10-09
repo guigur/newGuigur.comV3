@@ -1,7 +1,19 @@
 html {
-    height: 100%;
+    min-height: 100%;
+    position: relative;
 }
 
+body {
+    padding: 0;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 60px;
+}
+
+.bg-darker
+{
+    background-color: #222;
+}
 .project
 {
     display: inline-block;
@@ -9,7 +21,7 @@ html {
     margin-bottom: 10px;
 }
 
-.card {
+.project-card {
     position: relative;
     height: 150px;
     width: 300px;
@@ -62,12 +74,12 @@ html {
     text-align: center;
 }
 
-.card.effect__hover:hover .card__front {
+.project-card.effect__hover:hover .card__front {
     -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
 
-.card.effect__hover:hover .card__back {
+.project-card.effect__hover:hover .card__back {
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
 }
@@ -76,11 +88,6 @@ html {
     content: "";
     display: table;
     clear: both;
-}
-
-.avatar
-{
-    border-radius: 50%;
 }
 
 .icon_twitter:hover
@@ -95,7 +102,7 @@ html {
 
 .icon_steam:hover
 {
-    color: #2D2926;
+    color: #1b2838;
 }
 
 .icon_youtube:hover
@@ -106,7 +113,6 @@ html {
 {
     color: #0077B5;
 }
-
 
 .contactTextarea
 {
@@ -129,6 +135,14 @@ html {
 
 }
 
+/* About stuff */
+
+.about_avatar
+{
+    width: 50%;
+    margin-top: 10%;
+}
+
 .about_ul
 {
     list-style-type: none;
@@ -148,8 +162,9 @@ html {
     padding: 8px;
     color: #424242;
     transition: color 0.23s ease;
-    font-size: 4rem;
+    font-size: 2em;
 }
+
 
 /* Changelog stuff */
 
@@ -192,4 +207,52 @@ html {
 .changelog_datetime
 {
     float: right;
+}
+
+/* footer stuff */
+
+.footer {
+    display: inline-block;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.footer-blocks
+{
+    height: 60px;
+}
+
+.footer-icons-cc-wrapper
+{
+    vertical-align: -0.5em;
+
+}
+
+.footer-link
+{
+    color: rgba(255,255,255,.5);
+}
+
+.footer-link:hover
+{
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-icons-cc
+{
+    font-size: 2em;
+}
+
+/* Admin stuff */
+
+.admin_card_container {
+
+    padding-top: 0.5em;
+    padding-right: 0.5em;
 }

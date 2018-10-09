@@ -14,6 +14,8 @@ class ChangelogController extends Controller
             ->findBy(array(), array('id' => 'DESC'));
 
         $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('changelog');
-        return $this->render('GuigurFrontBundle:Default:changelog.html.twig', array("Catchphrase" =>  $catchPhrase, "Changelogs" => $Changelogs));
+
+        $page['header'] = "Changelog";
+        return $this->render('GuigurFrontBundle:Default:changelog.html.twig', array("Page" => $page, "Catchphrase" =>  $catchPhrase, "Changelogs" => $Changelogs));
     }
 }

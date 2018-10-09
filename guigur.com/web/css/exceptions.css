@@ -1,0 +1,19 @@
+.not_found_game_div
+{
+    width: 80em;
+    padding-top: 48em;
+    position: relative;
+}
+
+.not_found_game_food
+{
+    height: 2em;
+    width: 2em;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: inline-block;
+    font-size: 1em;
+    padding-top: 0.25em;
+    text-align: center;
+}

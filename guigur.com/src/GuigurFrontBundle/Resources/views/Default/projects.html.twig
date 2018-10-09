@@ -1,11 +1,7 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <div class="col-md-12">
-
-        <h1 class="page-header">
-            Projets <br />
-            <small>{{ Catchphrase.phrase }}</small>
-        </h1>
+        {% include 'Page_header_display.html.twig' %}
         <div class="row">
             {% for Project in Projects %}
                 <div class="col-md-4">
@@ -13,10 +9,14 @@
                 </div>
             {% endfor %}
         </div>
+
         <div class="row">
-            {% for Category in Categories %}
-                <h3><a href="#" class="label {% if Category.color != '' %}{{ Category.color }}{% else %}label-default{% endif %}"><span class="fa {{ Category.icon }}"></span>&nbsp{{ Category.name }}</a></h3>
+        {% for Category in Categories %}
+                <button type="button" class="btn {% if Category.color != '' %}btn-{{ Category.color }}{% else %}btn-dark{% endif %}">
+                    <span class="{{ Category.icon }}"></span>&nbsp{{ Category.name }}
+                </button>
             {% endfor %}
         </div>
+
     </div>
 {% endblock %}

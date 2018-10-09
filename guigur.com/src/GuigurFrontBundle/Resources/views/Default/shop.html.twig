@@ -1,18 +1,142 @@
 {% extends "base.html.twig" %}
+{% block css%}
+    <link href="{{ asset('css/exceptions.css') }}" rel="stylesheet">
+{% endblock %}
 {% block body %}
-    <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Remarque:</strong> cette page n'est pas encore fonctionnelle.
+    <div class="not_found_game_div">
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="page-header">
-                Boutique<br />
-                <small>{{ catchphrase.phrase }}</small>
-            </h1>
-            Une boutique ? quelle boutique ?
-            <hr>
-        </div>
-    </div>
-    <!-- /.row -->
-{% endblock body %}
+{% endblock %}
+{% block js %}
+<script>
+    var sizeX = 39;
+    var sizeY = 23;
+
+
+    var gameArray = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,0,1,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,1,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,1,0,0,1,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+
+    var oldArray = gameArray.slice();
+
+    var emoji_array = ['🍏','🍎','🍐','🍊','🍋','🍌','🍉','🍇','🍓','🍈','🍒','🍑','🍍','🥥','🥝','🍅','🥑','🍆'];
+    var dirs = ['UP', 'DOWN', 'LEFT', 'RIGHT', 'NO'];
+    var currentDir = dirs[1];
+
+
+    var i = 1;                     //  set your counter to 1
+
+    myLoop();
+
+    function eventHandler()
+    {
+
+    }
+
+    function myLoop ()
+    {
+        console.log("LOOP");
+        oldArray = JSON.parse(JSON.stringify( gameArray ));
+
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            switch (evt.key)
+            {
+                case 'z':
+                    currentDir = dirs[0];
+                    break;
+                case 's':
+                    currentDir = dirs[1];
+                    break;
+                case 'q':
+                    currentDir = dirs[2];
+                    break;
+                case 'd':
+                    currentDir = dirs[3];
+                    break;
+            }
+        };
+
+        console.log(currentDir);
+
+        for ( var y = 0; y < sizeX; y++ )
+        {
+            for ( var x = 0; x < sizeY; x++ )
+            {
+                switch (oldArray[x][y])
+                {
+                    case 0:
+                        $('#case_' + x + '_'+ y).remove();
+                        break;
+                    case 1: //fruit
+                        var emoji = emoji_array[Math.floor(Math.random() * emoji_array.length)];
+                        console.log(emoji);
+                        $('.not_found_game_div').append('<div class="not_found_game_food" id="case_' + x + '_'+ y +'" style="top: '+x*2+'em; left:'+y*2+'em;">' + emoji + '</div>');
+                        gameArray[x][y] = 10; //deja le fruit d'afficher
+                        break;
+                    case 2: //chicken
+
+                        switch (currentDir)
+                        {
+                            case('UP'):
+                                gameArray[x][y] = 0; 
+                                gameArray[x-1][y] = 2;
+                                console.log("up");
+                                break;
+                            case('DOWN'):
+                            gameArray[x][y] = 0;
+                            gameArray[x+1][y] = 2;
+                            console.log("down");
+                                break;
+                            case('LEFT'):
+                                gameArray[x][y] = 0;
+                                gameArray[x][y-1] = 2;
+                                console.log("left");
+                                break;
+                            case('RIGHT'):
+                                gameArray[x][y] = 0;
+                                gameArray[x][y+1] = 2;
+                                console.log("right");
+                                break;
+                        }
+                        $('.not_found_game_div').append('<div class="not_found_game_food" id="case_' + x + '_'+ y +'" style="top: '+x*2+'em; left:'+y*2+'em;">' + '🐓'+ '</div>');
+                        break;
+                    case 10:
+                        break;
+                }
+
+            }
+            //🐤
+        }
+        eventHandler();
+
+
+        setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+                  //  if the counter < 10, call the loop function
+                myLoop();             //  ..  again which will trigger another
+                              //  ..  setTimeout()
+        }, 1000)
+    }
+
+</script>
+
+{% endblock %}

@@ -38,7 +38,8 @@ class ContactController extends Controller
         }
 
         $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('contact');
-        return $this->render('GuigurFrontBundle:Default:contact.html.twig', array('form' => $form->createView(), "catchphrase" => $catchPhrase));
+        $page['header'] = "Contact";
+        return $this->render('GuigurFrontBundle:Default:contact.html.twig', array('Page' => $page, 'form' => $form->createView(), "catchphrase" => $catchPhrase));
     }
 
 

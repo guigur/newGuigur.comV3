@@ -1,3 +1,7 @@
-guigur_admin_homepage:
+admin_homepage:
     path:     /
     defaults: { _controller: GuigurAdminBundle:Default:index }
+
+admin_visits:
+    path:     /Visits
+    defaults: { _controller: GuigurAdminBundle:Default:visits }
