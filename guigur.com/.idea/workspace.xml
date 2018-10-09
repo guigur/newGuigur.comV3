@@ -47,7 +47,7 @@
           <entry key="css" value="1810" />
           <entry key="dummy" value="5" />
           <entry key="php" value="3514" />
-          <entry key="twig" value="6687" />
+          <entry key="twig" value="6688" />
           <entry key="yml" value="163" />
         </counts>
       </usages-collector>
@@ -56,7 +56,7 @@
           <entry key="CSS" value="1810" />
           <entry key="PHP" value="3514" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Twig" value="6687" />
+          <entry key="Twig" value="6688" />
           <entry key="YAML" value="163" />
         </counts>
       </usages-collector>
@@ -162,7 +162,7 @@
         <entry file="file://$PROJECT_DIR$/app/Resources/views/Article_min_display.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -601,12 +601,12 @@
       <workItem from="1538354016928" duration="18293000" />
       <workItem from="1538440937149" duration="23637000" />
       <workItem from="1538626863329" duration="5251000" />
-      <workItem from="1539075383503" duration="57000" />
+      <workItem from="1539075383503" duration="255000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109138000" />
+    <option name="totallyTimeSpent" value="109336000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -962,7 +962,7 @@
     <entry file="file://$PROJECT_DIR$/app/Resources/views/Article_min_display.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
         </state>
       </provider>
     </entry>
