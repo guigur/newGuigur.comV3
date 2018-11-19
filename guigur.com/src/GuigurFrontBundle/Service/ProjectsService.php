@@ -17,27 +17,26 @@ class ProjectsService
         $this->container = $container;
     }
 
-    public function defaultImage($projects)
+    public function defaultImages($projects)
     {
-        if (!is_array($projects))
-        {
-            $projects = $this->defaultImageProject($projects);
-        }
-        else
-        {
-            foreach ($projects as $project)
+        foreach ($projects as $project) //page avec plusieurs projets
             {
                 $this->defaultImageProject($project);
             }
-        }
         return ($projects);
+    }
+
+    public function defaultImage($project)
+    {
+        $this->defaultImageProject($project);
+        return ($project);
     }
 
     private function defaultImageProject($project)
     {
-        if (!file_exists($project->getImgMiniature()) && $project->getImgMiniature() != "")
+        if (!file_exists($project->getImgMiniature()) || $project->getImgMiniature() == "")
             $project->setImgMiniature("img/template_miniature.png");
-        if (!file_exists($project->getImgProject()) && $project->getImgProject() != "")
+        if (!file_exists($project->getImgProject()) || $project->getImgProject() == "")
             $project->setImgProject("img/template_img_project.png");
         return ($project);
     }

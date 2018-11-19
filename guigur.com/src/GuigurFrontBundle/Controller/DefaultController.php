@@ -49,7 +49,7 @@ class DefaultController extends Controller
             ->findByIsEnabled(1);
 
         $ProjectsNumbers = count($ProjectsNumbers);
-        $projects = $this->get('guigur.projects')->defaultImage($projects);
+        $projects = $this->get('guigur.projects')->defaultImages($projects);
         $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('projects');
         return $this->render('GuigurFrontBundle:Default:index.html.twig', array("pastVisits" => $pastVisit, "Catchphrase" =>  $catchPhrase, "Projects" => $projects, "ProjectsCategories" => $ProjectsCategories, "ProjectsNumbers" => $ProjectsNumbers));
     }

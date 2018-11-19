@@ -33,7 +33,7 @@ class ProjectController extends Controller
                 ->getRepository('GuigurFrontBundle:ProjectsCategories')
                 ->findBy(array(), array('category' => 'ASC'));
 
-            $projects = $this->get('guigur.projects')->defaultImage($projects);
+            $projects = $this->get('guigur.projects')->defaultImages($projects);
             $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('projects');
             $page['header'] = "Les Projets";
             return $this->render('GuigurFrontBundle:Default:projects.html.twig', array("Page" => $page, "Catchphrase" =>  $catchPhrase, "Projects" => $projects, "Categories" => $Categories, "ProjectsCategories" => $ProjectsCategories));
