@@ -8,29 +8,31 @@
         </p>
     </div>
     <div class="row">
-        <div class="col-md-8">
-            <h3 class="page-header">
-                Dernier article <br />
-            </h3>
-            {% include 'Article_min_display.html.twig' %}
 
-            <h3 class="page-header">
-                Quelques projets <br />
-            </h3>
-            <div class="row">
-                {% for Project in Projects %}
-                    <div class="col-md-6">
-                        {% include 'Projects_display.html.twig' %}
+        <div class="col-md-8">
+            {% include 'Article_min_display.html.twig'  with {'lastArticle': true }%}
+
+
+            <div class="card my-4">
+                <h5 class="card-header">
+                    Quelques projets
+                </h5>
+                <div class="card-body">
+                    <div class="row">
+
+                    {% for Project in Projects %}
+                        <div class="col-md-6">
+                            {% include 'Projects_display.html.twig' %}
+                        </div>
+                        <div class="col-md-offset-1"></div>
+                    {% endfor %}
                     </div>
-                    <div class="col-md-offset-1"></div>
-                {% endfor %}
-            </div>
-            <div class="row">
-                <h2>
-                    <a href="{{ path('Projects') }}">Voir tous les projets ({{ ProjectsNumbers }})</a>
-                </h2>
+                    <a href="{{ path('Projects') }}" class="btn btn-primary">Voir tous les projets ({{ ProjectsNumbers }}) &rarr;</a>
+
+                </div>
             </div>
         </div>
+
         <div class="col-md-4">
             <!-- Search Widget -->
             <div class="card my-4">
