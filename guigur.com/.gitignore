@@ -16,4 +16,6 @@
 /web/bundles/
 bin/symfony_requirements
 var/sessions/.gitkeep
-.idea
+.idea/
+.idea/*
+.idea/workspace.xml
