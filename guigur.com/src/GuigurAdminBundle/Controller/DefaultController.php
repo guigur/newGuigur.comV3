@@ -3,6 +3,9 @@
 namespace GuigurAdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 class DefaultController extends Controller
 {
@@ -23,4 +26,19 @@ class DefaultController extends Controller
         $countVisitsDays = $this->get('guigur.admin.visits')->VisitsDays(360);
         return $this->render('GuigurAdminBundle:Default:visits.html.twig', array("visitsDays" => $countVisitsDays));
     }
+
+    public function sendFileAction($file)
+    {
+        $file_to_send = "Ressources/public/files/test.png";
+        $response = new BinaryFileResponse($file_to_send);
+        $response->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, ".$file");
+        return $response;
+    }
+
+    public function sendAction()
+    {
+        return $this->render('GuigurAdminBundle:Default:visits.html.twig', array("visitsDays" => $countVisitsDays));
+
+    }
+
 }

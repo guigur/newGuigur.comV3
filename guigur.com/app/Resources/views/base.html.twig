@@ -6,10 +6,7 @@
         <meta name="description" content="guigur's website">
         <meta name="author" content="guigur">
         <meta name="theme-color" content="#1b8e51">
-
-
         <title>Guigur.com</title>
-
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_32.png') }}" sizes="32x32">
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_48.png') }}" sizes="48x48">
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_64.png') }}" sizes="64x64">
@@ -151,7 +148,6 @@
         var darkChecker = function() {
             var darkCheckbox = $("#darkSwitch:checked").prop('checked');
 
-            console.log(darkCheckbox);
             if (darkCheckbox === true && isDark !== "true")
             {
                 Cookies.set("dark", true);
@@ -165,6 +161,10 @@
         };
             darkChecker();
             $("#darkSwitch").on( "click", darkChecker);
+
+        var popUpWelcome = Cookies.get('popUpWelcome');
+        if (popUpWelcome !== "true")
+            console.log("SALUT TES NOUVEAI ?!"); // $("#darkSwitch").prop('checked', true);
 
         </script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>

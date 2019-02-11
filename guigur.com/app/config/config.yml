@@ -36,6 +36,8 @@ framework:
 
 # Twig Configuration
 twig:
+    globals:
+        g_texts: "@guigur.texts"
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 

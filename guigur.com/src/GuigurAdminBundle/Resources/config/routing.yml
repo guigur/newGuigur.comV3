@@ -5,3 +5,7 @@ admin_homepage:
 admin_visits:
     path:     /Visits
     defaults: { _controller: GuigurAdminBundle:Default:visits }
+
+admin_download:
+    path: /dl/{file}
+    defaults: { _controller: GuigurAdminBundle:Default:sendfile }

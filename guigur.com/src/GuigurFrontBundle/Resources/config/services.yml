@@ -5,3 +5,6 @@ services:
     guigur.projects:
         class: GuigurFrontBundle\Service\ProjectsService
         arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]
+    guigur.texts:
+        class: GuigurFrontBundle\Service\TextsService
+        arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]
