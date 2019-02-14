@@ -18,6 +18,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new GuigurFrontBundle\GuigurFrontBundle(),
             new GuigurAdminBundle\GuigurAdminBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
