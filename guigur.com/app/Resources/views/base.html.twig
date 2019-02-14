@@ -78,15 +78,24 @@
                     <li class="nav-item {% if app.request.get('_route') == 'Contact' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('Contact') }}"><span class="fa fa-envelope" aria-hidden="true"></span>&nbsp;{{ g_texts.getText("nav_contact")|raw }}</a>
                     </li>
+                   {% if app.user.hasRole('ROLE_ADMIN') %}
+                       <li class="nav-item {% if app.request.get('_route') == 'admin_homepage' %}active{% endif %}">
+                           <a class="nav-link" href="{{ path('admin_homepage') }}"><span class="fa fa-user-cog" aria-hidden="true"></span>&nbsp;{{ g_texts.getText("nav_admin")|raw }}</a>
+                       </li>
+                   {% endif %}
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-user"></i>
+                            {%  if app.user %}{{ app.user.username }}{% endif %}<i class="fa fa-user"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">{{ g_texts.getText("nav_register")|raw }}</a>
-                            <a class="dropdown-item" href="#">{{ g_texts.getText("nav_disconect")|raw }}</a>
+                            {%  if app.user %}
+                                <a class="dropdown-item" href="#">{{ g_texts.getText("nav_disconect")|raw }}</a>
+                            {% else %}
+                                <a class="dropdown-item" href="#">{{ g_texts.getText("nav_register")|raw }}</a>
+                                <a class="dropdown-item" href="#">{{ g_texts.getText("nav_login")|raw }}</a>
+                            {% endif %}
                             <span class="dropdown-item" href="#">
                                 {{ g_texts.getText("nav_night_mode")|raw }}
                                 <label class="switch">
