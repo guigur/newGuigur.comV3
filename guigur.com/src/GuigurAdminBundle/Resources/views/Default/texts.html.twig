@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>texts</h3>
+            {% for Text in Texts %}
+                <h4>{{ Text.name }}</h4>
+                <b>FR: </b><span>{{ Text.TextFr|raw }}</span><br />
+                <b>EN: </b><span>{{ Text.TextEn|raw }}</span><br />
+                <button type="button" class="btn btn-primary">
+                    <span class=""></span>{{ g_texts.getText("modify")|raw }}
+                </button>
+
+                <!--<textarea class="tinyMCE"></textarea>-->
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+{% endblock %}

@@ -15,7 +15,6 @@ class DefaultController extends Controller
             ->getRepository('GuigurFrontBundle:Visits')
             ->findAll();
 
-
         $countVisitsDays = $this->get('guigur.admin.visits')->VisitsDays();
         $visitsStats = $this->get('guigur.admin.visits')->VisitsStats();
         return $this->render('GuigurAdminBundle:Default:index.html.twig', array("visitsDays" => $countVisitsDays, "visitsStats" => $visitsStats));
@@ -25,6 +24,15 @@ class DefaultController extends Controller
     {
         $countVisitsDays = $this->get('guigur.admin.visits')->VisitsDays(360);
         return $this->render('GuigurAdminBundle:Default:visits.html.twig', array("visitsDays" => $countVisitsDays));
+    }
+
+    public function textsAction()
+    {
+        $texts = $this->getDoctrine()
+            ->getRepository('GuigurFrontBundle:Texts')
+            ->findAll();
+
+        return $this->render('GuigurAdminBundle:Default:texts.html.twig', array("Texts" => $texts));
     }
 
     public function sendFileAction($file)

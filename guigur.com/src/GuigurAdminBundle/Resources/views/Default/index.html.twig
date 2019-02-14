@@ -29,7 +29,6 @@
             </div>
         </div>
         <div class="col-lg-3">
-
             <div class="card">
                 <div class="admin_card_container">
                     <canvas height="220" id="visit_chart_7"></canvas>
@@ -45,10 +44,30 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <p>
+            <a href="{{ path('Homepage') }}" class="btn btn-squared-default-plain btn-primary">
+                <i class="fa fa-home fa-5x"></i>
+                <br />
+                <br />
+                Home
+            </a>
+            <a href="{{ path('admin_texts') }}" class="btn btn-squared-default-plain btn-primary">
+                <i class="fa fa-font fa-5x"></i>
+                <br />
+                <br />
+                Textss
+            </a>
+            <a href="{{ path('admin_texts') }}" class="btn btn-squared-default-plain btn-primary">
+                <i class="fa fa-users fa-5x"></i>
+                <br />
+                <br />
+                Users
+            </a>
+        </p>
+    </div>
 {% endblock %}
 {% block js %}
-    <script>tinymce.init({ selector:'.tinymce' });</script>
-    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
     <script>
         new Chart($("#visit_chart_7"), {
             type: 'line',
