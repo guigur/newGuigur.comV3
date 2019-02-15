@@ -40,3 +40,7 @@ Experiments:
 Changelog:
     path:     /Changelog
     defaults: { _controller: GuigurFrontBundle:Changelog:index }
+
+g_login:
+    path:   /Login2
+    defaults: { _controller: GuigurFrontBundle:User:login }

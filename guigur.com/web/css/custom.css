@@ -386,7 +386,30 @@ pre > code {
 
 .img-avatar
 {
-    border:3px solid #dee2e6;
+    border:3px solid #444444;
     max-width:100%;
-    height:auto
+    height:auto;
+}
+
+/* login stuff */
+
+.login_form_container
+{
+    min-height: 80%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 80vh; /* These two lines are counted as one :-)       */
+
+    display: flex;
+    align-items: center;
+}
+
+.login_logo_container
+{
+    margin-right: 20%;
+    margin-left: 20%;
+    padding-bottom: 2em;
+}
+
+#passwdEye {
+    cursor: pointer;
+    pointer-events: all;
 }

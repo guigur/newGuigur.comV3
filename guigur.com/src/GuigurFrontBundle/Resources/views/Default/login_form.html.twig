@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+{% block navBar %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block body %}
+    <div class="row justify-content-md-center login_form_container">
+        <div class="col-md-4">
+            <div class="login_logo_container">
+                <a href="{{ path('Homepage') }}">
+                    <img src="{{ asset('img/guigur_.com_green.png') }}" class="img-fluid" alt="">
+                </a>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <a href="" class="float-right btn btn-outline-primary">{{ g_texts.getText("nav_register")|raw }}</a>
+                    <h4 class="card-title mb-4 mt-1">{{ g_texts.getText("nav_login")|raw }}</h4>
+                    <p>
+                        <button type="button" class="btn btn-block btn-outline-info" disabled><del><i class="fab fa-twitter"></i>   {{ g_texts.getText("login_w_twitter")|raw }}</del></button>
+                        <button type="button" class="btn btn-block btn-outline-primary" disabled><del><i class="fab fa-facebook-f"></i>   {{ g_texts.getText("login_w_facebook")|raw }}</del></button>
+                    </p>
+                    <hr>
+                    <form>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="{{ g_texts.getText("username")|raw }}" aria-label="Username">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
+                            </div>
+                            <input id="passwdField" type="password" class="form-control" placeholder="{{ g_texts.getText("passwd")|raw }}" aria-label="mdp">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <div id="passwdEye">
+                                        <div id="eye"><i class="fa fa-eye"></i></div>
+                                        <div id="eye-slash" style="display:none"><i class="fa fa-eye-slash"></i></div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">{{ g_texts.getText("nav_login")|raw }}</button>
+                                </div> <!-- form-group// -->
+                            </div>
+                        </div> <!-- .row// -->
+                        <div class="text-center">
+                            <a class="small" href="#">{{ g_texts.getText("login_forgot_passwd")|raw }}</a>
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- card.// -->
+        </div> <!-- col.// -->
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        $(document).ready(function() {
+            $("#passwdEye").on('click', function(event) {
+                event.preventDefault();
+                var $selector = $('#passwdField');
+                if($selector.prop("type") === "text")
+                {
+                    $selector.prop('type', 'password');
+                    $('#eye').show();
+                    $('#eye-slash').hide();
+                }
+                else if($selector.prop("type") === "password")
+                {
+                    $selector.prop('type', 'text');
+                    $('#eye').hide();
+                    $('#eye-slash').show();
+                }
+            });
+        });
+
+    </script>
+{% endblock %}
