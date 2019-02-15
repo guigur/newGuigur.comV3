@@ -8,3 +8,6 @@ services:
     guigur.texts:
         class: GuigurFrontBundle\Service\TextsService
         arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]
+    guigur.imageChecker:
+        class: GuigurFrontBundle\Service\ImageCheckerService
+        arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]

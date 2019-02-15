@@ -78,10 +78,12 @@
                     <li class="nav-item {% if app.request.get('_route') == 'Contact' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('Contact') }}"><span class="fa fa-envelope" aria-hidden="true"></span>&nbsp;{{ g_texts.getText("nav_contact")|raw }}</a>
                     </li>
-                   {% if app.user.hasRole('ROLE_ADMIN') %}
-                       <li class="nav-item {% if app.request.get('_route') == 'admin_homepage' %}active{% endif %}">
-                           <a class="nav-link" href="{{ path('admin_homepage') }}"><span class="fa fa-user-cog" aria-hidden="true"></span>&nbsp;{{ g_texts.getText("nav_admin")|raw }}</a>
-                       </li>
+                   {% if app.user %}
+                       {% if app.user.hasRole('ROLE_ADMIN') %}
+                           <li class="nav-item {% if app.request.get('_route') == 'admin_homepage' %}active{% endif %}">
+                               <a class="nav-link" href="{{ path('admin_homepage') }}"><span class="fa fa-user-cog" aria-hidden="true"></span>&nbsp;{{ g_texts.getText("nav_admin")|raw }}</a>
+                           </li>
+                       {% endif %}
                    {% endif %}
                 </ul>
                 <ul class="navbar-nav">
@@ -91,7 +93,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             {%  if app.user %}
-                                <a class="dropdown-item" href="#">{{ g_texts.getText("nav_disconect")|raw }}</a>
+                                <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">{{ g_texts.getText("nav_disconect")|raw }}</a>
                             {% else %}
                                 <a class="dropdown-item" href="#">{{ g_texts.getText("nav_register")|raw }}</a>
                                 <a class="dropdown-item" href="#">{{ g_texts.getText("nav_login")|raw }}</a>
@@ -126,6 +128,8 @@
                     </div>
                 </div>
             </div>
+         --><img src="{{ asset(g_imageChecker.defaultImage(app.user.img, 'user')) }}" height="50" width="50" /><--
+         {{ dump(app.user) }}
             {% block body %}
             {% endblock body %}
         </div>

@@ -10,6 +10,10 @@ admin_texts:
     path:     /Texts
     defaults: { _controller: GuigurAdminBundle:Default:texts }
 
+admin_shop:
+    path:     /Shop
+    defaults: { _controller: GuigurAdminBundle:Default:shop }
+
 admin_download:
     path: /dl/{file}
     defaults: { _controller: GuigurAdminBundle:Default:sendfile }
