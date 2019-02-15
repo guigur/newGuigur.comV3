@@ -89,7 +89,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {%  if app.user %}{{ app.user.username }}{% endif %}<i class="fa fa-user"></i>
+                            {%  if app.user %}<img src="{{ asset(g_imageChecker.defaultImage(app.user.img, 'user')) }}" class="rounded-circle img-avatar" height="50" width="50" />&nbsp;&nbsp;{{ app.user.username }}{% else %}<i class="fa fa-user"></i>{% endif %}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             {%  if app.user %}
@@ -128,7 +128,6 @@
                     </div>
                 </div>
             </div>
-         --><img src="{{ asset(g_imageChecker.defaultImage(app.user.img, 'user')) }}" height="50" width="50" /><--
          {{ dump(app.user) }}
             {% block body %}
             {% endblock body %}

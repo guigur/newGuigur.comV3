@@ -383,3 +383,10 @@ pre > code {
 {
     border: 0px solid white;
 }
+
+.img-avatar
+{
+    border:3px solid #dee2e6;
+    max-width:100%;
+    height:auto
+}
