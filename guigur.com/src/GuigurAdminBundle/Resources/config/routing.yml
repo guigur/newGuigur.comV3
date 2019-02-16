@@ -3,15 +3,15 @@ admin_homepage:
     defaults: { _controller: GuigurAdminBundle:Default:index }
 
 admin_visits:
-    path:     /Visits
+    path:     /visits
     defaults: { _controller: GuigurAdminBundle:Default:visits }
 
 admin_texts:
-    path:     /Texts
+    path:     /texts
     defaults: { _controller: GuigurAdminBundle:Default:texts }
 
 admin_shop:
-    path:     /Shop
+    path:     /shop
     defaults: { _controller: GuigurAdminBundle:Default:shop }
 
 admin_download:

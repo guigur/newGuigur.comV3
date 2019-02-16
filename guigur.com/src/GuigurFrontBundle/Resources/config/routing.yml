@@ -2,45 +2,38 @@ Homepage:
     path:     /
     defaults: { _controller: GuigurFrontBundle:Default:index }
 Projects:
-    path:     /Projects
+    path:     /projects
     defaults: { _controller: GuigurFrontBundle:Project:index }
 Project:
-    path:     /Project/{nameOfProject}
+    path:     /project/{nameOfProject}
     defaults: { _controller: GuigurFrontBundle:Project:index }
 Portfolio:
-    path:     /Portfolio
+    path:     /portfolio
     defaults: { _controller: GuigurFrontBundle:Portfolio:index }
 Archives:
-    path:     /Archives
+    path:     /archives
     defaults: { _controller: GuigurFrontBundle:Archives:index }
 Blog:
-    path:     /Blog
+    path:     /blog
     defaults: { _controller: GuigurFrontBundle:Blog:index }
 About:
-    path:     /About
+    path:     /about
     defaults: { _controller: GuigurFrontBundle:About:index }
 Shop:
-    path:     /Shop
+    path:     /shop
     defaults: { _controller: GuigurFrontBundle:Shop:index }
 Contact:
-    path:     /Contact
+    path:     /contact
     defaults: { _controller: GuigurFrontBundle:Contact:index }
 Random:
-    path:     /Random
+    path:     /random
     defaults: { _controller: GuigurFrontBundle:Random:index }
 CV:
-    path:     /CV
+    path:     /cv
     defaults: { _controller: GuigurFrontBundle:Cv:index }
-LaSuiteDeTed:
-    path:     /LaSuiteDeTED
-    defaults: { _controller: GuigurFrontBundle:TED:index }
 Experiments:
-    path:     /Experiments
+    path:     /experiments
     defaults: { _controller: GuigurFrontBundle:Experiment:index }
 Changelog:
-    path:     /Changelog
+    path:     /changelog
     defaults: { _controller: GuigurFrontBundle:Changelog:index }
-
-g_login:
-    path:   /Login2
-    defaults: { _controller: GuigurFrontBundle:User:login }

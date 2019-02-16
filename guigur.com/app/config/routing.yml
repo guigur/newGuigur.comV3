@@ -1,6 +1,6 @@
 guigur_admin:
     resource: "@GuigurAdminBundle/Resources/config/routing.yml"
-    prefix:   /Admin
+    prefix:   /admin
 
 guigur_front:
     resource: "@GuigurFrontBundle/Resources/config/routing.yml"

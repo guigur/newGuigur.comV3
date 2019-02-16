@@ -1,7 +1,6 @@
-{% extends "base.html.twig" %}
-{% block navBar %}{% endblock %}
-{% block footer %}{% endblock %}
-{% block body %}
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
     <div class="row justify-content-md-center login_form_container">
         <div class="col-md-4">
             <div class="login_logo_container">
@@ -18,18 +17,24 @@
                         <button type="button" class="btn btn-block btn-outline-primary" disabled><del><i class="fab fa-facebook-f"></i>   {{ g_texts.getText("login_w_facebook")|raw }}</del></button>
                     </p>
                     <hr>
-                    <form>
+                    {% if error %}
+                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    <form action="{{ path("fos_user_security_check") }}" method="post">
+                        {% if csrf_token %}
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                        {% endif %}
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="{{ g_texts.getText("username")|raw }}" aria-label="Username">
+                            <input type="text" class="form-control" placeholder="{{ g_texts.getText("username")|raw }}" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
                             </div>
-                            <input id="passwdField" type="password" class="form-control" placeholder="{{ g_texts.getText("passwd")|raw }}" aria-label="mdp">
+                            <input type="password" class="form-control" placeholder="{{ g_texts.getText("passwd")|raw }}" id="password" name="_password" required="required" autocomplete="current-password">
                             <div class="input-group-append">
                                 <span class="input-group-text">
                                     <div id="passwdEye">
@@ -39,10 +44,12 @@
                                 </span>
                             </div>
                         </div>
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                        <label for="remember_me">{{ 'security.login.remember_me' }}</label>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">{{ g_texts.getText("nav_login")|raw }}</button>
+                                    <button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit' }}" class="btn btn-primary btn-block">{{ g_texts.getText("nav_login")|raw }}</button>
                                 </div> <!-- form-group// -->
                             </div>
                         </div> <!-- .row// -->
@@ -54,13 +61,14 @@
             </div> <!-- card.// -->
         </div> <!-- col.// -->
     </div>
+
 {% endblock %}
 {% block js %}
     <script>
         $(document).ready(function() {
             $("#passwdEye").on('click', function(event) {
                 event.preventDefault();
-                var $selector = $('#passwdField');
+                var $selector = $('#password');
                 if($selector.prop("type") === "text")
                 {
                     $selector.prop('type', 'password');
@@ -75,6 +83,5 @@
                 }
             });
         });
-
     </script>
 {% endblock %}

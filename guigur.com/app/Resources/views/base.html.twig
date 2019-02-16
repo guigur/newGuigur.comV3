@@ -96,7 +96,7 @@
                                 <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">{{ g_texts.getText("nav_disconect")|raw }}</a>
                             {% else %}
                                 <a class="dropdown-item" href="#">{{ g_texts.getText("nav_register")|raw }}</a>
-                                <a class="dropdown-item" href="#">{{ g_texts.getText("nav_login")|raw }}</a>
+                                <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">{{ g_texts.getText("nav_login")|raw }}</a>
                             {% endif %}
                             <span class="dropdown-item" href="#">
                                 {{ g_texts.getText("nav_night_mode")|raw }}
@@ -160,28 +160,39 @@
         if (isDark === "true")
             $("#darkSwitch").prop('checked', true);
 
-
         var darkChecker = function() {
-            var darkCheckbox = $("#darkSwitch:checked").prop('checked');
+            if ($('#darkSwitch').length) //check if element exist
+            {
+                var darkCheckbox = $("#darkSwitch:checked").prop('checked');
 
-            if (darkCheckbox === true && isDark !== "true")
-            {
-                Cookies.set("dark", true);
-                location.reload();
-            }
-            else if (darkCheckbox === false && isDark === "true")
-            {
-                Cookies.set("dark", false);
-                location.reload();
+                if (isDark === "true")
+                {
+                    if (darkCheckbox !== true)
+                    {
+                        console.log("light");
+                        Cookies.set("dark", false);
+                        location.reload();
+                    }
+                }
+                else
+                {
+                    if (darkCheckbox === true)
+                    {
+                        console.log("dark");
+                        Cookies.set("dark", true);
+                        location.reload();
+                    }
+                }
             }
         };
-            darkChecker();
-            $("#darkSwitch").on( "click", darkChecker);
+        darkChecker();
+        $("#darkSwitch").on("click", darkChecker);
 
+            /*
         var popUpWelcome = Cookies.get('popUpWelcome');
         if (popUpWelcome !== "true")
             console.log("SALUT TES NOUVEAI ?!"); // $("#darkSwitch").prop('checked', true);
-
+        */
         </script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
