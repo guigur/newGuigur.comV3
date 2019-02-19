@@ -93,12 +93,13 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             {%  if app.user %}
+                                <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">{{ g_texts.getText("nav_profil")|raw }}</a>
                                 <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">{{ g_texts.getText("nav_disconect")|raw }}</a>
                             {% else %}
-                                <a class="dropdown-item" href="#">{{ g_texts.getText("nav_register")|raw }}</a>
+                                <a class="dropdown-item" href="{{ path('fos_user_registration_register') }}">{{ g_texts.getText("nav_register")|raw }}</a>
                                 <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">{{ g_texts.getText("nav_login")|raw }}</a>
                             {% endif %}
-                            <span class="dropdown-item" href="#">
+                            <span class="dropdown-item" href="">
                                 {{ g_texts.getText("nav_night_mode")|raw }}
                                 <label class="switch">
                                     <input type="checkbox" id="darkSwitch" >

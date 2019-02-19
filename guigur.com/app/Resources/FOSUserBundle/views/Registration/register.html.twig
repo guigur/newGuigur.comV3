@@ -1,5 +1,80 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends "base.html.twig" %}
+{% block navBar %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block body %}
+    <div class="row justify-content-md-center login_form_container">
+        <div class="col-md-4">
+            <div class="login_logo_container">
+                <a href="{{ path('Homepage') }}">
+                    <img src="{{ asset('img/guigur_.com_green.png') }}" class="img-fluid" alt="">
+                </a>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ path('fos_user_security_login') }}" class="float-right btn btn-outline-primary">{{ g_texts.getText("nav_login")|raw }}</a>
+                    <h4 class="card-title mb-4 mt-1">{{ g_texts.getText("nav_register")|raw }}</h4>
+                    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                    {{ form_errors(form.email) }}
+                    {{ form_errors(form.username) }}
+                    {{ form_errors(form.plainPassword.first) }}
+                    {{ form_errors(form.plainPassword.second) }}
 
-{% block fos_user_content %}
-{% include "@FOSUser/Registration/register_content.html.twig" %}
-{% endblock fos_user_content %}
+                        <div class="input-group mb-3">
+                            <label for="validationDefaultUsername">*{{ g_texts.getText("email")|raw }}:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-at"></i></span>
+                                </div>
+                                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'autocomplete': 'email', 'placeholder': g_texts.getText("email")|raw} }) }}
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label for="validationDefaultUsername">*{{ g_texts.getText("username")|raw }}:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                                </div>
+                                {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'autocomplete': 'username', 'placeholder': g_texts.getText("username")|raw} }) }}
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label for="validationDefaultUsername">*{{ g_texts.getText("passwd1")|raw }}:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
+                                </div>
+                                <!--<input type="password" class="form-control" placeholder="{{ g_texts.getText("passwd")|raw }}" id="password" name="_password" required="required" autocomplete="current-password">-->
+                                {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': g_texts.getText("passwd1")|raw} }) }}
+
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label for="validationDefaultUsername">*{{ g_texts.getText("passwd2")|raw }}:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
+                                </div>
+                                {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': g_texts.getText("passwd2")|raw} }) }}
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <button type="submit" id="_submit" name="_submit" class="btn btn-primary btn-block">{{ g_texts.getText("nav_register")|raw }}</button>
+                                </div>
+
+                            </div>
+                        </div> <!-- .row// -->
+                    {{ form_end(form) }}
+                </div>
+            </div> <!-- card.// -->
+        </div> <!-- col.// -->
+    </div>
+
+{% endblock %}
