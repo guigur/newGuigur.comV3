@@ -26,6 +26,13 @@ class User extends BaseUser
     private $img;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="register_date", type="datetimetz")
+     */
+    private $registerDate;
+
+    /**
      * Set img
      *
      * @param string $img
@@ -47,6 +54,30 @@ class User extends BaseUser
     public function getImg()
     {
         return $this->img;
+    }
+
+    /**
+     * Set registerDate
+     *
+     * @param \DateTime $registerDate
+     *
+     * @return User
+     */
+    public function setRegisterDate($registerDate)
+    {
+        $this->registerDate = $registerDate;
+
+        return $this;
+    }
+
+    /**
+     * Get registerDate
+     *
+     * @return \DateTime
+     */
+    public function getRegisterDate()
+    {
+        return $this->registerDate;
     }
 
     public function __construct()

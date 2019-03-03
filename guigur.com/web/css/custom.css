@@ -413,3 +413,13 @@ pre > code {
     cursor: pointer;
     pointer-events: all;
 }
+
+/* profile stuff */
+
+.img-profile
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+}

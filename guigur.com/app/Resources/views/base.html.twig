@@ -93,7 +93,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             {%  if app.user %}
-                                <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">{{ g_texts.getText("nav_profil")|raw }}</a>
+                                <a class="dropdown-item" href="{{ path('fos_user_profile_show') }}">{{ g_texts.getText("nav_profil")|raw }}</a>
                                 <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">{{ g_texts.getText("nav_disconect")|raw }}</a>
                             {% else %}
                                 <a class="dropdown-item" href="{{ path('fos_user_registration_register') }}">{{ g_texts.getText("nav_register")|raw }}</a>
