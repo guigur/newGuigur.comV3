@@ -1,8 +1,3 @@
-user:
-    resource: "@UserBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 guigur_admin:
     resource: "@GuigurAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
@@ -18,3 +13,8 @@ app:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
     prefix: /
+
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /
