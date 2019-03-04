@@ -421,5 +421,15 @@ pre > code {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+}
+
+.profile_big_text
+{
+    font-size: 1.5em;
+}
+
+.profile_medium_text
+{
+    font-size: 1em;
 }

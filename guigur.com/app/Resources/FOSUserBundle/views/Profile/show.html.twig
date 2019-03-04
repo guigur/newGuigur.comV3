@@ -1,39 +1,47 @@
 {% extends "base.html.twig" %}
 {% block body %}
-    {{ dump(user) }}
-
     <div class="row">
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                        <img src="{{ asset(g_imageChecker.defaultImage(app.user.img, 'user')) }}" alt="profile image of {{ user.username }}" class="rounded-circle img-profile" height="200" width="200" />
-                        {{ user.username }}
-                    {% for role in user.roles %}
-                        {{ role }}
-                    {% endfor %}
+                    <div class="row">
+                            <img src="{{ asset(g_imageChecker.defaultImage(app.user.img, 'user')) }}" alt="profile image of {{ user.username }}" class="rounded-circle img-profile" height="200" width="200" />
+                    </div>
+                    <div class="row justify-content-center" >
+                        <span class="text-center profile_big_text">{{  user.username }}</span>
+                    </div>
+                    <div class="row justify-content-center" >
+                        <span class="text-center profile_medium_text">{{ g_texts.getText(user.roles[0])|raw }}</span>
+                    </div>
                 </div>
             </div>
         </div>
-
-
-
         <div class="col-md-9">
             <div class="card">
                 <div class="card-header">
-                    Quote
+                    <b>{{ g_texts.getText("profile_infos")|raw }}</b>
                 </div>
-                <div class="">
+                <div class="card-body">
                     <table class="table table-striped">
                         <tr>
-                            <th class="text-nowrap" scope="row">Column ordering</th>
-                            <td colspan="5">Yes</td>
+                            <td><i class="fa fa-user"></i>&nbsp;&nbsp;{{ g_texts.getText("profile_username")|raw }}</td>
+                            <td>{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-at"></i>&nbsp;&nbsp;{{ g_texts.getText("profile_email")|raw }}</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{ g_texts.getText("profile_registeration")|raw }}</td>
+                            <td>{{ user.registerDate|date("m/d/Y")  }}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;{{ g_texts.getText("profile_lastLogin")|raw }}</td>
+                            <td>{{ user.lastLogin|date("m/d/Y")  }}</td>
                         </tr>
                     </table>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 {% endblock body %}
