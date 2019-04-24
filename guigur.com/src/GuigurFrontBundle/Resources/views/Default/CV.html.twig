@@ -1,1 +1,49 @@
-cv
+{% extends "base.html.twig" %}
+{% block css %}
+    {{ parent() }}
+    <link href="{{ asset('css/cv.css') }}" rel="stylesheet">
+{% endblock css %}
+{% block body %}
+
+{{ dump(cvContents) }}
+        {% for cvContent in cvContents %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="cv-separator"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <h1 class="my-4">{{ cvContent.title }}
+                <small>{{ cvContent.pot }}</small>
+            </h1>
+    </div>
+            <!-- Blog Entries Column -->
+    <div class="row">
+
+            <div class="col-md-8 offset-md-1">
+                <p class="cv-text">
+                    {{ cvContent.text }}
+                </p>
+
+            </div>
+            <div class="col-md-2">
+                <div class="cv-qrcode-container">
+                    <div id="qrcode"></div>
+
+                </div>
+                <div class="cv-link-qrcode">{{ cvContent.url }}</div>
+            </div>
+    </div>
+    {% endfor %}
+    <!-- /.row -->
+{% endblock body %}
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset('js/jquery.qrcode.min.js') }}"></script>
+    <script>
+        $('#qrcode').qrcode({width: 128,height: 128,text: "size doesn't matter"});
+
+    </script>
+{% endblock js %}

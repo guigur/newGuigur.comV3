@@ -9,6 +9,9 @@ class CvController extends Controller
     public function indexAction()
     {
 
-            return $this->render('GuigurFrontBundle:Default:CV.html.twig');
+        $cvContents = $this->getDoctrine()
+            ->getRepository('GuigurFrontBundle:cvContent')
+            ->findBy(array('isPublic' => 1));
+            return $this->render('GuigurFrontBundle:Default:CV.html.twig', array("cvContents" => $cvContents));
     }
 }
