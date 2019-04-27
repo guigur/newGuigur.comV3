@@ -11,8 +11,12 @@ class LinkShortenerController extends Controller
         return $this->render('GuigurFrontBundle:Default:linkShortener.html.twig');
     }
 
-    public function paramsAction()
+    public function paramsAction($link)
     {
-        return $this->render('GuigurFrontBundle:Default:about.html.twig');
+        $a = $this->getDoctrine()
+            ->getRepository('GuigurFrontBundle:LinkShortener')
+            ->findOneByLink($link);
+
+        return $this->render('GuigurFrontBundle:Default:about.html.twig', array($a => "A"));
     }
 }
