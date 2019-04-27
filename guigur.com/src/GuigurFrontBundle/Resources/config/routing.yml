@@ -37,3 +37,9 @@ Experiments:
 Changelog:
     path:     /changelog
     defaults: { _controller: GuigurFrontBundle:Changelog:index }
+LinkShortener:
+    path:     /l
+    defaults: { _controller: GuigurFrontBundle:LinkShortener:index }
+LinkShortenerParams:
+    path:     /l/{link}
+    defaults: { _controller: GuigurFrontBundle:LinkShortener:params }

@@ -42,7 +42,6 @@ class Texts
      */
     private $textEn;
 
-
     /**
      * Get id
      *
