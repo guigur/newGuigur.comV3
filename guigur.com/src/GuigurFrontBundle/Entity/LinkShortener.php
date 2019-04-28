@@ -5,12 +5,12 @@ namespace GuigurFrontBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * linkShortener
+ * LinkShortener
  *
  * @ORM\Table(name="link_shortener")
- * @ORM\Entity(repositoryClass="GuigurFrontBundle\Repository\linkShortenerRepository")
+ * @ORM\Entity(repositoryClass="GuigurFrontBundle\Repository\LinkShortenerRepository")
  */
-class linkShortener
+class LinkShortener
 {
     /**
      * @var int
@@ -86,7 +86,7 @@ class linkShortener
      *
      * @param string $name
      *
-     * @return linkShortener
+     * @return LinkShortener
      */
     public function setName($name)
     {
@@ -110,7 +110,7 @@ class linkShortener
      *
      * @param string $comment
      *
-     * @return linkShortener
+     * @return LinkShortener
      */
     public function setComment($comment)
     {
@@ -134,7 +134,7 @@ class linkShortener
      *
      * @param string $link
      *
-     * @return linkShortener
+     * @return LinkShortener
      */
     public function setLink($link)
     {
@@ -158,7 +158,7 @@ class linkShortener
      *
      * @param integer $user
      *
-     * @return linkShortener
+     * @return LinkShortener
      */
     public function setUser($user)
     {
@@ -182,7 +182,7 @@ class linkShortener
      *
      * @param \DateTime $dateCreated
      *
-     * @return linkShortener
+     * @return LinkShortener
      */
     public function setDateCreated($dateCreated)
     {
@@ -206,7 +206,7 @@ class linkShortener
      *
      * @param \DateTime $dateLastModified
      *
-     * @return linkShortener
+     * @return LinkShortener
      */
     public function setDateLastModified($dateLastModified)
     {
@@ -230,7 +230,7 @@ class linkShortener
      *
      * @param boolean $isActive
      *
-     * @return linkShortener
+     * @return LinkShortener
      */
     public function setIsActive($isActive)
     {
