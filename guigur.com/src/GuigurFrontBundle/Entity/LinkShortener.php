@@ -43,6 +43,13 @@ class LinkShortener
     private $link;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255)
+     */
+    private $url;
+
+    /**
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="GuigurFrontBundle\Entity\User", cascade={"detach"}, fetch="LAZY")
@@ -151,6 +158,30 @@ class LinkShortener
     public function getLink()
     {
         return $this->link;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return LinkShortener
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 
     /**

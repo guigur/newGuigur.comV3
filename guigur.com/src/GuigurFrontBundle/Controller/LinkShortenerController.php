@@ -9,11 +9,7 @@ class LinkShortenerController extends Controller
 {
     public function indexAction()
     {
-        $link = "test";
-
         $user = $this->getUser();
-        //if ($user == NULL)
-
         $linksUser = $this->getDoctrine()
             ->getRepository('GuigurFrontBundle:LinkShortener')
             ->findByUser($user->getId());
@@ -22,10 +18,12 @@ class LinkShortenerController extends Controller
 
     public function paramsAction($link)
     {
-        $a = $this->getDoctrine()
+        $linkShortened = $this->getDoctrine()
             ->getRepository('GuigurFrontBundle:LinkShortener')
             ->findOneByLink($link);
-
-        return $this->render('GuigurFrontBundle:Default:about.html.twig', array("A" => $a));
+    if($linkShortened != NULL)
+        return $this->redirect($linkShortened->getUrl());
+    else
+        return $this->render('GuigurFrontBundle:Default:about.html.twig', array("A" => $url));
     }
 }
