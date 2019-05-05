@@ -35,11 +35,11 @@
                                 <td>
 
                                     <div class="btn-group-toggle l-btn" data-toggle="buttons" >
-                                        <label class="btn btn-warning">
-                                            <input type="checkbox" autocomplete="off" checked> Off
+                                        <label class="btn btn-success">
+                                            <!--<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>-->
+                                            <input class="btn-checkbox" type="checkbox" autocomplete="off" checked><span class="btn-text">On</span>
                                         </label>
                                     </div>
-
                                 </td>
                             </tr>
                             {% endfor %}
@@ -54,26 +54,19 @@
         $(document).ready(function(){
             console.log("ready");
             $('.l-btn').click(function(){
-                console.log("click");
-                console.log($(this).children('input'));
+                var label = $(this).children("label");
+                var checkbox = label.children("input");
 
-                $(this).children("label").removeClass('btn-warning');
-                $(this).children("label").addClass('btn-success');
-
-               // $(this).children("label").text("yolo");
-
-                console.log("here");
-                var test = $(this).children("label");
-                console.log(test.children("input"));
-/*
-                if($(this).children("label > input").prop("checked") === true){
-                    console.log("Checkbox is checked.");
+                if(checkbox.prop("checked") === true)
+                {
+                    $(this).children("label").removeClass('btn-success').addClass('btn-warning');
+                    label.children(".btn-text").text("Off");
                 }
-                else if($(this).children("label > input").prop("checked") === false){
-                    console.log("Checkbox is unchecked.");
+                else if(checkbox.prop("checked") === false)
+                {
+                    $(this).children("label").removeClass('btn-warning').addClass('btn-success');
+                    label.children(".btn-text").text("On");
                 }
-
- */
             });
         });
     </script>

@@ -46,3 +46,7 @@ LinkShortenerError:
 LinkShortenerParams:
     path:     /l/{link}
     defaults: { _controller: GuigurFrontBundle:LinkShortener:params }
+
+ajax_test:
+    path:     /ajax/test
+    defaults: { _controller: GuigurFrontBundle:ComponentsManager:ajaxTab }
