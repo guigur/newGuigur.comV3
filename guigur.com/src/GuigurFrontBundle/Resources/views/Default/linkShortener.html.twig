@@ -1,14 +1,80 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title text-center">Guigur's links Shortener</h3>
                     <small>Pratique pour les QR Codes</small>
                         {{ dump(LinksUser) }}
+                    <div class="table-responsive">
+
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Comment</th>
+                                <th scope="col">Link</th>
+                                <th scope="col">Url</th>
+                                <th scope="col">Création </th>
+                                <th scope="col">Last modif</th>
+                                <th scope="col">is Active</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for LinkUser in LinksUser %}
+                            <tr>
+                                <th scope="row">{{ LinkUser.id }}</th>
+                                <td>{{ LinkUser.name }}</td>
+                                <td>{{ LinkUser.comment }}</td>
+                                <td>guigur.com/l/<b>{{ LinkUser.link }}</b></td>
+                                <td>{{ LinkUser.url }}</td>
+                                <td>{{ LinkUser.dateCreated|date("m/d/Y H:i:s") }}</td>
+                                <td>{{ LinkUser.dateLastModified|date("m/d/Y H:i:s") }}</td>
+                                <td>
+
+                                    <div class="btn-group-toggle l-btn" data-toggle="buttons" >
+                                        <label class="btn btn-warning">
+                                            <input type="checkbox" autocomplete="off" checked> Off
+                                        </label>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            console.log("ready");
+            $('.l-btn').click(function(){
+                console.log("click");
+                console.log($(this).children('input'));
+
+                $(this).children("label").removeClass('btn-warning');
+                $(this).children("label").addClass('btn-success');
+
+               // $(this).children("label").text("yolo");
+
+                console.log("here");
+                var test = $(this).children("label");
+                console.log(test.children("input"));
+/*
+                if($(this).children("label > input").prop("checked") === true){
+                    console.log("Checkbox is checked.");
+                }
+                else if($(this).children("label > input").prop("checked") === false){
+                    console.log("Checkbox is unchecked.");
+                }
+
+ */
+            });
+        });
+    </script>
 {% endblock body %}
