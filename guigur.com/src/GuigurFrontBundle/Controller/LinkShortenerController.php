@@ -20,10 +20,30 @@ class LinkShortenerController extends Controller
     {
         $linkShortened = $this->getDoctrine()
             ->getRepository('GuigurFrontBundle:LinkShortener')
-            ->findOneByLink($link);
-    if($linkShortened != NULL)
-        return $this->redirect($linkShortened->getUrl());
-    else
-        return $this->render('GuigurFrontBundle:Default:about.html.twig', array("A" => $url));
+            ->findOneBy(array('link' => $link));
+        if($linkShortened != NULL)
+        {
+            return $this->redirect($linkShortened->getUrl());
+        }
+        else
+        {
+            $errorParam = "nolink";
+            return $this->redirectToRoute('LinkShortenerError', ['errorParam' => $errorParam]);
+        }
+    }
+
+    public function errorAction($errorParam)
+    {
+        $errorMsg = "";
+        var_dump($errorParam);
+        switch ($errorParam) {
+            case "nolink":
+                $errorMsg = "This link does not exist";
+                break;
+            default:
+                $errorMsg = "There is no error here... Did you type this URL and hope to get some eater egg or something ?";
+        echo $errorMsg;
+        }
+        return $this->render('GuigurFrontBundle:Default:linkShortenerErrors.html.twig', array("ErrorMessage" => $errorMsg));
     }
 }

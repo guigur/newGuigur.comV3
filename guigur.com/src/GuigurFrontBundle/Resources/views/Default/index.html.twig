@@ -56,7 +56,10 @@
 
         </div>
     </div>
-<!--
+
+    <img class="imgViewer" src="{{ asset("img/article_default.png") }}">
+
+    <!--
     <div class="col-md-12">
         Content
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#guigurModal">
@@ -69,4 +72,19 @@
     <script>$('#myModal').on('shown.bs.modal', function () {
             $('#myInput').focus()
         })</script>
+
+
+    <script>
+        var $image = $('.imgViewer');
+
+        $image.viewer({
+
+        });
+
+        // Get the Viewer.js instance after initialized
+        var viewer = $image.data('viewer');
+
+        // View a list of images
+        $('#images').viewer();
+    </script>
 {% endblock %}

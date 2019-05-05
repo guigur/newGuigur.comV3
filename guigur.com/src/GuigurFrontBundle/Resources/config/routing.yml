@@ -40,6 +40,9 @@ Changelog:
 LinkShortener:
     path:     /l
     defaults: { _controller: GuigurFrontBundle:LinkShortener:index }
+LinkShortenerError:
+    path:     /l/error/{errorParam}
+    defaults: { _controller: GuigurFrontBundle:LinkShortener:error, errorParam: null }
 LinkShortenerParams:
     path:     /l/{link}
     defaults: { _controller: GuigurFrontBundle:LinkShortener:params }

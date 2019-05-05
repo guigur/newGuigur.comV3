@@ -11,8 +11,7 @@
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_48.png') }}" sizes="48x48">
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_64.png') }}" sizes="64x64">
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_96.png') }}" sizes="96x96">
-        <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
-        <script src="{{ asset('js/js.cookie.min.js') }}"></script>
+
 
         {%  if app.request.cookies.get('dark') == "true" %}
             <link href="{{ asset('css/bootstrap_dark.css') }}" rel="stylesheet">
@@ -20,9 +19,15 @@
             <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         {% endif %}
         <link href="{{ asset('css/foundation-icons.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/viewer.min.css') }}" rel="stylesheet">
+
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
         {% block css %}{% endblock %}
+        <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
+        <script src="{{ asset('js/js.cookie.min.js') }}"></script>
+        <script src="{{ asset('js/viewer.min.js')}}"></script>
+        <script src="{{ asset('js/jquery-viewer.min.js')}}"></script>
         <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
         <script>tinymce.init({ selector:'.tinyMCE' });</script>
 
