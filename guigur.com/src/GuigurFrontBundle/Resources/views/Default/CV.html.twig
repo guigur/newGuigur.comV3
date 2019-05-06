@@ -4,9 +4,7 @@
     <link href="{{ asset('css/cv.css') }}" rel="stylesheet">
 {% endblock css %}
 {% block body %}
-
-{{ dump(cvContents) }}
-        {% for cvContent in cvContents %}
+     {% for cvContent in cvContents %}
 
     <div class="row">
         <div class="col-md-12">

@@ -1,8 +1,19 @@
 {% extends "base.html.twig" %}
 {% block body %}
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>Nouveau !</strong> <a href="{{ path('LinkShortener') }}">Raccourcisseur de liens</a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
     <div class="row">
         {{ g_texts.getText("home")|raw }}
     </div>
+    <div class="row">
+        <a href="{{ path('LinkShortener') }}" class="btn btn-primary">Raccourcisseur de liens :)</a><br />
+    </div>
+    <br />
     <div class="row">
         <div class="col-md-8">
             {% include 'Article_min_display.html.twig'  with {'lastArticle': true }%}
