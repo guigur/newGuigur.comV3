@@ -6,68 +6,66 @@
                 <div class="card-body">
                     <h3 class="card-title text-center">Guigur's links Shortener</h3>
                     <small>Pratique pour les QR Codes</small>
-                        {{ dump(LinksUser) }}
-                    <div class="table-responsive">
-
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Comment</th>
-                                <th scope="col">Link</th>
-                                <th scope="col">Url</th>
-                                <th scope="col">Création </th>
-                                <th scope="col">Last modif</th>
-                                <th scope="col">is Active</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for LinkUser in LinksUser %}
-                            <tr>
-                                <th scope="row">{{ LinkUser.id }}</th>
-                                <td>{{ LinkUser.name }}</td>
-                                <td>{{ LinkUser.comment }}</td>
-                                <td>guigur.com/l/<b>{{ LinkUser.link }}</b></td>
-                                <td>{{ LinkUser.url }}</td>
-                                <td>{{ LinkUser.dateCreated|date("m/d/Y H:i:s") }}</td>
-                                <td>{{ LinkUser.dateLastModified|date("m/d/Y H:i:s") }}</td>
-                                <td>
-
-                                    <div class="btn-group-toggle l-btn" data-toggle="buttons" >
-                                        <label class="btn btn-success">
-                                            <!--<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>-->
-                                            <input class="btn-checkbox" type="checkbox" autocomplete="off" checked><span class="btn-text">On</span>
-                                        </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
+                    <div class="table-responsive l-list">
+                            {{ render(controller('GuigurFrontBundle:LinkShortener:links')) }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        $(document).ready(function(){
+        function init()
+        {
             console.log("ready");
-            $('.l-btn').click(function(){
-                var label = $(this).children("label");
-                var checkbox = label.children("input");
-
-                if(checkbox.prop("checked") === true)
-                {
-                    $(this).children("label").removeClass('btn-success').addClass('btn-warning');
-                    label.children(".btn-text").text("Off");
-                }
-                else if(checkbox.prop("checked") === false)
-                {
-                    $(this).children("label").removeClass('btn-warning').addClass('btn-success');
-                    label.children(".btn-text").text("On");
-                }
+            $('.l-btn-toggle').click(function(){
+                var selector = $(this);
+                selector.html('<span class="spinner-border spinner-border-sm ggr-spinner-btn" role="status" aria-hidden="true"></span>');
+                var id = selector.data('linkuser-id');
+                $.ajax({
+                    type: "POST",
+                    url: "{{path('ajax_LinkShortenerToggle')}}",
+                    data: {id : id},
+                    success: function(result){
+                        if (result.isActive === true)
+                        {
+                            selector.html('<span class="btn-text">On</span>');
+                            selector.removeClass('btn-warning').addClass('btn-success');
+                        }
+                        else if (result.isActive === false)
+                        {
+                            selector.html('<span class="btn-text">Off</span>');
+                            selector.removeClass('btn-success').addClass('btn-warning');
+                        }
+                    },
+                    error: function () {
+                        selector.html('<span class="fa fa-exclamation-triangle"></span>');
+                        selector.removeClass('btn-success').addClass('btn-danger');
+                    }
+                });
             });
+
+            $('.l-btn-delete').click(function(){
+                var selector = $('.l-list');
+                var height = selector.height();
+                var id = $(this).data('linkuser-id');
+                var offset = (height/2) - 16; //1em = 16px;
+                selector.html('<div class="l-list-loader" style="height:'+height+'px; padding-top: '+offset+'px;"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div></div>');
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{path('ajax_LinkShortenerDelete')}}",
+                    data: {id : id},
+                    success: function(result){
+                        selector.html(result);
+                        init();
+                    }
+                });
+
+            });
+        }
+
+        $(document).ready(function(){
+            init();
         });
     </script>
 {% endblock body %}

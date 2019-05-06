@@ -433,3 +433,16 @@ pre > code {
 {
     font-size: 1em;
 }
+
+/* Spinner stuff */
+
+.ggr-spinner-btn
+{
+    vertical-align: -0.1em !important;
+}
+
+.l-list-loader
+{
+    width: 100%;
+    text-align: center;
+}

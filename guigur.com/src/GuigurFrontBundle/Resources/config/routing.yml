@@ -47,6 +47,9 @@ LinkShortenerParams:
     path:     /l/{link}
     defaults: { _controller: GuigurFrontBundle:LinkShortener:params }
 
-ajax_test:
-    path:     /ajax/test
-    defaults: { _controller: GuigurFrontBundle:ComponentsManager:ajaxTab }
+ajax_LinkShortenerToggle:
+    path:     /ajax/l/toggle
+    defaults: { _controller: GuigurFrontBundle:LinkShortener:ajaxLinkShortenerToggle }
+ajax_LinkShortenerDelete:
+    path:     /ajax/l/delete
+    defaults: { _controller: GuigurFrontBundle:LinkShortener:ajaxLinkShortenerDelete }
