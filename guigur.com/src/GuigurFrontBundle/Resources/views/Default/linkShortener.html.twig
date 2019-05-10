@@ -62,6 +62,26 @@
                 });
 
             });
+
+            $('.l-btn-edit').click(function(){
+                var selector = $('.l-list');
+                var height = selector.height();
+                var id = $(this).data('linkuser-id');
+                var offset = (height/2) - 16; //1em = 16px;
+                selector.html('<div class="l-list-loader" style="height:'+height+'px; padding-top: '+offset+'px;"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div></div>');
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{path('ajax_LinkShortenerEdit')}}",
+                    data: {id : id},
+                    success: function(result){
+                        selector.html(result);
+                        init();
+                    }
+                });
+
+            });
+
         }
 
         $(document).ready(function(){

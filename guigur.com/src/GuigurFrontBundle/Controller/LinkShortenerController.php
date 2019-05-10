@@ -144,4 +144,12 @@ class LinkShortenerController extends Controller
                 400);
         }
     }
+
+    public function ajaxLinkShortenerEditAction(Request $request)
+    {
+        return new JsonResponse(array(
+            'status' => 'ERROR',
+            'message' => 'method empty'),
+            400);
+    }
 }

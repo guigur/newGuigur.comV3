@@ -53,3 +53,6 @@ ajax_LinkShortenerToggle:
 ajax_LinkShortenerDelete:
     path:     /ajax/l/delete
     defaults: { _controller: GuigurFrontBundle:LinkShortener:ajaxLinkShortenerDelete }
+ajax_LinkShortenerEdit:
+    path:     /ajax/l/edit
+    defaults: { _controller: GuigurFrontBundle:LinkShortener:ajaxLinkShortenerEdit }
