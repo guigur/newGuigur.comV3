@@ -2,7 +2,9 @@
 {
     height: 0.5em;
     width: 100%;
-    background: #1b8e51;
+    background: #1b8e51!important;
+    -webkit-print-color-adjust: exact;
+    display: block;
 }
 
 .cv-text
@@ -10,12 +12,14 @@
     text-align: justify;
     text-justify: inter-word;
     font-size: 1.5em;
+    display: block;
 }
 .cv-link-qrcode
 {
     font-size: 1em;
     font-style: italic;
     text-align: center;
+    display: block;
 
 }
 
@@ -23,5 +27,6 @@
 {
     margin-top: 16px;
     text-align: center;
+    display: block;
 }
 

@@ -11,7 +11,7 @@
                     </div>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ggr_modal">
                         Launch demo modal
                     </button>
                 </div>
@@ -95,9 +95,28 @@
 
         function genModal(title, content)
         {
-            $('.modal-title').html(title);
-            $('.modal-body').html(content);
-            $('#exampleModalCenter').modal('show');
+            if (typeof title === "undefined" || typeof content === "undefined")
+                return -1;
+            else
+            {
+                var modalFooterContent = '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>';
+                $('.modal-title').html(title);
+                $('.modal-body').html(content);
+                for (var i = 2; i < arguments.length; i++)
+                {
+                    if (typeof arguments[i] === "undefined")
+                    console.log(arguments[i]);
+                    $('.modal-footer').html(modalFooterContent);
+                }
+
+                $('#ggr_modal').modal('show');
+            }
+            return 1;
+        }
+
+        function deleteModal()
+        {
+
         }
 
         $(document).ready(function(){
