@@ -7,6 +7,7 @@ use Symfony\Component\DependencyInjection\Container;
 
 class TextsService
 {
+    /*
     protected $em;
     private $container;
 
@@ -14,10 +15,10 @@ class TextsService
     {
         $this->em = $entityManager;
         $this->container = $container;
-    }
+    }*/
 
     public function getText($name)
-    {
+    {/*
         $text = $this->em
             ->getRepository('GuigurFrontBundle:Texts')
             ->findOneByName($name);
@@ -28,6 +29,8 @@ class TextsService
             $text = $text->getTextFr();
 
         return ($text);
+*/
+        return 'ds';
     }
 
 

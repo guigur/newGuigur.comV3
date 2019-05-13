@@ -1,13 +1,14 @@
 services:
-    guigur.catchphrase:
-        class: GuigurFrontBundle\Service\CatchPhraseService
-        arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]
-    guigur.projects:
-        class: GuigurFrontBundle\Service\ProjectsService
-        arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]
-    guigur.texts:
-        class: GuigurFrontBundle\Service\TextsService
-        arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]
-    guigur.imageChecker:
-        class: GuigurFrontBundle\Service\ImageCheckerService
-        arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+    # ...
+
+    GuigurFrontBundle\Service\CatchPhraseService:
+
+    GuigurFrontBundle\Service\ProjectsService:
+
+    GuigurFrontBundle\Service\TextsService:
+
+    GuigurFrontBundle\Service\ImageCheckerService:

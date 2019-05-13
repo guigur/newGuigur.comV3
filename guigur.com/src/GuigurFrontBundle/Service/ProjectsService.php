@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Container;
 
 class ProjectsService
 {
-    protected $em;
+   /* protected $em;
     private $container;
 
     public function __construct(EntityManager $entityManager, Container $container)
@@ -16,7 +16,7 @@ class ProjectsService
         $this->em = $entityManager;
         $this->container = $container;
     }
-
+*/
     public function defaultImages($projects)
     {
         foreach ($projects as $project) //page avec plusieurs projets

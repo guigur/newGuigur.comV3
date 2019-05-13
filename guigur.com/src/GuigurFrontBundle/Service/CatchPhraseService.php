@@ -8,17 +8,17 @@ use Symfony\Component\DependencyInjection\Container;
 
 class CatchPhraseService
 {
-    protected $em;
-    private $container;
-
+  /*  protected $em;
+    private $container;*/
+/*
     public function __construct(EntityManager $entityManager, Container $container)
     {
         $this->em = $entityManager;
         $this->container = $container;
     }
-
-    public function requestCatchPhrase($type)
-    {
+*/
+    public function requestCatchPhrase()
+    {/*
         $catchPhrase = $this->em->getRepository('GuigurFrontBundle:CatchPhrase')->findByType($type);
 
         if (!$catchPhrase) {
@@ -27,7 +27,8 @@ class CatchPhraseService
             return ($nocatch);
         }
         shuffle($catchPhrase);
-        return ($catchPhrase[0]);
+        return ($catchPhrase[0]);*/
+        return "sd";
     }
 }
 

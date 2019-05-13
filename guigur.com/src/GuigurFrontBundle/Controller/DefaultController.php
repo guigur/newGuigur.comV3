@@ -3,13 +3,15 @@
 namespace GuigurFrontBundle\Controller;
 
 use GuigurFrontBundle\Entity\Visits;
+use GuigurFrontBundle\Service\CatchPhraseService;
+use GuigurFrontBundle\Service\ProjectsService;
 use Psr\Log\NullLogger;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use GuigurFrontBundle\Entity\CatchPhrase;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction(CatchPhraseService $catchPhraseService, ProjectsService $projectsService)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -49,8 +51,8 @@ class DefaultController extends Controller
             ->findByIsEnabled(1);
 
         $ProjectsNumbers = count($ProjectsNumbers);
-        $projects = $this->get('guigur.projects')->defaultImages($projects);
-        $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('projects');
+        $projects = $projectsService->defaultImages($projects);
+        $catchPhrase = $catchPhraseService->requestCatchPhrase('projects');
         return $this->render('GuigurFrontBundle:Default:index.html.twig', array("pastVisits" => $pastVisit, "Catchphrase" =>  $catchPhrase, "Projects" => $projects, "ProjectsCategories" => $ProjectsCategories, "ProjectsNumbers" => $ProjectsNumbers));
     }
 }

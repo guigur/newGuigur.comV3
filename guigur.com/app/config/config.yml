@@ -10,6 +10,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    container.autowiring.strict_mode: true
 
 framework:
     #esi:             ~
@@ -38,8 +39,8 @@ framework:
 # Twig Configuration
 twig:
     globals:
-        g_texts: "@guigur.texts"
-        g_imageChecker: "@guigur.imageChecker"
+        #g_texts: "@guigur.texts"
+        #g_imageChecker: "@guigur.imageChecker"
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
