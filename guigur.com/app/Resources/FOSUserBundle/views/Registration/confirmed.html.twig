@@ -1,10 +1,24 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends "base.html.twig" %}
+{% block meta %}
+    <meta http-equiv="refresh" content="5; URL={{ path('Homepage') }}">
+{% endblock %}
+{% block navBar %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block body %}
 
-{% trans_default_domain 'FOSUserBundle' %}
+    <div class="row justify-content-md-center login_form_container">
+        <div class="col-md-4">
+            <div class="login_logo_container">
+                <a href="{{ path('Homepage') }}">
+                    <img src="{{ asset('img/guigur_.com_green.png') }}" class="img-fluid" alt="">
+                </a>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">Bienvenue parmis nous !</h4>
+                </div>
+            </div> <!-- card.// -->
+        </div> <!-- col.// -->
+    </div>
 
-{% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-    {% if targetUrl %}
-    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
-    {% endif %}
-{% endblock fos_user_content %}
+{% endblock %}
