@@ -46,10 +46,13 @@ LinkShortenerError:
 LinkShortenerParams:
     path:     /l/{link}
     defaults: { _controller: GuigurFrontBundle:LinkShortener:params }
-
+########################################################################################################################
 ajax_LinkShortenerToggle:
     path:     /ajax/l/toggle
     defaults: { _controller: GuigurFrontBundle:LinkShortener:ajaxLinkShortenerToggle }
 ajax_LinkShortenerDelete:
     path:     /ajax/l/delete
     defaults: { _controller: GuigurFrontBundle:LinkShortener:ajaxLinkShortenerDelete }
+ajax_SearchBar:
+    path:     /ajax/search
+    defaults: { _controller: GuigurFrontBundle:Search:search }

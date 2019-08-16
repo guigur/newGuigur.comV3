@@ -41,11 +41,8 @@
             <div class="card">
                 <h5 class="card-header">Recherche sur le site</h5>
                 <div class="card-body">
-                    <div class="input-group">
-                        <input disabled type="text" class="form-control" placeholder="pas encore fini dsl">
-                        <span class="input-group-btn">
-                      <button class="btn btn-secondary" type="button"><i class="fas fa-search"></i></button>
-                    </span>
+                    <div id="SearchDiv">
+
                     </div>
                 </div>
             </div>
@@ -84,10 +81,10 @@
 {% block js %}
     <script>$('#myModal').on('shown.bs.modal', function () {
             $('#myInput').focus()
-        })</script>
+        });
 
+        /****************************/
 
-    <script>
         var $image = $('.imgViewer');
 
         $image.viewer({
@@ -99,5 +96,61 @@
 
         // View a list of images
         $('#images').viewer();
+
+        /*****************************/
+        var content = '';
+        var numOfResult = -1;
+
+        //content = content.replace(/[\r\n]+/g, '\n');
+        initSearch();
+        function initSearch()
+        {
+            $('#SearchDiv').html('{% include 'SearchFragment.html.twig' %}');
+
+            if (numOfResult > -1)
+            {
+                //$('#searchMessage').removeClass('d-none');
+
+               // $('#searchMessage span:first-child').html('X');
+                //$('#searchMessage span:nth-child(2)').html('Résultat');
+            }
+
+            $("#searchButton").click(function() {
+                var searchTerms = $("#searchInput").val();
+
+                console.log("CLICK CLICK");
+                $('#SearchDiv').html('{% include 'SearchLoadingFragment.html.twig' %}');
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{path('ajax_SearchBar')}}",
+                    data: {searchTerms : searchTerms},
+                    success: function(result)
+                    {
+                        $('#searchMessage:first-child').html('test');
+                        numOfResult = result.NumOfResults;
+                        $('#searchMessage span:first-child').html('99');
+                        if (numOfResult === 0)
+                        {
+                            console.log("no results");
+                        }
+                        else if (numOfResult > 0)
+                        {
+                            console.log(numOfResult + " résult(s)");
+                        }
+                        console.log("DEBUG " + result.debug);
+                        initSearch();
+                    },
+                    error: function ()
+                    {
+                        $('#SearchDiv').html('{% include 'SearchErrorFragment.html.twig' %}');
+                        console.log("error");
+                    }
+                });
+
+                // console.log("click search");
+            });
+        }
+
     </script>
 {% endblock %}

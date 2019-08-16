@@ -458,4 +458,13 @@ pre > code {
     text-align: center;
 }
 
+/* Search stuff */
+.searchMessageNumber
+{
+    font-size: 1.5em;
+}
+.searchMessageText
+{
+    font-size: 1.3em;
+}
 /* Misc stuff */

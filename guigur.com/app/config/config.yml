@@ -40,7 +40,7 @@ twig:
     globals:
         g_texts: "@guigur.texts"
         g_imageChecker: "@guigur.imageChecker"
-        base_url: '%app.base_url%'
+        #base_url: '%app.base_url%'
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
