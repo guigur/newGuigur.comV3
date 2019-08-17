@@ -7,12 +7,15 @@
         </button>
     </div>
 
-    <div class="row">
-        {{ g_texts.getText("home")|raw }}
+    <div class="card">
+        <div class="card-body">
+            {{ g_texts.getText("home")|raw }}
+        </div>
     </div>
-    <div class="row">
+    
+    <!--<div class="row">
         <a href="{{ path('LinkShortener') }}" class="btn btn-primary">Raccourcisseur de liens :)</a><br />
-    </div>
+    </div>-->
     <br />
     <div class="row">
         <div class="col-md-8">
@@ -84,37 +87,50 @@
         });
 
         /****************************/
-
         var $image = $('.imgViewer');
-
-        $image.viewer({
-
-        });
-
+        $image.viewer({});
         // Get the Viewer.js instance after initialized
         var viewer = $image.data('viewer');
-
         // View a list of images
         $('#images').viewer();
-
         /*****************************/
-        var content = '';
+
         var numOfResult = -1;
 
-        //content = content.replace(/[\r\n]+/g, '\n');
         initSearch();
+
+        function resultWord(nor)
+        {
+            if (nor === 1)
+                return ("Résultat");
+            else
+                return ("Résulats");
+        }
+
+        function resultColor(nor)
+        {
+            var selector = $('#searchMessage span:first-child');
+            if (nor === 0)
+                selector.addClass("text-danger");
+            else
+                selector.addClass("text-primary");
+        }
+
+        function displayResults()
+        {
+            if (numOfResult >= 0)
+            {
+                $('#searchMessage').removeClass('d-none');
+                $('#searchMessage span:first-child').html(numOfResult);
+                $('#searchMessage span:nth-child(2)').html(resultWord(numOfResult));
+            }
+        }
+
         function initSearch()
         {
             $('#SearchDiv').html('{% include 'SearchFragment.html.twig' %}');
-
-            if (numOfResult > -1)
-            {
-                //$('#searchMessage').removeClass('d-none');
-
-               // $('#searchMessage span:first-child').html('X');
-                //$('#searchMessage span:nth-child(2)').html('Résultat');
-            }
-
+            resultColor(numOfResult);
+            displayResults();
             $("#searchButton").click(function() {
                 var searchTerms = $("#searchInput").val();
 
@@ -127,9 +143,7 @@
                     data: {searchTerms : searchTerms},
                     success: function(result)
                     {
-                        $('#searchMessage:first-child').html('test');
                         numOfResult = result.NumOfResults;
-                        $('#searchMessage span:first-child').html('99');
                         if (numOfResult === 0)
                         {
                             console.log("no results");
@@ -143,6 +157,7 @@
                     },
                     error: function ()
                     {
+                        $('#searchMessage').addClass('d-none');
                         $('#SearchDiv').html('{% include 'SearchErrorFragment.html.twig' %}');
                         console.log("error");
                     }
