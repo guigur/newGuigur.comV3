@@ -45,9 +45,15 @@
             <div class="card">
                 <h5 class="card-header">Recherche sur le site</h5>
                 <div class="card-body">
-                    <div id="SearchDiv">
+                   <div id="SearchDiv">
 
                     </div>
+                    <!--<div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                        </div></div>-->
+
                 </div>
             </div>
 
@@ -152,16 +158,15 @@
 
         function initSearch()
         {
-            $('#SearchDiv').html('{% include 'SearchFragment.html.twig' %}');
+            $('#SearchDiv').html('{% spaceless %}{% include "SearchFragment.html.twig" %}{% endspaceless %}');
             enterKeyOnSearch();
             resultColor(numOfResult);
             displayResults();
-            $("#searchButton").click(function() {
+
+            $("#searchButton").click(function()
+            {
                 var searchTerms = $("#searchInput").val();
-
-                console.log("CLICK CLICK");
-                $('#SearchDiv').html('{% include 'SearchLoadingFragment.html.twig' %}');
-
+                $('#SearchDiv').html('{% spaceless %}{% include 'SearchLoadingFragment.html.twig' %}{% endspaceless %}');
                 $.ajax({
                     type: "POST",
                     url: "{{path('ajax_SearchBar')}}",
@@ -169,26 +174,14 @@
                     success: function(result)
                     {
                         numOfResult = result.NumOfResults;
-                        if (numOfResult === 0)
-                        {
-                            console.log("no results");
-                        }
-                        else if (numOfResult > 0)
-                        {
-                            console.log(numOfResult + " résult(s)");
-                        }
-                        console.log("DEBUG " + result.debug);
                         initSearch();
                     },
                     error: function ()
                     {
                         $('#searchMessage').addClass('d-none');
-                        $('#SearchDiv').html('{% include 'SearchErrorFragment.html.twig' %}');
-                        console.log("error");
+                        $('#SearchDiv').html('{% spaceless %}{% include 'SearchErrorFragment.html.twig' %}{% endspaceless %}');
                     }
                 });
-
-                // console.log("click search");
             });
         }
 
