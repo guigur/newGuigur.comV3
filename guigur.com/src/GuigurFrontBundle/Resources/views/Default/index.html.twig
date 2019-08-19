@@ -1,4 +1,5 @@
 {% extends "base.html.twig" %}
+{% set searchplaceholder = null %}
 {% block body %}
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
         <strong>Nouveau !</strong> <a href="{{ path('LinkShortener') }}">Raccourcisseur de liens</a>
@@ -12,7 +13,7 @@
             {{ g_texts.getText("home")|raw }}
         </div>
     </div>
-    
+
     <!--<div class="row">
         <a href="{{ path('LinkShortener') }}" class="btn btn-primary">Raccourcisseur de liens :)</a><br />
     </div>-->
@@ -78,6 +79,8 @@
         </button>
     </div>
     -->
+    {{ path('Search',{searchTerms: "test"}) }}
+
     <div class="d-md-none phone-footer-spacer">
     </div>
 {% endblock %}
@@ -111,9 +114,15 @@
         {
             var selector = $('#searchMessage span:first-child');
             if (nor === 0)
+            {
+                selector.removeClass("text-primary");
                 selector.addClass("text-danger");
+            }
             else
+            {
+                selector.removeClass("text-danger");
                 selector.addClass("text-primary");
+            }
         }
 
         function displayResults()
@@ -123,12 +132,28 @@
                 $('#searchMessage').removeClass('d-none');
                 $('#searchMessage span:first-child').html(numOfResult);
                 $('#searchMessage span:nth-child(2)').html(resultWord(numOfResult));
+                if (numOfResult > 0)
+                {
+                    $('#searchMessage a').removeClass('d-none');
+                }
             }
+        }
+
+        function enterKeyOnSearch()
+        {
+            $("#searchInput").keyup(function(event)
+            {
+                if (event.keyCode === 13)
+                {
+                    $("#searchButton").click();
+                }
+            });
         }
 
         function initSearch()
         {
             $('#SearchDiv').html('{% include 'SearchFragment.html.twig' %}');
+            enterKeyOnSearch();
             resultColor(numOfResult);
             displayResults();
             $("#searchButton").click(function() {

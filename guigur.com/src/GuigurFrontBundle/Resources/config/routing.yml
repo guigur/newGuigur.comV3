@@ -45,7 +45,11 @@ LinkShortenerError:
     defaults: { _controller: GuigurFrontBundle:LinkShortener:error, errorParam: null, debug: null }
 LinkShortenerParams:
     path:     /l/{link}
-    defaults: { _controller: GuigurFrontBundle:LinkShortener:params }
+    defaults: { _controller: GuigurFrontBundle:Cv:index}
+Search:
+    path:     /search/{searchTerms}
+    defaults: { _controller: GuigurFrontBundle:Cv:index, searchTerms: null, }
+
 ########################################################################################################################
 ajax_LinkShortenerToggle:
     path:     /ajax/l/toggle
