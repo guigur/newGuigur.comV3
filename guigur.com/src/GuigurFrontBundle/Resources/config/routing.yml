@@ -49,7 +49,10 @@ LinkShortenerParams:
 Search:
     path:     /search/{searchTerms}
     defaults: { _controller: GuigurFrontBundle:Cv:index, searchTerms: null, }
-
+###############
+HostingService:
+    path:     /hosting-service
+    defaults: { _controller: GuigurFrontBundle:HostingService:index }
 ########################################################################################################################
 ajax_LinkShortenerToggle:
     path:     /ajax/l/toggle
