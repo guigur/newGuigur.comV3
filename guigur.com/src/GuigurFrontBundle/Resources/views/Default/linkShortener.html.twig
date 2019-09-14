@@ -9,6 +9,9 @@
                     <div class="table-responsive l-list">
                             {{ render(controller('GuigurFrontBundle:LinkShortener:links')) }}
                     </div>
+                    <button type="button" class="btn btn-primary" id="l-add">
+                        <span class="fa fa-plus" aria-hidden="true"></span> Ajouter un lien
+                    </button>
                 </div>
             </div>
         </div>
@@ -62,6 +65,11 @@
                 });
 
             });
+
+            $('#l-add').click(function(){
+
+                modalCreator("Add a link", '{% spaceless %}{% include 'linkShortenerModalAdd.html.twig' %}{% endspaceless %}', ["add"]);
+            });
         }
 
         $(document).ready(function(){
@@ -69,3 +77,12 @@
         });
     </script>
 {% endblock body %}
+
+{% block js %}
+    {{ parent() }}
+<script src="{{ asset('js/jquery.qrcode.min.js') }}"></script>
+<script>
+    $('.qrcode').qrcode({width: 128,height: 128,text: $('.qrcode').data("qrcode-text")});
+
+</script>
+{% endblock js %}

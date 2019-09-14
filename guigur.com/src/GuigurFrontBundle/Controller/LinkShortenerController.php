@@ -4,6 +4,8 @@ namespace GuigurFrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use GuigurFrontBundle\Entity\User;
+use GuigurFrontBundle\Entity\LinkShortener;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -29,11 +31,11 @@ class LinkShortenerController extends Controller
             ->getRepository('GuigurFrontBundle:LinkShortener')
             ->findOneByLink($link);
 
-        if($linkShortened != NULL)
+        if($linkShortened)
         {
             if($linkShortened->getIsActive() === true)
             {
-                return $this->redirect($linkShortened->getUrl());
+                return $this->redirect('//' . $linkShortened->getURL());
             }
             else
             {

@@ -8,10 +8,9 @@ class HostingServiceController extends Controller
 {
     public function indexAction($nameOfProject = null)
     {
-        $archives = [];
-        $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('archives');
+        $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('hosting');
 
-        $page['header'] = "Les Archives";
-        return $this->render('GuigurFrontBundle:Default:archives.html.twig', array("Page" => $page, "Catchphrase" =>  $catchPhrase, "Archives" => $archives));
+        $page['header'] = "Hosting serivce";
+        return $this->render('GuigurFrontBundle:Default:hosting-service.html.twig', array("Page" => $page, "Catchphrase" =>  $catchPhrase));
     }
 }

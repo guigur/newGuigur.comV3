@@ -467,4 +467,26 @@ pre > code {
 {
     font-size: 1.3em;
 }
+
+/* New Card stuff */
+.g-card-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.g-card-img:after {
+    content: '';
+    display: block;
+    padding-top: 270px;
+}
+
+.g-card-img img {
+    width: auto;
+    height: 100%;
+    max-width: none;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
 /* Misc stuff */
