@@ -53,7 +53,16 @@
         <nav class="navbar navbar-expand-md navbar-inverse sticky-top navbar-dark bg-darker">
         <div class="container">
             <a class="navbar-brand" href="{{ path('Homepage') }}">
-                <img src="{{ asset('img/guigur_.com_green_small.png') }}" height="50em" alt="">
+                {{ app.request.getHost() }}
+                <img src="
+                {% if  app.request.getHost() == "localhost" %}
+                    {{ asset('img/guigur_localhost_small.png') }}
+                {% else %}
+                    {{ asset('img/guigur_.com_green_small.png') }}
+                {% endif %}
+" height="50em" alt="">
+
+
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
