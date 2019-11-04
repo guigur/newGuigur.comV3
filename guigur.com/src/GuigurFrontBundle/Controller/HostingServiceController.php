@@ -11,6 +11,15 @@ class HostingServiceController extends Controller
         $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('hosting');
 
         $page['header'] = "Hosting serivce";
-        return $this->render('GuigurFrontBundle:Default:hosting-service.html.twig', array("Page" => $page, "Catchphrase" =>  $catchPhrase));
+        return $this->render('GuigurFrontBundle:HostingService:hostingService.html.twig', array("Page" => $page, "Catchphrase" =>  $catchPhrase));
+    }
+
+    public function websitesAction()
+    {
+        $user = $this->getUser();
+        $linksUser = $this->getDoctrine()
+            ->getRepository('GuigurFrontBundle:LinkShortener')
+            ->findByUser($user->getId());
+        return $this->render('GuigurFrontBundle:HostingService:hostingServiceWebsites.html.twig', array("LinksUser" => $linksUser));
     }
 }

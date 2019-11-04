@@ -1,0 +1,46 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Backup Status</th>
+        <th scope="col">Backup Mail Success</th>
+        <th scope="col">Backup Mail Error </th>
+        <th scope="col">Création</th>
+        <th scope="col">Last modif</th>
+        <th scope="col">Type</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody class="l-list">
+    {% for LinkUser in LinksUser %}
+        <tr>
+            <td>{{ LinkUser.name }}</td>
+            <td>{{ LinkUser.comment }}</td>
+            <td><a href="{{ path('LinkShortenerParams', {'link': LinkUser.link}) }}" title="{{ LinkUser.name }} Shortened" target="_blank">{{ app.request.getSchemeAndHttpHost() }}{{ path('LinkShortener') }}/<b>{{ LinkUser.link }}</b></a></td>
+            <td><a href="//{{ LinkUser.url }}" title="{{ LinkUser.name }} URL" target="_blank">{{ LinkUser.url }}</a></td>
+            <td>{{ LinkUser.dateCreated|date("m/d/Y H:i:s") }}</td>
+            <td>{{ LinkUser.dateLastModified|date("m/d/Y H:i:s") }}</td>
+            <td>
+
+                <button type="button" class="btn {% if LinkUser.isActive == TRUE %}btn-success{% else %}btn-warning{% endif %} l-btn-toggle" data-linkuser-id="{{ LinkUser.id }}">
+                    <span class="btn-text">{% if LinkUser.isActive == TRUE %}On{% else %}Off{% endif %}</span>
+                </button>
+            </td>
+            <td>
+                <!--<div class="qrcode" data-qrcode-text="{{ app.request.getSchemeAndHttpHost() }}{{ path('LinkShortener') }}/{{ LinkUser.link }}"></div>-->
+                <button type="button" class="btn btn-primary l-btn-edit" data-linkuser-id="{{ LinkUser.id }}">
+                    <span class="fa fa-pen" aria-hidden="true"></span>
+                </button>
+
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger l-btn-delete" data-linkuser-id="{{ LinkUser.id }}">
+                    <span class="fa fa-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -38,5 +38,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/l$, role: ROLE_USER }
+        - { path: ^/hosting-service, role: ROLE_ADMIN }
+
 
 
