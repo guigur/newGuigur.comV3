@@ -10,6 +10,7 @@ class BrandingController extends Controller
     {
         $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('branding');
         $page['header'] = "Branding";
-        return $this->render('GuigurFrontBundle:Default:branding.html.twig', array("Page" => $page, "Catchphrase" =>  $catchPhrase));
+        $test = new \DateTime();
+        return $this->render('GuigurFrontBundle:Default:branding.html.twig', array("Page" => $page, "Catchphrase" =>  $catchPhrase, "test" => $test));
     }
 }

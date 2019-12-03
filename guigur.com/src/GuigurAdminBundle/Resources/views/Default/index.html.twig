@@ -30,7 +30,7 @@
                     <p class="card-text">Connexion les dernières 24h: <br /><strong>{{ loginStats.login24h }}&nbsp;</strong><span title="{{ loginStats.login24hPast }}" class="{{ loginStats.login24hIcon }}"></span></p>
                     <p class="card-text">Connexion les 7 dernièrs jours: <br /><strong>{{ loginStats.login7days }}&nbsp;</strong><span title="{{ loginStats.login7daysPast }}" class="{{ loginStats.login7daysIcon }}"></span></p>
                     <p class="card-text">Moyenne des connexion les 7 derniers jours: <br /><strong>{{ loginStats.loginMoy7days }}&nbsp;</strong><span title="{{ loginStats.loginMoy7daysPast }}" class="{{ loginStats.loginMoy7daysIcon }}"></span></p>
-                    <a href="{{ path('admin_register') }}" class="btn btn-primary">Voir tout</a>
+                    <a href="{{ path('admin_login') }}" class="btn btn-primary">Voir tout</a>
                 </div>
             </div>
         </div>
@@ -106,8 +106,8 @@
                 datasets: [{
                     label: false,
                     data: [{% for loginDay in loginDays %}"{{ loginDay.login }}",{% endfor %}],
-                    backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-                    borderColor: ['rgba(54, 162, 235, 1)'],
+                    backgroundColor: ['rgba(76, 175, 80, 0.2)'],
+                    borderColor: ['rgba(56, 142, 60, 1)'],
                     borderWidth: 1
                 }]
             },

@@ -2,6 +2,9 @@ services:
   guigur.admin.visits:
     class: GuigurAdminBundle\Service\VisitsService
     arguments: ["@doctrine"]
+  guigur.admin.login:
+    class: GuigurAdminBundle\Service\LoginService
+    arguments: ["@doctrine"]
   guigur.admin.register:
     class: GuigurAdminBundle\Service\RegisterService
     arguments: ["@doctrine"]
