@@ -20,7 +20,7 @@
         new Chart($("#login_chart_year"), {
             type: 'line',
             data: {
-                labels: [{% for loginDay in loginDays %}"{{ loginDay.date }}",{% endfor %}],
+                labels: [{% for loginDay in loginDays %}"{{ loginDay.date|date("d M Y") }}",{% endfor %}],
                 datasets: [{
                     label: false,
                     data: [{% for loginDay in loginDays %}"{{ loginDay.login }}",{% endfor %}],

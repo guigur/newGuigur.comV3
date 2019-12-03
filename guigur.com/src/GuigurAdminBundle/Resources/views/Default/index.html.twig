@@ -84,7 +84,7 @@
         new Chart($("#visit_chart_7"), {
             type: 'line',
             data: {
-                labels: [{% for visitsDay in visitsDays %}"{{ visitsDay.date }}",{% endfor %}],
+                labels: [{% for visitsDay in visitsDays %}"{{ visitsDay.date|date("d M") }}",{% endfor %}],
                 datasets: [{
                     label: false,
                     data: [{% for visitsDay in visitsDays %}"{{ visitsDay.visits }}",{% endfor %}],
@@ -102,7 +102,7 @@
         new Chart($("#login_chart_7"), {
             type: 'line',
             data: {
-                labels: [{% for loginDay in loginDays %}"{{ loginDay.date }}",{% endfor %}],
+                labels: [{% for loginDay in loginDays %}"{{ loginDay.date|date("d M") }}",{% endfor %}],
                 datasets: [{
                     label: false,
                     data: [{% for loginDay in loginDays %}"{{ loginDay.login }}",{% endfor %}],
@@ -120,7 +120,7 @@
         new Chart($("#register_chart_7"), {
             type: 'line',
             data: {
-                labels: [{% for registerDay in registerDays %}"{{ registerDay.date }}",{% endfor %}],
+                labels: [{% for registerDay in registerDays %}"{{ registerDay.date|date("d M") }}",{% endfor %}],
                 datasets: [{
                     label: false,
                     data: [{% for registerDay in registerDays %}"{{ registerDay.register }}",{% endfor %}],

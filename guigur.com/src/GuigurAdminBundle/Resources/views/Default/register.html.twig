@@ -21,7 +21,7 @@
         new Chart($("#register_chart_year"), {
             type: 'line',
             data: {
-                labels: [{% for registerDay in registerDays %}"{{ registerDay.date }}",{% endfor %}],
+                labels: [{% for registerDay in registerDays %}"{{ registerDay.date|date("d M Y") }}",{% endfor %}],
                 datasets: [{
                     label: false,
                     data: [{% for registerDay in registerDays %}"{{ registerDay.register }}",{% endfor %}],

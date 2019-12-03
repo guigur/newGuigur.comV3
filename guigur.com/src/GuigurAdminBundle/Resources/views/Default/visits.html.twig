@@ -21,7 +21,7 @@
         new Chart($("#visit_chart_year"), {
             type: 'line',
             data: {
-                labels: [{% for visitsDay in visitsDays %}"{{ visitsDay.date }}",{% endfor %}],
+                labels: [{% for visitsDay in visitsDays %}"{{ visitsDay.date|date("d M Y") }}",{% endfor %}],
                 datasets: [{
                     label: false,
                     data: [{% for visitsDay in visitsDays %}"{{ visitsDay.visits }}",{% endfor %}],
