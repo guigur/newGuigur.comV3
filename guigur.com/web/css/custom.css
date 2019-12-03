@@ -14,6 +14,7 @@ body {
 {
     background-color: #222;
 }
+
 .project
 {
     display: inline-block;
@@ -112,6 +113,16 @@ body {
 .icon_linkedin:hover
 {
     color: #0077B5;
+}
+
+.color_guigur_primary
+{
+    color: #1b8e51;
+}
+
+.border_guigur_primary
+{
+    border-color: #1b8e51!important;
 }
 
 .contactTextarea
@@ -490,3 +501,47 @@ pre > code {
     transform: translateX(-50%);
 }
 /* Misc stuff */
+
+.chess_pattern_light
+{
+    background: conic-gradient(#fff 0deg ,#fff 90deg, #e8e8e8 90deg, #e8e8e8 180deg, #fff 180deg, #fff 270deg, #e8e8e8 270deg, #e8e8e8 360deg) 0 0/30px 30px round;
+    margin: 15px;
+    /*padding:10px;*/
+}
+
+.chess_pattern_dark
+{
+    background: conic-gradient(#262626 0deg ,#262626 90deg, #222 90deg, #222 180deg, #262626 180deg, #262626 270deg, #222 270deg, #222 360deg) 0 0/30px 30px round;
+    margin: 15px;
+    /*padding:10px;*/
+}
+
+.branding-color-display
+{
+    width:100%;
+    background: pink;
+    height: 10em;
+    overflow: hidden;
+}
+
+.branding-color-display-title
+{
+    padding: 0;
+}
+
+.branding-color-display-hex
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.branding-color-text-container
+{
+    background-color: purple;
+    display: block;
+    height: 80%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10%;
+}

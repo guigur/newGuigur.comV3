@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <script src="{{ asset('js/Chart.min.js') }}"></script>
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="card">
+                <div class="admin_card_container">
+                    <canvas height="100" id="register_chart_year"></canvas>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Inscriptions les 360 derniers jours</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        new Chart($("#register_chart_year"), {
+            type: 'line',
+            data: {
+                labels: [{% for registerDay in registerDays %}"{{ registerDay.date }}",{% endfor %}],
+                datasets: [{
+                    label: false,
+                    data: [{% for registerDay in registerDays %}"{{ registerDay.register }}",{% endfor %}],
+                    backgroundColor: ['rgba(255, 87 , 34, 0.2)'],
+                    borderColor: ['rgba(230, 74, 25, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                }
+            }
+        });
+    </script>
+{% endblock %}

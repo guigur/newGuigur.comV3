@@ -6,25 +6,31 @@
     <div class="row">
         <div class="col-lg-3">
             <div class="card" >
-                <canvas height="200" id="register_chart_7"></canvas>
-
+                <div class="admin_card_container">
+                    <canvas height="220" id="register_chart_7"></canvas>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Incriptions les 7 derniers jours</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Voir plus</a>
+                    <h5 class="card-title">Inscriptions les 7 derniers jours</h5>
+                    <p class="card-text">Inscriptions Totales: <br /><strong>{{ registerStats.registerTotal }} </strong></p>
+                    <p class="card-text">Inscriptions les dernières 24h: <br /><strong>{{ registerStats.register24h }}&nbsp;</strong><span title="{{ registerStats.register24hPast }}" class="{{ registerStats.register24hIcon }}"></span></p>
+                    <p class="card-text">Inscriptions les 7 dernièrs jours: <br /><strong>{{ registerStats.register7days }}&nbsp;</strong><span title="{{ registerStats.register7daysPast }}" class="{{ registerStats.register7daysIcon }}"></span></p>
+                    <p class="card-text">Moyenne des inscriptions les 7 derniers jours: <br /><strong>{{ registerStats.registerMoy7days }}&nbsp;</strong><span title="{{ registerStats.registerMoy7daysPast }}" class="{{ registerStats.registerMoy7daysIcon }}"></span></p>
+                    <a href="{{ path('admin_register') }}" class="btn btn-primary">Voir tout</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-3">
-            <div class="card">
+            <div class="card" >
                 <div class="admin_card_container">
-                    <canvas height="200" id="connection_chart_7"></canvas>
+                    <canvas height="220" id="login_chart_7"></canvas>
                 </div>
-
                 <div class="card-body">
-                    <h5 class="card-title">Connexions les 7 derniers jours</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Voir plus</a>
+                    <h5 class="card-title">Connexion les 7 derniers jours</h5>
+                    <p class="card-text">Connexion Totales: <br /><strong>{{ loginStats.loginTotal }} </strong></p>
+                    <p class="card-text">Connexion les dernières 24h: <br /><strong>{{ loginStats.login24h }}&nbsp;</strong><span title="{{ loginStats.login24hPast }}" class="{{ loginStats.login24hIcon }}"></span></p>
+                    <p class="card-text">Connexion les 7 dernièrs jours: <br /><strong>{{ loginStats.login7days }}&nbsp;</strong><span title="{{ loginStats.login7daysPast }}" class="{{ loginStats.login7daysIcon }}"></span></p>
+                    <p class="card-text">Moyenne des connexion les 7 derniers jours: <br /><strong>{{ loginStats.loginMoy7days }}&nbsp;</strong><span title="{{ loginStats.loginMoy7daysPast }}" class="{{ loginStats.loginMoy7daysIcon }}"></span></p>
+                    <a href="{{ path('admin_register') }}" class="btn btn-primary">Voir tout</a>
                 </div>
             </div>
         </div>
@@ -38,7 +44,7 @@
                     <p class="card-text">Visites Totales: <br /><strong>{{ visitsStats.visitsTotal }} </strong></p>
                     <p class="card-text">Visites les dernières 24h: <br /><strong>{{ visitsStats.visits24h }}&nbsp;</strong><span title="{{ visitsStats.visits24hPast }}" class="{{ visitsStats.visits24hIcon }}"></span></p>
                     <p class="card-text">Visites les 7 dernièrs jours: <br /><strong>{{ visitsStats.visits7days }}&nbsp;</strong><span title="{{ visitsStats.visits7daysPast }}" class="{{ visitsStats.visits7daysIcon }}"></span></p>
-                    <p class="card-text">Moyenne des visites les 7 dernièrs jours: <br /><strong>{{ visitsStats.visitsMoy7days }}&nbsp;</strong><span title="{{ visitsStats.visitsMoy7daysPast }}" class="{{ visitsStats.visitsMoy7daysIcon }}"></span></p>
+                    <p class="card-text">Moyenne des visites les 7 derniers jours: <br /><strong>{{ visitsStats.visitsMoy7days }}&nbsp;</strong><span title="{{ visitsStats.visitsMoy7daysPast }}" class="{{ visitsStats.visitsMoy7daysIcon }}"></span></p>
                     <a href="{{ path('admin_visits') }}" class="btn btn-primary">Voir tout</a>
                 </div>
             </div>
@@ -84,6 +90,42 @@
                     data: [{% for visitsDay in visitsDays %}"{{ visitsDay.visits }}",{% endfor %}],
                     backgroundColor: ['rgba(54, 162, 235, 0.2)'],
                     borderColor: ['rgba(54, 162, 235, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                }
+            }
+        });
+        new Chart($("#login_chart_7"), {
+            type: 'line',
+            data: {
+                labels: [{% for loginDay in loginDays %}"{{ loginDay.date }}",{% endfor %}],
+                datasets: [{
+                    label: false,
+                    data: [{% for loginDay in loginDays %}"{{ loginDay.login }}",{% endfor %}],
+                    backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+                    borderColor: ['rgba(54, 162, 235, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                }
+            }
+        });
+        new Chart($("#register_chart_7"), {
+            type: 'line',
+            data: {
+                labels: [{% for registerDay in registerDays %}"{{ registerDay.date }}",{% endfor %}],
+                datasets: [{
+                    label: false,
+                    data: [{% for registerDay in registerDays %}"{{ registerDay.register }}",{% endfor %}],
+                    backgroundColor: ['rgba(255, 87 , 34, 0.2)'],
+                    borderColor: ['rgba(230, 74, 25, 1)'],
                     borderWidth: 1
                 }]
             },

@@ -25,6 +25,9 @@ Shop:
 Contact:
     path:     /contact
     defaults: { _controller: GuigurFrontBundle:Contact:index }
+Branding:
+    path:     /branding
+    defaults: { _controller: GuigurFrontBundle:Branding:index }
 Random:
     path:     /random
     defaults: { _controller: GuigurFrontBundle:Random:index }
