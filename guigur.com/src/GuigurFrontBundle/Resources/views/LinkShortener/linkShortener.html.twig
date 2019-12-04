@@ -9,10 +9,15 @@
                     <div class="table-responsive l-list">
                             {{ render(controller('GuigurFrontBundle:LinkShortener:links')) }}
                     </div>
+<<<<<<< HEAD:guigur.com/src/GuigurFrontBundle/Resources/views/Default/linkShortener.html.twig
 
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ggr_modal">
                         Launch demo modal
+=======
+                    <button type="button" class="btn btn-primary" id="l-add">
+                        <span class="fa fa-plus" aria-hidden="true"></span> Ajouter un lien
+>>>>>>> dev:guigur.com/src/GuigurFrontBundle/Resources/views/LinkShortener/linkShortener.html.twig
                     </button>
                 </div>
             </div>
@@ -91,6 +96,7 @@
 
             });
 
+<<<<<<< HEAD:guigur.com/src/GuigurFrontBundle/Resources/views/Default/linkShortener.html.twig
         }
 
         function genModal(title, content)
@@ -117,6 +123,12 @@
         function deleteModal()
         {
 
+=======
+            $('#l-add').click(function(){
+
+                modalCreator("Add a link", '{% spaceless %}{% include 'linkShortenerModalAdd.html.twig' %}{% endspaceless %}', ["add"]);
+            });
+>>>>>>> dev:guigur.com/src/GuigurFrontBundle/Resources/views/LinkShortener/linkShortener.html.twig
         }
 
         $(document).ready(function(){
@@ -124,3 +136,12 @@
         });
     </script>
 {% endblock body %}
+
+{% block js %}
+    {{ parent() }}
+<script src="{{ asset('js/jquery.qrcode.min.js') }}"></script>
+<script>
+    $('.qrcode').qrcode({width: 128,height: 128,text: $('.qrcode').data("qrcode-text")});
+
+</script>
+{% endblock js %}

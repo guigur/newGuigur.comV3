@@ -6,6 +6,14 @@ admin_visits:
     path:     /visits
     defaults: { _controller: GuigurAdminBundle:Default:visits }
 
+admin_login:
+    path:     /login
+    defaults: { _controller: GuigurAdminBundle:Default:login }
+
+admin_register:
+    path:     /register
+    defaults: { _controller: GuigurAdminBundle:Default:register }
+
 admin_texts:
     path:     /texts
     defaults: { _controller: GuigurAdminBundle:Default:texts }

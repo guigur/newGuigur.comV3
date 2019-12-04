@@ -6,6 +6,7 @@
         <meta name="description" content="guigur's website">
         <meta name="author" content="guigur">
         <meta name="theme-color" content="#1b8e51">
+        {% block meta %}{% endblock %}
         <title>Guigur.com</title>
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_32.png') }}" sizes="32x32">
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_48.png') }}" sizes="48x48">
@@ -14,7 +15,7 @@
 
 
         {%  if app.request.cookies.get('dark') == "true" %}
-            <link href="{{ asset('css/bootstrap_dark.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/bootstrap-Darkly.min.css') }}" rel="stylesheet">
         {% else %}
             <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         {% endif %}
@@ -52,7 +53,7 @@
         <nav class="navbar navbar-expand-md navbar-inverse sticky-top navbar-dark bg-darker">
         <div class="container">
             <a class="navbar-brand" href="{{ path('Homepage') }}">
-                <img src="{{ asset('img/guigur_.com_green_small.png') }}" height="50em" alt="">
+                <img src="{% if  app.request.getHost() == "localhost" %}{{ asset('img/guigur_localhost_small.png') }}{% else %}{{ asset('img/guigur_.com_green_small.png') }}{% endif %}" height="50em" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -74,6 +75,13 @@
                     <li class="nav-item {% if app.request.get('_route') == 'Contact' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('Contact') }}"><span class="fa fa-envelope" aria-hidden="true"></span>&nbsp;{{ g_texts.getText("nav_contact")|raw }}</a>
                     </li>
+                    {% if app.user %}
+                        {% if app.user.hasRole('ROLE_ADMIN') %}
+                            <li class="nav-item {% if app.request.get('_route') == 'HostingService' %}active{% endif %}">
+                                <a class="nav-link" href="{{ path('HostingService') }}"><span class="fa fa-cloud" aria-hidden="true"></span>&nbsp;Hosting Service</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
                    {% if app.user %}
                        {% if app.user.hasRole('ROLE_ADMIN') %}
                            <li class="nav-item {% if app.request.get('_route') == 'admin_homepage' %}active{% endif %}">
@@ -111,30 +119,27 @@
     </nav>
     {% endblock %}
      <div class="container" style="margin-top:2em;">
-         <!-- Modal -->
-         <div class="modal fade" id="ggr_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-             <div class="modal-dialog modal-dialog-centered" role="document">
-                 <div class="modal-content">
-                     <div class="modal-header">
-                         <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
-                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                             <span aria-hidden="true">&times;</span>
-                         </button>
-                     </div>
-                     <div class="modal-body"></div>
-                     <div class="modal-footer">
-                         <button type="button" class="btn btn-primary">Save changes</button>
-                     </div>
-                 </div>
-             </div>
-         </div>
-            {% block body %}
+            <div class="modal fade" id="guigurModal" tabindex="-1" role="dialog" aria-labelledby="guigurModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="guigurModalLabel">Modal title</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body" id="guigurModalBody">
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          {% block body %}
             {% endblock body %}
         </div>
         {% block footer %}
             <footer class="footer bg-darker">
                 <div class="container">
-                    <div class="row" >
+                    <div class="row bg-darker">
                         <div class="col-md-4 text-center footer-blocks">
                             <a class="footer-link" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
                         <span class="footer-icons-cc-wrapper" >
@@ -145,7 +150,7 @@
                             </a>
                         </div>
                         <div class="col-md-4 text-center">
-                            {{ g_texts.getText("footer")|raw }}
+                            guigur.com 2012-{{ "now"|date("Y") }}
                         </div>
                         <div class="col-md-4 text-center">
                             <a class="footer-link" href="{{ path('Changelog') }}" ><span class="fa fa-pen" aria-hidden="true"></span>  Changelog</a>
@@ -155,6 +160,12 @@
             </footer>
         {% endblock %}
     <script>
+       /* $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        });*/
+
+
+
         var isDark = Cookies.get('dark');
         if (isDark === "true")
             $("#darkSwitch").prop('checked', true);
@@ -194,6 +205,37 @@
         */
         </script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script>
+            var modalSelector = $('#guigurModal');
+            var modalLabelSelector = $('#guigurModalLabel');
+            var modalBodySelector = $('#guigurModalBody');
+            var modalFooterSelector = $('.modal-footer');
+
+            function modalCreator(title, body, buttons, hideCancel=false)
+            {
+                modalReset();
+                modalLabelSelector.html(title);
+                modalBodySelector.html(body);
+                buttons.forEach(function(entry) {
+                    console.log(entry);
+                    modalFooterSelector.append('<button type="button" class="btn btn-primary">'+entry+'</button>')
+                });
+                if (hideCancel !== true)
+                {
+                    modalFooterSelector.append('<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>');
+                }
+
+                modalSelector.modal();
+            }
+
+            function modalReset()
+            {
+                modalLabelSelector.html('Modal title');
+                modalBodySelector.html('body');
+                modalFooterSelector.html('');
+                modalSelector.modal('hide');
+            }
+        </script>
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
     <script async  src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     {% block js %}{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Guigur's hosting service</h3>
+                    <small>Pratique pour héberger des sites a moindre frais</small>
+                    <div class="table-responsive l-list">
+                        {{ render(controller('GuigurFrontBundle:HostingService:websites')) }}
+                    </div>
+                    <button type="button" class="btn btn-primary" id="l-add">
+                        <span class="fa fa-plus" aria-hidden="true"></span> Ajouter un lien
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block js %}
+    {{ parent() }}
+{% endblock js %}

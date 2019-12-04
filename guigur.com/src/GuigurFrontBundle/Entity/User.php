@@ -84,5 +84,9 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
+        $this->registerDate = new \DateTime();
+
     }
+
+
 }

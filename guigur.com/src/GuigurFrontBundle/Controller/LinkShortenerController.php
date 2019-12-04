@@ -4,6 +4,8 @@ namespace GuigurFrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use GuigurFrontBundle\Entity\User;
+use GuigurFrontBundle\Entity\LinkShortener;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -11,7 +13,7 @@ class LinkShortenerController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('GuigurFrontBundle:Default:linkShortener.html.twig');
+        return $this->render('GuigurFrontBundle:LinkShortener:linkShortener.html.twig');
     }
 
     public function linksAction()
@@ -29,11 +31,11 @@ class LinkShortenerController extends Controller
             ->getRepository('GuigurFrontBundle:LinkShortener')
             ->findOneByLink($link);
 
-        if($linkShortened != NULL)
+        if($linkShortened)
         {
             if($linkShortened->getIsActive() === true)
             {
-                return $this->redirect($linkShortened->getUrl());
+                return $this->redirect('//' . $linkShortened->getURL());
             }
             else
             {
@@ -62,7 +64,7 @@ class LinkShortenerController extends Controller
                 $errorMsg = "There is no error here... Did you type this URL and hope to get some eater egg or something ?";
         echo $errorMsg;
         }
-        return $this->render('GuigurFrontBundle:Default:linkShortenerErrors.html.twig', array("ErrorMessage" => $errorMsg));
+        return $this->render('GuigurFrontBundle:LinkShortener:linkShortenerErrors.html.twig', array("ErrorMessage" => $errorMsg));
     }
 
     public function ajaxLinkShortenerToggleAction(Request $request)
@@ -107,7 +109,6 @@ class LinkShortenerController extends Controller
                 400);
         }
     }
-
 
     public function ajaxLinkShortenerDeleteAction(Request $request)
     {

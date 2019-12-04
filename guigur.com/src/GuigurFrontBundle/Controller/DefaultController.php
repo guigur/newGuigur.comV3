@@ -51,6 +51,8 @@ class DefaultController extends Controller
         $ProjectsNumbers = count($ProjectsNumbers);
         $projects = $this->get('guigur.projects')->defaultImages($projects);
         $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('projects');
-        return $this->render('GuigurFrontBundle:Default:index.html.twig', array("pastVisits" => $pastVisit, "Catchphrase" =>  $catchPhrase, "Projects" => $projects, "ProjectsCategories" => $ProjectsCategories, "ProjectsNumbers" => $ProjectsNumbers));
+        $searchCatchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('search');
+
+        return $this->render('GuigurFrontBundle:Default:index.html.twig', array("pastVisits" => $pastVisit, "Catchphrase" =>  $catchPhrase, "SearchCatchphrase" =>  $searchCatchPhrase, "Projects" => $projects, "ProjectsCategories" => $ProjectsCategories, "ProjectsNumbers" => $ProjectsNumbers));
     }
 }

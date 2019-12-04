@@ -25,6 +25,9 @@ Shop:
 Contact:
     path:     /contact
     defaults: { _controller: GuigurFrontBundle:Contact:index }
+Branding:
+    path:     /branding
+    defaults: { _controller: GuigurFrontBundle:Branding:index }
 Random:
     path:     /random
     defaults: { _controller: GuigurFrontBundle:Random:index }
@@ -42,17 +45,30 @@ LinkShortener:
     defaults: { _controller: GuigurFrontBundle:LinkShortener:index }
 LinkShortenerError:
     path:     /l/error/{errorParam}
-    defaults: { _controller: GuigurFrontBundle:LinkShortener:error, errorParam: null }
+    defaults: { _controller: GuigurFrontBundle:LinkShortener:error, errorParam: null, debug: null }
 LinkShortenerParams:
     path:     /l/{link}
-    defaults: { _controller: GuigurFrontBundle:LinkShortener:params }
-
+    defaults: { _controller: GuigurFrontBundle:LinkShortener:params, link: null }
+Search:
+    path:     /search/{searchTerms}
+    defaults: { _controller: GuigurFrontBundle:Cv:index, searchTerms: null, }
+###############
+HostingService:
+    path:     /hosting-service
+    defaults: { _controller: GuigurFrontBundle:HostingService:index }
+########################################################################################################################
 ajax_LinkShortenerToggle:
     path:     /ajax/l/toggle
     defaults: { _controller: GuigurFrontBundle:LinkShortener:ajaxLinkShortenerToggle }
 ajax_LinkShortenerDelete:
     path:     /ajax/l/delete
     defaults: { _controller: GuigurFrontBundle:LinkShortener:ajaxLinkShortenerDelete }
+<<<<<<< HEAD
 ajax_LinkShortenerEdit:
     path:     /ajax/l/edit
     defaults: { _controller: GuigurFrontBundle:LinkShortener:ajaxLinkShortenerEdit }
+=======
+ajax_SearchBar:
+    path:     /ajax/search
+    defaults: { _controller: GuigurFrontBundle:Search:search }
+>>>>>>> dev

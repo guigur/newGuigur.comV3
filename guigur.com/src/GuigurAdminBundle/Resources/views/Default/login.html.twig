@@ -4,13 +4,12 @@
     <div class="row">
 
         <div class="col-md-12">
-
             <div class="card">
                 <div class="admin_card_container">
-                    <canvas height="100" id="visit_chart_year"></canvas>
+                    <canvas height="100" id="login_chart_year"></canvas>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Visites les 360 derniers jours</h5>
+                    <h5 class="card-title">Connexions les 360 derniers jours</h5>
                 </div>
             </div>
         </div>
@@ -18,15 +17,15 @@
 {% endblock %}
 {% block js %}
     <script>
-        new Chart($("#visit_chart_year"), {
+        new Chart($("#login_chart_year"), {
             type: 'line',
             data: {
-                labels: [{% for visitsDay in visitsDays %}"{{ visitsDay.date|date("d M Y") }}",{% endfor %}],
+                labels: [{% for loginDay in loginDays %}"{{ loginDay.date|date("d M Y") }}",{% endfor %}],
                 datasets: [{
                     label: false,
-                    data: [{% for visitsDay in visitsDays %}"{{ visitsDay.visits }}",{% endfor %}],
-                    backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-                    borderColor: ['rgba(54, 162, 235, 1)'],
+                    data: [{% for loginDay in loginDays %}"{{ loginDay.login }}",{% endfor %}],
+                    backgroundColor: ['rgba(76, 175, 80, 0.2)'],
+                    borderColor: ['rgba(56, 142, 60, 1)'],
                     borderWidth: 1
                 }]
             },

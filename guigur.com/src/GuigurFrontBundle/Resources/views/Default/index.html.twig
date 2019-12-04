@@ -1,4 +1,5 @@
 {% extends "base.html.twig" %}
+{% set searchplaceholder = null %}
 {% block body %}
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
         <strong>Nouveau !</strong> <a href="{{ path('LinkShortener') }}">Raccourcisseur de liens</a>
@@ -7,12 +8,15 @@
         </button>
     </div>
 
-    <div class="row">
-        {{ g_texts.getText("home")|raw }}
+    <div class="card">
+        <div class="card-body">
+            {{ g_texts.getText("home")|raw }}
+        </div>
     </div>
-    <div class="row">
+
+    <!--<div class="row">
         <a href="{{ path('LinkShortener') }}" class="btn btn-primary">Raccourcisseur de liens :)</a><br />
-    </div>
+    </div>-->
     <br />
     <div class="row">
         <div class="col-md-8">
@@ -41,17 +45,12 @@
             <div class="card">
                 <h5 class="card-header">Recherche sur le site</h5>
                 <div class="card-body">
-                    <div class="input-group">
-                        <input disabled type="text" class="form-control" placeholder="pas encore fini dsl">
-                        <span class="input-group-btn">
-                      <button class="btn btn-secondary" type="button"><i class="fas fa-search"></i></button>
-                    </span>
-                    </div>
+                   <div id="SearchDiv">
+                   </div>
                 </div>
             </div>
-
             <div class="my-4">
-                <div class="card">
+                <div class="card ">
                     <h5 class="card-header">Twitter</h5>
                     <a class="twitter-timeline"
                        href="https://twitter.com/guigur_com"
@@ -64,11 +63,10 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <img class="imgViewer" src="{{ asset("img/article_default.png") }}">
+    <!-- <img class="imgViewer" src="{{ asset("img/article_default.png") }}"> -->
 
     <!--
     <div class="col-md-12">
@@ -78,24 +76,102 @@
         </button>
     </div>
     -->
+
+    <div class="d-md-none phone-footer-spacer">
+    </div>
 {% endblock %}
 {% block js %}
-    <script>$('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').focus()
-        })</script>
-
-
     <script>
+
+        /****************************/
         var $image = $('.imgViewer');
-
-        $image.viewer({
-
-        });
-
+        $image.viewer({});
         // Get the Viewer.js instance after initialized
         var viewer = $image.data('viewer');
-
         // View a list of images
         $('#images').viewer();
+        /*****************************/
+
+        var numOfResult = -1;
+
+        initSearch();
+
+        function resultWord(nor)
+        {
+            if (nor === 1)
+                return ("Résultat");
+            else
+                return ("Résulats");
+        }
+
+        function resultColor(nor)
+        {
+            var selector = $('#searchMessage span:first-child');
+            if (nor === 0)
+            {
+                selector.removeClass("text-primary");
+                selector.addClass("text-danger");
+            }
+            else
+            {
+                selector.removeClass("text-danger");
+                selector.addClass("text-primary");
+            }
+        }
+
+        function displayResults()
+        {
+            if (numOfResult >= 0)
+            {
+                $('#searchMessage').removeClass('d-none');
+                $('#searchMessage span:first-child').html(numOfResult);
+                $('#searchMessage span:nth-child(2)').html(resultWord(numOfResult));
+                if (numOfResult > 0)
+                {
+                    $('#searchMessage a').removeClass('d-none');
+                }
+            }
+        }
+
+        function enterKeyOnSearch()
+        {
+            $("#searchInput").keyup(function(event)
+            {
+                if (event.keyCode === 13)
+                {
+                    $("#searchButton").click();
+                }
+            });
+        }
+
+        function initSearch()
+        {
+            $('#SearchDiv').html('{% spaceless %}{% include "SearchFragment.html.twig" %}{% endspaceless %}');
+            enterKeyOnSearch();
+            resultColor(numOfResult);
+            displayResults();
+
+            $("#searchButton").click(function()
+            {
+                var searchTerms = $("#searchInput").val();
+                $('#SearchDiv').html('{% spaceless %}{% include 'SearchLoadingFragment.html.twig' %}{% endspaceless %}');
+                $.ajax({
+                    type: "POST",
+                    url: "{{path('ajax_SearchBar')}}",
+                    data: {searchTerms : searchTerms},
+                    success: function(result)
+                    {
+                        numOfResult = result.NumOfResults;
+                        initSearch();
+                    },
+                    error: function ()
+                    {
+                        $('#searchMessage').addClass('d-none');
+                        $('#SearchDiv').html('{% spaceless %}{% include 'SearchErrorFragment.html.twig' %}{% endspaceless %}');
+                    }
+                });
+            });
+        }
+
     </script>
 {% endblock %}

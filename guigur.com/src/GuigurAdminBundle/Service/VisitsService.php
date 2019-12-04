@@ -22,8 +22,8 @@ class VisitsService
     /**
      * Return an array with dates and number of visits
      * The default number of days is 7
-     * @param int $days
-     * @return array
+     * param int $days
+     * return array
      */
     public function visitsDays($days = 7)
     {
@@ -67,7 +67,7 @@ class VisitsService
 
     /**
      * Generate stats based on visitors
-     * @return array
+     * return array
      */
     public function visitsStats()
     {

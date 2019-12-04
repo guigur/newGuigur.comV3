@@ -7,10 +7,10 @@
 
             <div class="card">
                 <div class="admin_card_container">
-                    <canvas height="100" id="visit_chart_year"></canvas>
+                    <canvas height="100" id="register_chart_year"></canvas>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Visites les 360 derniers jours</h5>
+                    <h5 class="card-title">Inscriptions les 360 derniers jours</h5>
                 </div>
             </div>
         </div>
@@ -18,15 +18,15 @@
 {% endblock %}
 {% block js %}
     <script>
-        new Chart($("#visit_chart_year"), {
+        new Chart($("#register_chart_year"), {
             type: 'line',
             data: {
-                labels: [{% for visitsDay in visitsDays %}"{{ visitsDay.date|date("d M Y") }}",{% endfor %}],
+                labels: [{% for registerDay in registerDays %}"{{ registerDay.date|date("d M Y") }}",{% endfor %}],
                 datasets: [{
                     label: false,
-                    data: [{% for visitsDay in visitsDays %}"{{ visitsDay.visits }}",{% endfor %}],
-                    backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-                    borderColor: ['rgba(54, 162, 235, 1)'],
+                    data: [{% for registerDay in registerDays %}"{{ registerDay.register }}",{% endfor %}],
+                    backgroundColor: ['rgba(255, 87 , 34, 0.2)'],
+                    borderColor: ['rgba(230, 74, 25, 1)'],
                     borderWidth: 1
                 }]
             },
