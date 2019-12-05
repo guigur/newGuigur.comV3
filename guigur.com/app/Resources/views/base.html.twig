@@ -7,6 +7,7 @@
         <meta name="author" content="guigur">
         <meta name="theme-color" content="#1b8e51">
         {% block meta %}{% endblock %}
+        {{  }}
         <title>Guigur.com</title>
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_32.png') }}" sizes="32x32">
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_48.png') }}" sizes="48x48">
@@ -163,11 +164,15 @@
        /* $('#myModal').on('shown.bs.modal', function () {
             $('#myInput').focus()
         });*/
+       var locale = Cookies.get('language');
+       if (locale === "undefined")
+       {
+           locale =  window.navigator.language;
+       }
 
 
-
-        var isDark = Cookies.get('dark');
-        if (isDark === "true")
+       var isDark = Cookies.get('dark');
+       if (isDark === "true")
             $("#darkSwitch").prop('checked', true);
 
         var darkChecker = function() {
