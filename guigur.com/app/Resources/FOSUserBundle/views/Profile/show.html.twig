@@ -13,10 +13,10 @@
                     <div class="row justify-content-center" >
                         <span class="text-center profile_medium_text">
                             {% for role in user.roles %}
-                                {% if role == 'ROLE_ADMIN' or role == 'ROLE_SUPER_ADMIN' %}<span class="text-danger">{% trans %}Admin{% endtrans %}</span><br />
-                                {% elseif role == 'ROLE_SELLER' %}<span class="text-success">{% trans %}Seller{% endtrans %}</span><br />
-                                {% elseif role == 'ROLE_USER' %}<span class="text-primary">{% trans %}User{% endtrans %}</span><br />
-                                {% else %}<span class="text-secondary">unknown role</span><br />
+                                {% if role == 'ROLE_ADMIN' or role == 'ROLE_SUPER_ADMIN' %}<span class="text-danger">{% trans %}profile.admin{% endtrans %}</span><br />
+                                {% elseif role == 'ROLE_SELLER' %}<span class="text-success">{% trans %}profile.seller{% endtrans %}</span><br />
+                                {% elseif role == 'ROLE_USER' %}<span class="text-primary">{% trans %}profile.user{% endtrans %}</span><br />
+                                {% else %}<span class="text-secondary">{{ role }}</span><br />
                                 {% endif %}
                             {% endfor %}</span>
                     </div>
@@ -26,25 +26,25 @@
         <div class="col-md-9">
             <div class="card">
                 <div class="card-header">
-                    <b>{% trans %}My profile information{% endtrans %}</b>
+                    <b>{% trans %}profile.information{% endtrans %}</b>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
                         <tr>
-                            <td><i class="fa fa-user"></i>&nbsp;&nbsp;{% trans %}Username{% endtrans %}</td>
+                            <td><i class="fa fa-user"></i>&nbsp;&nbsp;{% trans %}profile.username{% endtrans %}</td>
                             <td>{{ user.username }}</td>
                         </tr>
                         <tr>
-                            <td><i class="fa fa-at"></i>&nbsp;&nbsp;{% trans %}Email{% endtrans %}</td>
+                            <td><i class="fa fa-at"></i>&nbsp;&nbsp;{% trans %}profile.email{% endtrans %}</td>
                             <td>{{ user.email }}</td>
                         </tr>
                         <tr>
-                            <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{% trans %}Registration date{% endtrans %}</td>
+                            <td><i class="fa fa-calendar"></i>&nbsp;&nbsp;{% trans %}profile.registration{% endtrans %}</td>
                             <td>{{ user.registerDate|localizeddate }}</td>
                         </tr>
                         <tr>
-                            <td><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;{% trans %}Last login{% endtrans %}</td>
-                            <td>{{ user.lastLogin|localizeddate  }}</td>
+                            <td><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;{% trans %}profile.lastlogin{% endtrans %}</td>
+                            <td>{{ user.lastLogin|localizeddate }}</td>
                         </tr>
                     </table>
                 </div>
