@@ -2,7 +2,7 @@
 {% set searchplaceholder = null %}
 {% block body %}
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <strong>Nouveau !</strong> <a href="{{ path('LinkShortener') }}">Raccourcisseur de liens</a>
+        <strong>{% trans %}New !{% endtrans %}</strong> <a href="{{ path('LinkShortener') }}">{% trans %}Url shortener{% endtrans %}</a>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -22,7 +22,7 @@
             {% include 'Article_min_display.html.twig'  with {'lastArticle': true }%}
             <div class="card my-4">
                 <h5 class="card-header">
-                    Quelques projets
+                    {% trans %}Some projects{% endtrans %}
                 </h5>
                 <div class="card-body">
                     <div class="row">
@@ -34,7 +34,7 @@
                         <div class="col-md-offset-1"></div>
                     {% endfor %}
                     </div>
-                    <a href="{{ path('Projects') }}" class="btn btn-primary">Voir tous les projets ({{ ProjectsNumbers }}) &rarr;</a>
+                    <a href="{{ path('Projects') }}" class="btn btn-primary">{% trans %}See all projects{% endtrans %} ({{ ProjectsNumbers }}) &rarr;</a>
 
                 </div>
             </div>
@@ -42,7 +42,7 @@
         <div class="col-md-4">
             <!-- Search Widget -->
             <div class="card">
-                <h5 class="card-header">Recherche sur le site</h5>
+                <h5 class="card-header">{% trans %}Search{% endtrans %}</h5>
                 <div class="card-body">
                    <div id="SearchDiv">
                    </div>

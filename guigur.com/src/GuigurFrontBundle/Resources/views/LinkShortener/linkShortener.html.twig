@@ -9,40 +9,29 @@
                     <div class="table-responsive l-list">
                             {{ render(controller('GuigurFrontBundle:LinkShortener:links')) }}
                     </div>
-<<<<<<< HEAD:guigur.com/src/GuigurFrontBundle/Resources/views/Default/linkShortener.html.twig
-
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ggr_modal">
-                        Launch demo modal
-=======
                     <button type="button" class="btn btn-primary" id="l-add">
-                        <span class="fa fa-plus" aria-hidden="true"></span> Ajouter un lien
->>>>>>> dev:guigur.com/src/GuigurFrontBundle/Resources/views/LinkShortener/linkShortener.html.twig
+                        <span class="fa fa-plus" aria-hidden="true"></span> {% trans %}ls.addlink{% endtrans %}
                     </button>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function init()
-        {
+        function init() {
             console.log("ready");
-            $('.l-btn-toggle').click(function(){
+            $('.l-btn-toggle').click(function () {
                 var selector = $(this);
                 selector.html('<span class="spinner-border spinner-border-sm ggr-spinner-btn" role="status" aria-hidden="true"></span>');
                 var id = selector.data('linkuser-id');
                 $.ajax({
                     type: "POST",
-                    url: "{{path('ajax_LinkShortenerToggle')}}",
-                    data: {id : id},
-                    success: function(result){
-                        if (result.isActive === true)
-                        {
+                    url: "{{ path('ajax_LinkShortenerToggle') }}",
+                    data: {id: id},
+                    success: function (result) {
+                        if (result.isActive === true) {
                             selector.html('<span class="btn-text">On</span>');
                             selector.removeClass('btn-warning').addClass('btn-success');
-                        }
-                        else if (result.isActive === false)
-                        {
+                        } else if (result.isActive === false) {
                             selector.html('<span class="btn-text">Off</span>');
                             selector.removeClass('btn-success').addClass('btn-warning');
                         }
@@ -54,16 +43,16 @@
                 });
             });
 
-            $('.l-btn-delete').click(function(){
+            $('.l-btn-delete').click(function () {
                 var selector = $('.l-list');
                 var height = selector.height();
                 var id = $(this).data('linkuser-id');
-                var offset = (height/2) - 16; //1em = 16px;
-                selector.html('<div class="l-list-loader" style="height:'+height+'px; padding-top: '+offset+'px;"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div></div>');
-/*
-                $.ajax({
-                    type: "POST",
-                    url: "{{path('ajax_LinkShortenerDelete')}}",
+                var offset = (height / 2) - 16; //1em = 16px;
+                selector.html('<div class="l-list-loader" style="height:' + height + 'px; padding-top: ' + offset + 'px;"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div></div>');
+                /*
+                                $.ajax({
+                                    type: "POST",
+                                    url: "{{ path('ajax_LinkShortenerDelete') }}",
                     data: {id : id},
                     success: function(result){
                         selector.html(result);
@@ -77,18 +66,18 @@
 
             });
 
-            $('.l-btn-edit').click(function(){
+            $('.l-btn-edit').click(function () {
                 var selector = $('.l-list');
                 var height = selector.height();
                 var id = $(this).data('linkuser-id');
-                var offset = (height/2) - 16; //1em = 16px;
-                selector.html('<div class="l-list-loader" style="height:'+height+'px; padding-top: '+offset+'px;"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div></div>');
+                var offset = (height / 2) - 16; //1em = 16px;
+                selector.html('<div class="l-list-loader" style="height:' + height + 'px; padding-top: ' + offset + 'px;"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div></div>');
 
                 $.ajax({
                     type: "POST",
-                    url: "{{path('ajax_LinkShortenerEdit')}}",
-                    data: {id : id},
-                    success: function(result){
+                    url: "{{ path('ajax_LinkShortenerEdit') }}",
+                    data: {id: id},
+                    success: function (result) {
                         selector.html(result);
                         init();
                     }
@@ -96,7 +85,11 @@
 
             });
 
-<<<<<<< HEAD:guigur.com/src/GuigurFrontBundle/Resources/views/Default/linkShortener.html.twig
+            $('#l-add').click(function(){
+
+                modalCreator("Add a link", '{% spaceless %}{% include 'linkShortenerModalAdd.html.twig' %}{% endspaceless %}', ["add"]);
+            });
+
         }
 
         function genModal(title, content)
@@ -122,13 +115,6 @@
 
         function deleteModal()
         {
-
-=======
-            $('#l-add').click(function(){
-
-                modalCreator("Add a link", '{% spaceless %}{% include 'linkShortenerModalAdd.html.twig' %}{% endspaceless %}', ["add"]);
-            });
->>>>>>> dev:guigur.com/src/GuigurFrontBundle/Resources/views/LinkShortener/linkShortener.html.twig
         }
 
         $(document).ready(function(){
