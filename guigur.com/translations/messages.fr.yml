@@ -1,28 +1,40 @@
 #### Nav bar ####
-Home: Accueil
-Projects: Projets
-Archives: Archives
-About: À popos
-Contact: Contact
-Hosting Service: Service d'Hébergement
-Admin: Admin
-Blog: Blog
-Shop: Magasin
-Portfolio: Portfolio
-Night mode: Mode nuit
+nav.home: Accueil
+nav.projects: Projets
+nav.archives: Archives
+nav.about: À popos
+nav.contact: Contact
+nav.hs: Service d'Hébergement
+nav.admin: Espace admin
+nav.shop: Magasin
+nav.portfolio: Portfolio
+nav.normm: Mode normal
+nav.nightm: Mode nuit
+
+nav.profile: Profil
+nav.disconnect: Se déconnecter
+nav.register: Créer un compte
+nav.login: Se connecter
+
+#### other ####
+Search: Recherche sur le site
+See all projets: Voir tous les projets
+Some projects: Quelques projets
+New !: Nouveau !
+Url shortener:  Minimiseur d'url
 
 #### Session stuff ####
-Login: Se connecter
-Disconnect: Se déconnecter
-Register: Créer un compte
-Password: Mot de passe
-Verify your password: Confirmer le mot de passe
-Forgot password ?: Mot de passe oublié ?
-modify: modifier
-Remember me: Se souvenir de moi
-Login with Twitter: Se connecter avec Twitter
-Login with Facebook: Se connecter avec Facebook
-Login with Google: Se connecter avec Google
+log.login: Se connecter
+log.disconnect: Se déconnecter
+log.register: Créer un compte
+log.password: Mot de passe
+log.verifypassword: Confirmer le mot de passe
+log.forgotpassword: Mot de passe oublié ?
+log.modify: modifier
+log.rememberme: Se souvenir de moi
+log.logintwitter: Se connecter avec Twitter
+log.loginfacebook: Se connecter avec Facebook
+log.logingoogle: Se connecter avec Google
 
 #### Profile stuff ####
 Username: Pseudo
@@ -32,5 +44,11 @@ Last login: Dernière connexion
 My profile information: Informations sur mon profil
 Profile: Profil
 Email: Email
-
+User: Utilisateur
 #### Role thinggy
+
+#### Links Shortener ####
+ls:addlink: Ajouter un lien
+
+#### Footer ####
+foot.changelog: Journal des modifications

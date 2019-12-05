@@ -546,7 +546,7 @@ pre > code {
     margin-top: 10%;
 }
 
-/* Nav bar stuff */
-.nav-link-danger{color:rgba(255,0,0,.5)}
-.nav-link-danger:hover{color:rgba(255,0,0,.75)}
-.nav-link-danger.disabled{color:rgba(255,0,0,.25)}
+.pointer
+{
+    cursor: pointer;
+}
