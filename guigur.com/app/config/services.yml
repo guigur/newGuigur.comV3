@@ -7,6 +7,10 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+  GuigurFrontBundle\Service\LocaleService:
+    arguments: ['%kernel.default_locale%']
+    # redundant if you're using autoconfigure
+    tags: [kernel.event_subscriber]
   twig.extension.intl:
     class: Twig_Extensions_Extension_Intl
     tags:

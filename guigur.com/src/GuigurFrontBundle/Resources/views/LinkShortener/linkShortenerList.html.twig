@@ -18,7 +18,7 @@
             <td>{{ LinkUser.name }}</td>
             <td>{{ LinkUser.comment }}</td>
             <td><a href="{{ path('LinkShortenerParams', {'link': LinkUser.link}) }}" title="{{ LinkUser.name }} Shortened" target="_blank">{{ app.request.getSchemeAndHttpHost() }}{{ path('LinkShortener') }}/<b>{{ LinkUser.link }}</b></a></td>
-            <td><a href="//{{ LinkUser.url }}" title="{{ LinkUser.name }} URL" target="_blank">{{ LinkUser.url }}</a></td>
+            <td><a href="{{ LinkUser.url }}" title="{{ LinkUser.name }} URL" target="_blank">{{ LinkUser.url }}</a></td>
             <td>{{ LinkUser.dateCreated|date("m/d/Y H:i:s") }}</td>
             <td>{{ LinkUser.dateLastModified|date("m/d/Y H:i:s") }}</td>
             <td>

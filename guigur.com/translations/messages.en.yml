@@ -15,6 +15,8 @@ nav.profile: profile
 nav.disconnect: Disconnect
 nav.register: Register
 nav.login: Login
+nav.toolbox: Toolbox
+nav.urlshortener: Url shortener
 
 #### Cards headers #####
 card.search: Search
@@ -22,9 +24,15 @@ card.lastpost: Last post
 card.someprojects: Some projects
 
 #### other ####
-See all projets: Voir tous les projets
-New !: Nouveau !
-Url shortener:  Minimiseur d'url
+button.seeallprojets: See all projects
+button.readmore: Read more
+
+article.postedon: Posted on
+article.by: by
+
+tag.wip: Work in progress
+twitter.tb: Tweets by
+New !: New !
 
 #### Session stuff ####
 log.login: Login

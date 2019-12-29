@@ -35,7 +35,7 @@ class LinkShortenerController extends Controller
         {
             if($linkShortened->getIsActive() === true)
             {
-                return $this->redirect('//' . $linkShortened->getURL());
+                return $this->redirect($linkShortened->getURL());
             }
             else
             {

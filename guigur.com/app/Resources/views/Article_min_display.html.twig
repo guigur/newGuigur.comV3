@@ -1,13 +1,15 @@
 <div class="card mb-4">
-    {% if lastArticle is defined %}<h5 class="card-header">Dernier article</h5>{% endif %}
+    {% if lastArticle is defined %}<h5 class="card-header">{% trans %}card.lastpost{% endtrans %}</h5>{% endif %}
     <img class="card-img-top" src="{{ asset("img/article_default.png") }}">
     <div class="card-body">
-        <h3 class="card-title">Post Title&nbsp;<span class="badge badge-warning">Work in Progress</span></h3>
+        <h3 class="card-title">Post Title&nbsp;<span class="badge badge-warning">{% trans %}tag.wip{% endtrans %}</span></h3>
         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-        <a href="#" class="btn btn-primary">Read More &rarr;</a>
+        <a href="#" class="btn btn-primary">{% trans %}button.readmore{% endtrans %} &rarr;</a>
     </div>
     <div class="card-footer text-muted">
-        Posted on January 1, 2017 by
-        <a href="#">Start Bootstrap</a>
+        {% set datePosted = date("1/01/2017") %}
+        {% set authorPosted = "guigur" %}
+
+        {% trans %}article.postedon{% endtrans %}&nbsp;{{ datePosted|localizeddate }}&nbsp;{% trans %}article.by{% endtrans %}&nbsp;<a href="#">{{ authorPosted }}</a>
     </div>
 </div>

@@ -10,6 +10,27 @@ body {
     margin-bottom: 60px;
 }
 
+::selection
+{
+    background: #1b8e51;
+    color: white;
+}
+
+::-moz-selection
+{
+    background: #1b8e51;
+    color: white;
+}
+
+.dropdown-menu > .active,
+.dropdown-menu> a:hover,
+.dropdown-menu> a:focus,
+.dropdown-menu> span:hover,
+.dropdown-menu> span:focus
+{
+    background: #1b8e51;
+}
+
 .bg-darker
 {
     background-color: #222;

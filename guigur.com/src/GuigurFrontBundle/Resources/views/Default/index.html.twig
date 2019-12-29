@@ -1,12 +1,6 @@
 {% extends "base.html.twig" %}
 {% set searchplaceholder = null %}
 {% block body %}
-    <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <strong>{% trans %}New !{% endtrans %}</strong> <a href="{{ path('LinkShortener') }}">{% trans %}Url shortener{% endtrans %}</a>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
     <div class="card">
         <div class="card-body">
             {{ g_texts.getText("g.home")|raw }}
@@ -22,7 +16,7 @@
             {% include 'Article_min_display.html.twig'  with {'lastArticle': true }%}
             <div class="card my-4">
                 <h5 class="card-header">
-                    {% trans %}Some projects{% endtrans %}
+                    {% trans %}card.someprojects{% endtrans %}
                 </h5>
                 <div class="card-body">
                     <div class="row">
@@ -34,15 +28,14 @@
                         <div class="col-md-offset-1"></div>
                     {% endfor %}
                     </div>
-                    <a href="{{ path('Projects') }}" class="btn btn-primary">{% trans %}See all projects{% endtrans %} ({{ ProjectsNumbers }}) &rarr;</a>
-
+                    <a href="{{ path('Projects') }}" class="btn btn-primary">{% trans %}button.seeallprojets{% endtrans %} ({{ ProjectsNumbers }})&nbsp;&rarr;</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <!-- Search Widget -->
             <div class="card">
-                <h5 class="card-header">{% trans %}Search{% endtrans %}</h5>
+                <h5 class="card-header">{% trans %}card.search{% endtrans %}</h5>
                 <div class="card-body">
                    <div id="SearchDiv">
                    </div>
@@ -54,11 +47,12 @@
                     <a class="twitter-timeline"
                        href="https://twitter.com/guigur_com"
                        data-height="1000"
+                       data-lang="{{ app.request.getLocale() }}"
                        data-chrome="noheader nofooter noborders transparent"
                        {%  if app.request.cookies.get('dark') == "true" %} data-theme=dark {% endif %}
                        data-chrome="nofooter"
                        data-background-color="#FF0000">
-                       Tweets by @guigur_com
+                       {% trans %}twitter.tb{% endtrans %}&nbsp;@guigur_com
                     </a>
                 </div>
             </div>
