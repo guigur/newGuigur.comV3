@@ -29,6 +29,8 @@ body {
 .dropdown-menu> span:focus
 {
     background: #1b8e51;
+    color: white;
+
 }
 
 .bg-darker
