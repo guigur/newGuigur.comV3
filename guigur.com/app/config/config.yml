@@ -11,6 +11,11 @@ imports:
 parameters:
     locale: fr
 
+karser_recaptcha3:
+    site_key: '%RECAPTCHA3_KEY%'
+    secret_key: '%RECAPTCHA3_SECRET%'
+    score_threshold: 0.5
+
 framework:
     #esi:             ~
     translator:
