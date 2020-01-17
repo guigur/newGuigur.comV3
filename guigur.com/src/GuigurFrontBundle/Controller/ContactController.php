@@ -26,7 +26,7 @@ class ContactController extends Controller
             ->add('mail', EmailType::class, array('label' => 'Email'))
             ->add('content', TextareaType::class, array('label' => 'Votre requête', 'attr' => array('class' => 'contactTextarea', 'rows' => '6')))
             ->add('captcha', Recaptcha3Type::class, ['constraints' => new Recaptcha3(), 'action_name' => 'contact',])
-            ->add('save', SubmitType::class, array('label' => 'Envoyer'))
+            ->add('save', SubmitType::class, array('label' => 'Envoyer', 'attr' => ['class' => 'btn btn-primary']))
             ->getForm();
 
         $form->handleRequest($request);
