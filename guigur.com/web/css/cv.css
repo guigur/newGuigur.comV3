@@ -1,6 +1,6 @@
 .cv-separator
 {
-    height: 0.5em;
+    height: 0.4em;
     width: 100%;
     background: #1b8e51!important;
     -webkit-print-color-adjust: exact;
@@ -30,3 +30,17 @@
     display: block;
 }
 
+.cv-titres
+{
+    font-size: 2em;
+}
+
+.cv-section-text
+{
+    font-size: 1.3em;
+}
+
+.cv-dates
+{
+    font-weight: bold;
+}

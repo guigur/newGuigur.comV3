@@ -12,12 +12,10 @@
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_48.png') }}" sizes="48x48">
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_64.png') }}" sizes="64x64">
         <link rel="icon" type="image/png" href="{{ asset('img/favicons/guigur_96.png') }}" sizes="96x96">
-
-
         {%  if app.request.cookies.get('dark') == "true" %}
-            <link href="{{ asset('css/bootstrap-Darkly.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/bootstrap-Darkly.min.css') }}" id="boostrap-theme" rel="stylesheet">
         {% else %}
-            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/bootstrap.min.css') }}" id="boostrap-theme" rel="stylesheet">
         {% endif %}
         <link href="{{ asset('css/foundation-icons.css') }}" rel="stylesheet">
         <link href="{{ asset('css/viewer.min.css') }}" rel="stylesheet">
@@ -198,10 +196,22 @@
 
        /* THEME STUFF */
        var isDark = Cookies.get('dark');
-       if (isDark === "true")
-           $("#dropNightMode").addClass("active");
-       else
-           $("#dropNormalMode").addClass("active");
+       if (typeof isDark !== 'undefined')
+       {
+           if (isDark === "true")
+           {
+               $("#dropNightMode").addClass("active");
+           }
+           else
+           {
+               $("#dropNormalMode").addClass("active");
+           }
+       }
+       else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        {
+            Cookies.set("dark", true);
+            location.reload();
+        }
 
        $("#dropNightMode").click(function() {
            Cookies.set("dark", true);
