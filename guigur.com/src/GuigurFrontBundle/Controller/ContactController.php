@@ -4,8 +4,11 @@ namespace GuigurFrontBundle\Controller;
 
 use DateTime;
 use GuigurFrontBundle\Entity\ContactForm;
+use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use GuigurFrontBundle\Entity\CatchPhrase;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -17,11 +20,13 @@ class ContactController extends Controller
     {
 
         $contactForm = new ContactForm();
+
         $form = $this->createFormBuilder($contactForm)
             ->add('name', TextType::class, array('label' => 'Pseudo'))
-            ->add('mail', TextType::class, array('label' => 'Email'))
+            ->add('mail', EmailType::class, array('label' => 'Email'))
             ->add('content', TextareaType::class, array('label' => 'Votre requête', 'attr' => array('class' => 'contactTextarea', 'rows' => '6')))
-            ->add('save', SubmitType::class, array('label' => 'Envoyer'))
+            ->add('captcha', Recaptcha3Type::class, ['constraints' => new Recaptcha3(), 'action_name' => 'contact',])
+            ->add('save', SubmitType::class, array('label' => 'Envoyer', 'attr' => ['class' => 'btn btn-primary']))
             ->getForm();
 
         $form->handleRequest($request);

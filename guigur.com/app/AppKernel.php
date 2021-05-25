@@ -1,10 +1,13 @@
 <?php
 
+use Karser\Recaptcha3Bundle\KarserRecaptcha3Bundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+
+
     public function registerBundles()
     {
         $bundles = [
@@ -15,6 +18,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Karser\Recaptcha3Bundle\KarserRecaptcha3Bundle(),
             new AppBundle\AppBundle(),
             new GuigurFrontBundle\GuigurFrontBundle(),
             new GuigurAdminBundle\GuigurAdminBundle(),

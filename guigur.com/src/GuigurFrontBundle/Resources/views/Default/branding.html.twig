@@ -2,19 +2,18 @@
 {% block body %}
     <div class="row">
         <!-- Blog Entries Column -->
-        {{ dump(test.date) }}
         <div class="col-md-12">
             {% include 'Page_header_display.html.twig' %}
             <hr>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="https://discordapp.com/assets/192cb9459cbc0f9e73e2591b700f1857.svg" class="img-fluid chess_pattern_dark rounded border border_guigur_primary" width="">
+                    <img src="{{ asset('img/guigur_.com_green.png') }}" class="img-fluid chess_pattern_light rounded border border_guigur_primary" width="">
                 </div>
                 <div class="col-md-4">
-                    <img src="https://via.placeholder.com/468x60?text=test+branding" class="img-fluid chess_pattern" width="">
+                    <img src="{{ asset('img/guigur_.com_green.png') }}" class="img-fluid chess_pattern_dark rounded border border_guigur_primary" width="">
                 </div>
                 <div class="col-md-4">
-                    <img src="https://via.placeholder.com/468x60?text=test+branding" class="img-fluid chess_pattern" width="">
+                    <img src="{{ asset('img/guigur_.com_light.png') }}" class="img-fluid chess_pattern_dark rounded border border_guigur_primary" width="">
                 </div>
             </div>
 

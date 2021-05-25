@@ -1,4 +1,5 @@
 /app/config/parameters.yml
+/app/config/recaptcha.yml
 /build/
 /phpunit.xml
 /var/*
@@ -18,4 +19,5 @@ bin/symfony_requirements
 var/sessions/.gitkeep
 .idea/
 .idea/*
-app/config/recaptcha.yml
+composer.lock
+

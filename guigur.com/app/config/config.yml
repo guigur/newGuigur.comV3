@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: recaptcha.yml }
     - { resource: "@GuigurFrontBundle/Resources/config/services.yml" }
     - { resource: "@GuigurAdminBundle/Resources/config/services.yml" }
     - { resource: "@UserBundle/Resources/config/services.yml" }
@@ -9,11 +10,19 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
+
+karser_recaptcha3:
+    site_key: '%RECAPTCHA3_KEY%'
+    secret_key: '%RECAPTCHA3_SECRET%'
+    score_threshold: 0.5
 
 framework:
     #esi:             ~
-    translator:      { fallbacks: [en] }
+    translator:
+        fallbacks: [en]
+        paths:
+            - '%kernel.project_dir%/translations'
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"

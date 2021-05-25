@@ -6,11 +6,17 @@ use GuigurFrontBundle\Entity\Visits;
 use Psr\Log\NullLogger;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use GuigurFrontBundle\Entity\CatchPhrase;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        /*$locale = $request->getLocale();
+        echo $locale;
+        die();
+*/
         $entityManager = $this->getDoctrine()->getManager();
 
         $userIP = $this->container->get('request_stack')->getCurrentRequest()->getClientIp();

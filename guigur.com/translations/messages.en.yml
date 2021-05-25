@@ -1,0 +1,69 @@
+#### Nav bar ####
+nav.home: Home
+nav.projects: Projects
+nav.archives: Archives
+nav.about: About
+nav.contact: Contact
+nav.hs: Hosting Service
+nav.admin: Admin
+nav.blog: Blog
+nav.shop: Shop
+nav.portfolio: Portfolio
+nav.normm: Normal mode
+nav.nightm: Night mode
+nav.profile: profile
+nav.disconnect: Disconnect
+nav.register: Register
+nav.login: Login
+nav.toolbox: Toolbox
+nav.urlshortener: Url shortener
+
+#### Cards headers #####
+card.search: Search
+card.lastpost: Last post
+card.someprojects: Some projects
+
+#### other ####
+button.seeallprojets: See all projects
+button.readmore: Read more
+
+article.postedon: Posted on
+article.by: by
+
+tag.wip: Work in progress
+twitter.tb: Tweets by
+New !: New !
+
+#### Session stuff ####
+log.login: Login
+log.disconnect: Disconnect
+log.register: Register
+log.password: Password
+log.verifypassword: Verify your password
+log.forgotpassword: Password Forgot ?
+log.modify: Modify
+log.rememberme: Remember me
+log.logintwitter: Login with Twitter
+log.loginfacebook: Login with Facebook
+log.logingoogle: Login with Google
+
+#### Profile stuff ####
+profile.username: Username
+profile.emailaddress: Email address
+profile.registration: Registration date
+profile.lastlogin: Last login
+profile.information: My profile information
+profile.profile: Profile
+profile.email: Email
+profile.user: User
+profile.admin: Admin
+profile.seller: seller
+
+#### Role thinggy
+
+
+#### Links Shortener ####
+ls.addlink: Add a new link
+
+#### Footer ####
+foot.changelog: Changelog

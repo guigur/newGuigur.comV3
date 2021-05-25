@@ -4,8 +4,43 @@
     <link href="{{ asset('css/cv.css') }}" rel="stylesheet">
 {% endblock css %}
 {% block body %}
-     {% for cvContent in cvContents %}
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-center" style="background-color: red">
+                    <img src="{{ asset('img/avatar/guigur_avatar_2018.png') }}" class="rounded-circle about_avatar">
+                    <div>Guillaume Arthaud</div>
+                    <div>Développeur</div>
+                </div>
+            </div>
 
+            <div class="col-md-6">
+                <div style="background-color: green">
+                    <div>Contact</div>
+                    <span><span class="fa fa-phone" aria-hidden="true"></span>&nbsp;06 17 43 79 64</span>
+                    <span><span class="fa fa-map-marker-alt" aria-hidden="true"></span>&nbsp;Launaguet</span>
+                    <span><span class="fa fa-car-side" aria-hidden="true"></span>&nbsp;Permis B</span>
+                    <span><span class="fa fa-user-tie" aria-hidden="true"></span>&nbsp;{{ date("12/06/1994")|time_diff|split(' ')[0] }} ans</span>
+                    <span><a href="https://github.com/guigur"><span class="fab fa-github" aria-hidden="true"></span>&nbsp;github.com/guigur</a></span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <span class="cv-titres">Formation</span>
+                <div class="cv-separator"></div>
+            <div>
+                <span class="cv-section-text"><span class="cv-dates">2012-2017 :</span>Epitech</span>
+                <p>Lorem ipsum</p>
+                <span>2015-2016 :</span>Chine
+                <p>Lorem ipsum</p>
+            </div>
+        </div>
+    </div>
+
+
+     {% for cvContent in cvContents %}
     <div class="row">
         <div class="col-md-12">
             <div class="cv-separator"></div>

@@ -12,8 +12,8 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ path('fos_user_registration_register') }}" class="float-right btn btn-outline-primary">{{ g_texts.getText("nav_register")|raw }}</a>
-                    <h4 class="card-title mb-4 mt-1">{{ g_texts.getText("nav_login")|raw }}</h4>
+                    <a href="{{ path('fos_user_registration_register') }}" class="float-right btn btn-outline-primary">{% trans %}Register{% endtrans %}</a>
+                    <h4 class="card-title mb-4 mt-1">{% trans %}Login{% endtrans %}</h4>
                     {% if error %}
                         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
@@ -22,21 +22,21 @@
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                         {% endif %}
                         <div class="input-group mb-3">
-                            <label for="validationDefaultUsername">{{ g_texts.getText("username")|raw }}:</label>
+                            <label for="validationDefaultUsername">{% trans %}Username{% endtrans %}:</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="{{ g_texts.getText("username")|raw }}" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username">
+                                <input type="text" class="form-control" placeholder="{% trans %}Username{% endtrans %}" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username">
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <label for="validationDefaultUsername">{{ g_texts.getText("passwd")|raw }}:</label>
+                            <label for="validationDefaultUsername">{% trans %}Password{% endtrans %}:</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="{{ g_texts.getText("passwd")|raw }}" id="password" name="_password" required="required" autocomplete="current-password">
+                                <input type="password" class="form-control" placeholder="{% trans %}Password{% endtrans %}" id="password" name="_password" required="required" autocomplete="current-password">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <div id="passwdEye">
@@ -48,16 +48,16 @@
                             </div>
                         </div>
                         <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                        <label for="remember_me">{{ g_texts.getText("remember_me")|raw }}</label>
+                        <label for="remember_me">{% trans %}Remember me{% endtrans %}</label>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <button type="submit" id="_submit" name="_submit" class="btn btn-primary btn-block">{{ g_texts.getText("nav_login")|raw }}</button>
+                                    <button type="submit" id="_submit" name="_submit" class="btn btn-primary btn-block">{% trans %}Login{% endtrans %}</button>
                                 </div> <!-- form-group// -->
                             </div>
                         </div> <!-- .row// -->
                         <div class="text-center">
-                            <del><span class="small" href="#">{{ g_texts.getText("login_forgot_passwd")|raw }}</span></del>
+                            <del><span class="small" href="#">{% trans %}Forgot password ?{% endtrans %}</span></del>
                         </div>
                     </form>
                 </div>

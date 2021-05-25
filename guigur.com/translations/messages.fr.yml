@@ -1,0 +1,68 @@
+#### Nav bar ####
+nav.home: Accueil
+nav.projects: Projets
+nav.archives: Archives
+nav.about: À popos
+nav.contact: Contact
+nav.hs: Service d'Hébergement
+nav.admin: Espace admin
+nav.shop: Magasin
+nav.portfolio: Portfolio
+nav.normm: Mode normal
+nav.nightm: Mode nuit
+
+nav.profile: Profil
+nav.disconnect: Se déconnecter
+nav.register: Créer un compte
+nav.login: Se connecter
+nav.toolbox: Boite à outils
+nav.urlshortener: Minimiseur d'url
+
+#### Cards headers #####
+card.search: Recherche sur le site
+card.lastpost: Dernier article
+card.someprojects: Quelques projets
+
+#### other ####
+button.seeallprojets: Voir tous les projets
+button.readmore: Lire la suite
+
+article.postedon: Publié le
+article.by: par
+
+tag.wip: En cours de contruction
+twitter.tb: Tweets par
+New !: Nouveau !
+
+#### Session stuff ####
+log.login: Se connecter
+log.disconnect: Se déconnecter
+log.register: Créer un compte
+log.password: Mot de passe
+log.verifypassword: Confirmer le mot de passe
+log.forgotpassword: Mot de passe oublié ?
+log.modify: modifier
+log.rememberme: Se souvenir de moi
+log.logintwitter: Se connecter avec Twitter
+log.loginfacebook: Se connecter avec Facebook
+log.logingoogle: Se connecter avec Google
+
+#### Profile stuff ####
+profile.username: Pseudo
+profile.emailaddress: Adresse Email
+profile.registration: Date d'inscription
+profile.lastlogin: Dernière connexion
+profile.information: Informations sur mon profil
+profile.profile: Profil
+profile.email: Email
+profile.user: Utilisateur
+profile.admin: Administrateur
+profile.seller: Vendeur
+
+#### Role thinggy
+
+#### Links Shortener ####
+ls:addlink: Ajouter un lien
+
+#### Footer ####
+foot.changelog: Journal des modifications

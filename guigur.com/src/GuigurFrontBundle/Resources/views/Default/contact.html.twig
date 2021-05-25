@@ -1,10 +1,6 @@
 {% extends "base.html.twig" %}
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block body %}
-    <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Remarque:</strong> cette page n'est pas encore fonctionnelle.
-    </div>
     <div class="row">
 
         <!-- Blog Entries Column -->
@@ -18,7 +14,6 @@
                 <div class="form-group">
                     {{ form_start(form) }}
                     {{ form_widget(form) }}
-                    <div class="g-recaptcha" data-sitekey="6LdnfmkUAAAAAJJ5HlEYbf5jZsOUd3D3VXX2Nqwp"></div>
                     {{ form_end(form) }}
                 </div>
             </div>
