@@ -53,6 +53,12 @@ class DefaultController extends Controller
         $catchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('projects');
         $searchCatchPhrase = $this->get('guigur.catchphrase')->requestCatchPhrase('search');
 
-        return $this->render('GuigurFrontBundle:Default:index.html.twig', array("pastVisits" => $pastVisit, "Catchphrase" =>  $catchPhrase, "SearchCatchphrase" =>  $searchCatchPhrase, "Projects" => $projects, "ProjectsCategories" => $ProjectsCategories, "ProjectsNumbers" => $ProjectsNumbers));
+        return $this->render('GuigurFrontBundle:Default:index.html.twig',
+            array("pastVisits" => $pastVisit,
+                  "Catchphrase" =>  $catchPhrase,
+                  "SearchCatchphrase" =>  $searchCatchPhrase,
+                  "Projects" => $projects,
+                  "ProjectsCategories" => $ProjectsCategories,
+                  "ProjectsNumbers" => $ProjectsNumbers));
     }
 }

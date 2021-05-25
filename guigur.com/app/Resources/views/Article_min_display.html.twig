@@ -1,5 +1,6 @@
+{% if lastArticle == true %}
 <div class="card mb-4">
-    {% if lastArticle is defined %}<h5 class="card-header">Dernier article</h5>{% endif %}
+    <h5 class="card-header">Dernier article</h5>
     <img class="card-img-top" src="{{ asset("img/article_default.png") }}">
     <div class="card-body">
         <h3 class="card-title">Post Title&nbsp;<span class="badge badge-warning">Work in Progress</span></h3>
@@ -11,3 +12,4 @@
         <a href="#">Start Bootstrap</a>
     </div>
 </div>
+{% endif %}
