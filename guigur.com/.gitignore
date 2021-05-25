@@ -19,3 +19,5 @@ bin/symfony_requirements
 var/sessions/.gitkeep
 .idea/
 .idea/*
+composer.lock
+
