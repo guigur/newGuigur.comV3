@@ -1,0 +1,3 @@
+parameters:
+  RECAPTCHA3_KEY: changeme
+  RECAPTCHA3_SECRET: changeme

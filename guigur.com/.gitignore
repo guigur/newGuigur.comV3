@@ -18,3 +18,4 @@ bin/symfony_requirements
 var/sessions/.gitkeep
 .idea/
 .idea/*
+app/config/recaptcha.yml
