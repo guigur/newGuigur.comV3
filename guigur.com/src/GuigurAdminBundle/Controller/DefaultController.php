@@ -11,20 +11,25 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        /*
+         * THE MEMORY PROBLEM IS RIGH HERE
         $pastVisit = $this->getDoctrine()
             ->getRepository('GuigurFrontBundle:Visits')
             ->findAll();
-
+      */
+        /*
         $countVisitsDays = $this->get('guigur.admin.visits')->VisitsDays();
         $visitsStats = $this->get('guigur.admin.visits')->VisitsStats();
         $countLoginDays = $this->get('guigur.admin.login')->LoginDays();
         $loginStats = $this->get('guigur.admin.login')->LoginStats();
         $countRegisterDays = $this->get('guigur.admin.register')->RegisterDays();
         $registerStats = $this->get('guigur.admin.register')->RegisterStats();
-        return $this->render('GuigurAdminBundle:Default:index.html.twig', array(
+        */
+        return $this->render('GuigurAdminBundle:Default:index.html.twig', array(/*
             "visitsDays" => $countVisitsDays, "visitsStats" => $visitsStats,
             "loginDays" => $countLoginDays, "loginStats" => $loginStats,
-            "registerDays" => $countRegisterDays, "registerStats" => $registerStats));
+            "registerDays" => $countRegisterDays, "registerStats" => $registerStats
+*/));
     }
 
     public function visitsAction()
