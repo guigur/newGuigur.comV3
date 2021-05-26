@@ -71,11 +71,11 @@ class VisitsService
      */
     public function visitsStats()
     {
-        $visitsTotal = $this->doctrine
+/*        $visitsTotal = $this->doctrine
             ->getManager()
             ->createQuery('SELECT COUNT(e) FROM GuigurFrontBundle:Visits e')
             ->getResult();
-
+*/
 
         $datetime24h = (new \DateTime('now -'. 24 .' hours'))->format('Y-m-d H:i:s');
         $visits24h = $this->doctrine
@@ -98,6 +98,8 @@ class VisitsService
             ->createQuery('SELECT COUNT(e) FROM GuigurFrontBundle:Visits e  WHERE e.datetime >= \''.$date7days.'\' AND e.datetime < CURRENT_DATE()')
             ->getResult();
         $visits7days = intval($visits7days[0][1]);
+
+        $visitsTotal = $visits7days; //test mem problem adm panel
 
         $date7daysPast = (new \DateTime($date7days.' -'. 7 .' days'))->modify('midnight')->format('Y-m-d H:i:s');
         $visits7daysPast = $this->doctrine
