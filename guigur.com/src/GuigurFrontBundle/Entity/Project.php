@@ -43,7 +43,15 @@ class Project
      * @ORM\Column(name="img_project", type="string", length=255)
      */
     private $imgProject;
-
+    /*
+    /**
+     * Unidirectional - Many users have marked many comments as read
+     *
+     * @ManyToMany(targetEntity="Comment")
+     * @JoinTable(name="user_read_comments")
+  //   /
+    private $ProjectCategories;
+    */
     /**
      * @var string
      *
@@ -216,6 +224,31 @@ class Project
     {
         return $this->imgProject;
     }
+
+    /**
+     * Set categories
+     *
+     * @param integer $
+     *
+     * @return LinkShortener
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return int
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
 
     /**
      * Set descriptionShort

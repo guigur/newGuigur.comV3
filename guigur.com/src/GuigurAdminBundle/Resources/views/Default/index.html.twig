@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 {% block body %}
-    <script src="{{ asset('js/Chart.min.js') }}"></script>
+    <script src="{{ asset('js/chart.min.js') }}"></script>
     <div class="row">
     </div>
     <div class="row">
@@ -63,12 +63,15 @@
         </div>
     </div>
     <div class="row">
+{{ dump(test) }}
+    </div>
+    <div class="row">
         <p>
             <a href="{{ path('Homepage') }}" class="btn btn-squared-default-plain btn-primary">
                 <i class="fa fa-home fa-5x"></i>
                 <br />
                 <br />
-                Accueil
+                Home
             </a>
             <a href="{{ path('admin_texts') }}" class="btn btn-squared-default-plain btn-primary">
                 <i class="fa fa-font fa-5x"></i>

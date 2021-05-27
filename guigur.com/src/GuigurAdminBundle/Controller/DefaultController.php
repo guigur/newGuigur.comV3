@@ -25,7 +25,11 @@ class DefaultController extends Controller
         $countRegisterDays = $this->get('guigur.admin.register')->RegisterDays();
         $registerStats = $this->get('guigur.admin.register')->RegisterStats();
         */
-        return $this->render('GuigurAdminBundle:Default:index.html.twig', array(/*
+        $test = $this->getDoctrine()
+            ->getRepository('GuigurFrontBundle:Project')
+            ->findAll();
+        return $this->render('GuigurAdminBundle:Default:index.html.twig', array("test" => $test
+            /*
             "visitsDays" => $countVisitsDays, "visitsStats" => $visitsStats,
             "loginDays" => $countLoginDays, "loginStats" => $loginStats,
             "registerDays" => $countRegisterDays, "registerStats" => $registerStats

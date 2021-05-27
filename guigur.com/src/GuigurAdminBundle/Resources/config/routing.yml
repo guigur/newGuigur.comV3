@@ -22,6 +22,10 @@ admin_shop:
     path:     /shop
     defaults: { _controller: GuigurAdminBundle:Default:shop }
 
+projects:
+    path:     /projects
+    defaults: { _controller: GuigurAdminBundle:AdmProject:index }
+
 admin_download:
     path: /dl/{file}
     defaults: { _controller: GuigurAdminBundle:Default:sendfile }
