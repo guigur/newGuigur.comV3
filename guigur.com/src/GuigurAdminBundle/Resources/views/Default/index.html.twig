@@ -71,25 +71,32 @@
                 <i class="fa fa-home fa-5x"></i>
                 <br />
                 <br />
-                Home
+                {% trans %}nav.home{% endtrans %}
             </a>
             <a href="{{ path('admin_texts') }}" class="btn btn-squared-default-plain btn-primary">
                 <i class="fa fa-font fa-5x"></i>
                 <br />
                 <br />
-                Texts
+                {% trans %}nav.texts{% endtrans %}
             </a>
-            <a href="{{ path('admin_texts') }}" class="btn btn-squared-default-plain btn-primary">
+            <a href="{{ path('admin_users') }}" class="btn btn-squared-default-plain btn-primary">
                 <i class="fa fa-users fa-5x"></i>
                 <br />
                 <br />
-                Users
+                {% trans %}nav.users{% endtrans %}
             </a>
             <a href="{{ path('admin_shop') }}" class="btn btn-squared-default-plain btn-primary">
                 <i class="fa fa-euro-sign fa-5x"></i>
                 <br />
                 <br />
-                Magasin
+                {% trans %}nav.shop{% endtrans %}
+            </a>
+            <a href="{{ path('admin_projects') }}" class="btn btn-squared-default-plain btn-primary">
+                <i class="fa fa-microchip fa-5x"></i>
+                <br />
+                <br />
+                {% trans %}nav.projects{% endtrans %}
+
             </a>
         </p>
     </div>

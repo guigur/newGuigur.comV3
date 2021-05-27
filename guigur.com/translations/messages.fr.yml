@@ -10,7 +10,8 @@ nav.shop: Magasin
 nav.portfolio: Portfolio
 nav.normm: Mode normal
 nav.nightm: Mode nuit
-
+nav.texts: Textes
+nav.users: Utilisateurs
 nav.profile: Profil
 nav.disconnect: Se déconnecter
 nav.register: Créer un compte

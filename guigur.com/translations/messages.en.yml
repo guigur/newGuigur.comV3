@@ -11,6 +11,8 @@ nav.shop: Shop
 nav.portfolio: Portfolio
 nav.normm: Normal mode
 nav.nightm: Night mode
+nav.texts: Texts
+nav.users: Users
 nav.profile: profile
 nav.disconnect: Disconnect
 nav.register: Register
