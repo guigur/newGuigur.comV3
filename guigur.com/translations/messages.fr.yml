@@ -62,6 +62,9 @@ profile.seller: Vendeur
 
 #### Project ####
 project.disabled: DÉSACTIVÉ
+project.edit: éditer
+project.enable: activer
+project.disable: désactiver
 
 #### Role thinggy
 

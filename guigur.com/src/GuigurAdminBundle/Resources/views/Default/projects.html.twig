@@ -4,10 +4,39 @@
    {{ dump(Projects) }}
    <div class="row">
       {% for Project in Projects %}
-         <div class="col-md-6">
-            {% include 'Projects_display.html.twig' %}
-         </div>
-         <div class="col-md-offset-1"></div>
+         {% include 'Project_admin_setting_row.html.twig' %}
       {% endfor %}
    </div>
+   <script>
+      function init() {
+         console.log("ready");
+         $('.l-btn-toggle').click(function () {
+            var selector = $(this);
+            selector.html('<span class="spinner-border spinner-border-sm ggr-spinner-btn" role="status" aria-hidden="true"></span>');
+            var id = selector.data('project-id');
+            $.ajax({
+               type: "POST",
+               url: "{{ path('admin_ajax_project_state_toggle') }}",
+               data: {id: id},
+               success: function (result) {
+                  if (result.isEnabled === true) {
+                     selector.html('<span class="btn-text">On</span>');
+                     selector.removeClass('btn-warning').addClass('btn-success');
+                  } else if (result.isEnabled === false) {
+                     selector.html('<span class="btn-text">Off</span>');
+                     selector.removeClass('btn-success').addClass('btn-warning');
+                  }
+               },
+               error: function () {
+                  selector.html('<span class="fa fa-exclamation-triangle"></span>');
+                  selector.removeClass('btn-success').addClass('btn-danger');
+               }
+            });
+         });
+      }
+
+      $(document).ready(function(){
+         init();
+      });
+   </script>
 {% endblock %}

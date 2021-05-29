@@ -1,0 +1,9 @@
+<div class="col-md-4">
+    {% include 'Projects_display.html.twig' %}
+</div>
+<div class="col-md-8">
+    <button type="button" class="btn btn-primary">{% trans %}project.edit{% endtrans %}</button>
+    <button type="button" class="btn {% if Project.isEnabled == TRUE %}btn-success{% else %}btn-warning{% endif %} l-btn-toggle" data-project-id="{{ Project.id }}">
+        <span class="btn-text">{% if Project.isEnabled == TRUE %}On{% else %}Off{% endif %}</span>
+    </button>
+</div>

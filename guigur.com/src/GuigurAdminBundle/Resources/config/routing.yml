@@ -33,3 +33,8 @@ admin_users:
 admin_download:
     path: /dl/{file}
     defaults: { _controller: GuigurAdminBundle:Default:sendfile }
+
+########################################################################################################################
+admin_ajax_project_state_toggle:
+    path:     /ajax/project/state/toggle
+    defaults: { _controller: GuigurAdminBundle:AdmProject:ajaxStateToggle }

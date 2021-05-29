@@ -8,6 +8,8 @@
 
 namespace GuigurAdminBundle\Service;
 use Doctrine\Bundle\DoctrineBundle\Registry;
+use http\Client\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class ProjectService
@@ -19,9 +21,5 @@ class ProjectService
         $this->doctrine = $doctrine;
     }
 
-    public function loginDays($days = 7)
-    {
 
-        return null;
-    }
 }
