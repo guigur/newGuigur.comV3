@@ -1,35 +1,33 @@
 {% extends "base.html.twig" %}
 {% block body %}
-   ici c les projets
-   {{ dump(Projects) }}
-   <div class="row">
-      {% for Project in Projects %}
+   <iframe width="800" height="550" src="https://falstad.com/circuit/circuitjs.html?startCircuit=lrc.txt"></iframe>
+   {% for Project in Projects %}
+      <div class="row">
          {% include 'Project_admin_setting_row.html.twig' %}
-      {% endfor %}
-   </div>
+      </div>
+   {% endfor %}
    <script>
       function init() {
          console.log("ready");
          $('.l-btn-toggle').click(function () {
-            var selector = $(this);
-            selector.html('<span class="spinner-border spinner-border-sm ggr-spinner-btn" role="status" aria-hidden="true"></span>');
-            var id = selector.data('project-id');
+            var button = $(this);
+            var div = button.parent().parent();
+            div.addClass('blurdiv');
+            //div.html('<div class="row"><span class="spinner-border spinner-border-sm ggr-spinner-btn" role="status" aria-hidden="true"></span></div>');
+            var id = button.data('project-id');
             $.ajax({
                type: "POST",
                url: "{{ path('admin_ajax_project_state_toggle') }}",
                data: {id: id},
                success: function (result) {
-                  if (result.isEnabled === true) {
-                     selector.html('<span class="btn-text">On</span>');
-                     selector.removeClass('btn-warning').addClass('btn-success');
-                  } else if (result.isEnabled === false) {
-                     selector.html('<span class="btn-text">Off</span>');
-                     selector.removeClass('btn-success').addClass('btn-warning');
-                  }
+                  div.removeClass('blurdiv');
+                  div.html(result).delay(1000);
+
+                  init();
                },
                error: function () {
-                  selector.html('<span class="fa fa-exclamation-triangle"></span>');
-                  selector.removeClass('btn-success').addClass('btn-danger');
+                  div.html('<span class="fa fa-exclamation-triangle"></span>');
+                  //div.removeClass('btn-success').addClass('btn-danger');
                }
             });
          });

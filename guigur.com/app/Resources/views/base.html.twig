@@ -173,25 +173,53 @@
         {% endblock %}
     <script>
         /* LOCALE THING */
-        var locale = Cookies.get('language');
-        if (locale === "undefined")
+        var defaultLocale = "en_US";
+        var localeCookie = Cookies.get('prefLocale');
+
+        if (typeof localeCookie !== 'undefined')
         {
-            locale = window.navigator.language;
+            alert("set");
+            alert(localeCookie);
         }
-        if("{{ app.request.getLocale() }}" === "en")
+        else
         {
-            $("#dropEnFlag").addClass("active");
+            alert("not set");
+            var getLocale = window.navigator.language;
+            if (getLocale.startsWith("fr"))
+            {
+                localeCookie = "fr_FR";
+            }
+            else if (getLocale.startsWith("en"))
+            {
+                localeCookie = "en_US";
+            }
+            else
+            {
+                localeCookie = defaultLocale;
+            }
+            Cookies.set("prefLocale", localeCookie);
+            alert(localeCookie);
         }
-        else if("{{ app.request.getLocale() }}" === "fr")
+        
+        if(localeCookie === "fr_FR")
         {
             $("#dropFrFlag").addClass("active");
         }
-/*
-        if (locale === "fr")
-            $("#").addClass("active");
-        else
-            $("#").addClass("active");
-*/
+        else if(localeCookie === "en_US")
+        {
+            $("#dropEnFlag").addClass("active");
+        }
+
+
+       $("#dropFrFlag").click(function() {
+           Cookies.set("prefLocale", "fr_FR");
+           location.reload();
+       });
+       $("#dropEnFlag").click(function() {
+           Cookies.set("prefLocale", "en_US");
+           location.reload();
+       });
+
        /* END LOCALE THING */
 
        /* THEME STUFF */

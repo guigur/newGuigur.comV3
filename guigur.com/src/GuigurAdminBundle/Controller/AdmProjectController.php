@@ -35,6 +35,7 @@ class AdmProjectController extends Controller
 
     public function ajaxStateToggleAction(Request $request)
     {
+
         if(isset($request->request))
         {
             $request_id = $request->request->get('id');
@@ -44,28 +45,25 @@ class AdmProjectController extends Controller
                 ->getRepository('GuigurFrontBundle:Project')
                 ->findOneById($request_id);
 
+            $Categories = $this->getDoctrine()
+                ->getRepository('GuigurFrontBundle:Categories')
+                ->findAll();
+
+            $ProjectsCategories = $this->getDoctrine()
+                ->getRepository('GuigurFrontBundle:ProjectsCategories')
+                ->findBy(array(), array('category' => 'ASC'));
+
+
             if ($project->getIsEnabled() === true)
                 $project->setIsEnabled(false);
             else
                 $project->setIsEnabled(true);
             $entityManager->flush();
 
-
-            if(isset($project))
-            {
-                return new JsonResponse(array(
-                    'status' => 'OK',
-                    'isEnabled' => $project->getIsEnabled()),
-                    200);
-            }
-            else
-            {
-                return new JsonResponse(array(
-                    'status' => 'ERROR',
-                    'debug' => $request,
-                    'message' => 'error occured'),
-                    400);
-            }
+            return $this->render('Project_admin_setting_row.html.twig',
+                array("Project" => $project,
+                    "Categories" => $Categories,
+                    "ProjectsCategories" => $ProjectsCategories));
         }
         else
         {

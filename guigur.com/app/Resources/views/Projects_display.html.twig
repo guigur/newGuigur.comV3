@@ -1,22 +1,22 @@
-        <a href="{% if Project.directLink != '' %}{{ Project.directLink }}{% else %}{{ path('Project', {'nameOfProject': Project.name}) }}{% endif %}">
-            <div class="project">
-                <div class="project-card effect__hover">
-                    <div class="card__front" style="background:{% if Project.imgMiniature == '' %}#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
-                        <div {% if Project.isEnabled == false %}class="card__greyed"{% endif %}>
-                            <div class="card__front_icons">
-                                {% for ProjectCategories in ProjectsCategories if ProjectCategories.project.id == Project.id %}
-                                    <span class="fa {{ ProjectCategories.Category.icon }}"></span>
-                                {% endfor %}
-                            </div>
-                            <div class="card__front_infos">
-                                {% if Project.isEnabled == false %}<b>{% trans %}project.disabled{% endtrans %}</b>{% endif %}
-                            </div>
-                            {% if Project.displayName == true %}{{ Project.name }}{% endif %}
-                        </div>
+<a href="{% if Project.directLink != '' %}{{ Project.directLink }}{% else %}{{ path('Project', {'nameOfProject': Project.name}) }}{% endif %}">
+    <div class="project">
+        <div class="project-card effect__hover">
+            <div class="card__front" style="background:{% if Project.imgMiniature == '' %}#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};{% else %} url({{ asset(Project.imgMiniature) }});{% endif %}">
+                <div {% if Project.isEnabled == false %}class="card__greyed"{% endif %}>
+                    <div class="card__front_icons">
+                        {% for ProjectCategories in ProjectsCategories if ProjectCategories.project.id == Project.id %}
+                            <span class="fa {{ ProjectCategories.Category.icon }}"></span>
+                        {% endfor %}
                     </div>
-                    <div class="card__back" style="background:#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};">
-                        <p>{{ Project.descriptionShort }}</p>
+                    <div class="card__front_infos">
+                        {% if Project.isEnabled == false %}<b>{% trans %}project.disabled{% endtrans %}</b>{% endif %}
                     </div>
+                    {% if Project.displayName == true %}{{ Project.name }}{% endif %}
                 </div>
             </div>
-        </a>
+            <div class="card__back" style="background:#{% if Project.color is defined and Project.color != '' %}{{ Project.color }}{% else %}535353{% endif %};">
+                <p>{{ Project.descriptionShort }}</p>
+            </div>
+        </div>
+    </div>
+</a>

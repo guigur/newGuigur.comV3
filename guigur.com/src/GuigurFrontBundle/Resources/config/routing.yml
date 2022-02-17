@@ -32,7 +32,7 @@ Random:
     path:     /random
     defaults: { _controller: GuigurFrontBundle:Random:index }
 CV:
-    path:     /cv
+    path:     /CV
     defaults: { _controller: GuigurFrontBundle:Cv:index }
 Experiments:
     path:     /experiments
